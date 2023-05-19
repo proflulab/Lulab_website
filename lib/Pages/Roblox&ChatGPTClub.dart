@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-class Club1Page extends StatelessWidget {
+class RobloxChatGPTClubPage extends StatelessWidget {
+  RobloxChatGPTClubPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       
       body: Center(
-        child: Text('Club1 Page Content'),
+        child: Text('Roblox&ChatGPTClub Page Content'),
       ),
     );
   }
