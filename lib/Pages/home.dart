@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'LuLab.dart';
 import 'About.dart';
 import 'Admission.dart';
-import 'Club1.dart';
-import 'Club2.dart';
+import 'MetaverseClub.dart';
+import 'Roblox&ChatGPTClub.dart';
+import 'DigitalTechnologyClub.dart';
+import 'LeadershipClub.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -15,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedButtonIndex = 0;
   int _hoveredButtonIndex = -1;
   late PageController _pageController;
+  bool _isClubsExpanded = false;
 
   @override
   void initState() {
@@ -30,7 +34,6 @@ class _HomePageState extends State<HomePage> {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60.0),
           child: AppBar(
-            
             backgroundColor: Colors.black,
             leading: Row(
               children: [
@@ -42,7 +45,6 @@ class _HomePageState extends State<HomePage> {
             ),
             title: _buildTitleButton(),
             actions: [
-             
               _buildTextButton(0, 'Lu Lab'),
               const SizedBox(width: 10),
               _buildTextButton(2, 'About'),
@@ -68,10 +70,10 @@ class _HomePageState extends State<HomePage> {
                 AboutPage(),
                 AboutPage(),
                 AdmissionPage(photoUrls: const [
-                  "res/images/image1.jpg"
-                  "res/images/image2.jpg"
-                  "res/images/image3.jpg"],),
-               
+                  "res/images/image1.jpg",
+                  "res/images/image2.jpg",
+                  "res/images/image3.jpg",
+                ]),
               ],
             ),
           ),
@@ -80,63 +82,65 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-Widget _buildTitleButton() {
-  return InkWell(
-    onTap: () {
-      _pageController.animateToPage(
-      0, 
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
+  Widget _buildTitleButton() {
+    return InkWell(
+      onTap: () {
+        _pageController.animateToPage(
+          0,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      },
+      child: const Text(
+        '   Lu Lab',
+        style: TextStyle(
+          fontSize: 25,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+
+
+
+Widget _buildTextButton(int index, String label) {
+  return MouseRegion(
+    onEnter: (_) {
+      setState(() {
+        _hoveredButtonIndex = index;
+      });
     },
-    child: const Text(
-      '   Lu Lab',
-      style: TextStyle(
-        fontSize: 25,
-        color: Colors.white,
+    onExit: (_) {
+      setState(() {
+        _hoveredButtonIndex = -1;
+      });
+    },
+    child: TextButton(
+      onPressed: () {
+        setState(() {
+          _selectedButtonIndex = index;
+        });
+        _pageController.animateToPage(
+          index,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      },
+      child: Text(
+        label,
+        style: TextStyle(
+          fontSize: 15,
+          color: _selectedButtonIndex == index
+              ? Colors.red // Selected color
+              : _hoveredButtonIndex == index
+                  ? Colors.red // Hovered color
+                  : Colors.white, // Default color
+        ),
       ),
     ),
   );
 }
 
-
-  Widget _buildTextButton(int index, String label) {
-    return MouseRegion(
-      onEnter: (_) {
-        setState(() {
-          _hoveredButtonIndex = index;
-        });
-      },
-      onExit: (_) {
-        setState(() {
-          _hoveredButtonIndex = -1;
-        });
-      },
-      child: TextButton(
-        onPressed: () {
-          setState(() {
-            _selectedButtonIndex = index;
-          });
-          _pageController.animateToPage(
-            index,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInOut,
-          );
-        },
-        child: Text(
-          label,
-          style: TextStyle(
-            fontSize: 15,
-            color: _selectedButtonIndex == index
-                ? Colors.red // Selected color
-                : _hoveredButtonIndex == index
-                    ? Colors.red // Hovered color
-                    : Colors.white, // Default color
-          ),
-        ),
-      ),
-    );
-  }
 
 Widget _buildClubsButton(BuildContext context) {
   return MouseRegion(
@@ -169,13 +173,25 @@ Widget _buildClubsButton(BuildContext context) {
                         _buildClubOption('Metaverse Club', () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Club1Page()),
+                            MaterialPageRoute(builder: (context) => MetaverseClubPage()),
+                          );
+                        }),
+                         _buildClubOption('Roblox&ChatGPT Club', () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => RobloxChatGPTClubPage()),
                           );
                         }),
                         _buildClubOption('Digital Technology Club', () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Club2Page()),
+                            MaterialPageRoute(builder: (context) => DigitalTechnologyClubPage()),
+                          );
+                        }),
+                         _buildClubOption('Leadership Club', () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => LeadershipClubPage()),
                           );
                         }),
                       ],

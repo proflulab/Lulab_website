@@ -12,12 +12,10 @@ class AdmissionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: VerticalPhotoScroll(
-          photoUrls: ["res/images/image1.jpg"], // ,"res/images/image2.jpg","res/images/image4.jpg"
-        ),
+        body: const VerticalPhotoScroll(photoUrls: ["res/images/image1.jpg","res/images/image2.jpg","res/images/image4.jpg"],),
       ),
     );
   }

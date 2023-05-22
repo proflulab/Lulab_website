@@ -15,7 +15,7 @@ Widget ea() {
                   fit: BoxFit.cover,
                 ),
                 const Text(
-              'Lu Labs',
+              'Lu Lab',
               textAlign: TextAlign.right,
               style: TextStyle(
                 fontSize: 25,
