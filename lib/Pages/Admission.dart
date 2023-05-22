@@ -99,8 +99,8 @@ class VerticalPhotoScroll extends StatelessWidget {
             ],
            ),
             
-            Container(
-              height: 700,
+            
+          Container(
               child: Stack(
                 children: [
                   Image.network("res/images/image4.jpg",
@@ -126,13 +126,27 @@ class VerticalPhotoScroll extends StatelessWidget {
                 }), child: const Text("Application Process",
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.black,
+                  color: Color.fromARGB(255, 26, 26, 26),
                 ),
                 ))
               ),
+              Positioned(
+                left: 0,
+                bottom: 0,
+                child:
+                 Container(
+                  
+                  width:  50,
+                  height: 50,
+                  child:  Image.network(
+                  "res/images/lulab_logo.jpeg"
+                ),
+                ),
+                  )
                 ],
               ),
             ),
+              
               ],
             ),
               ],
