@@ -97,7 +97,6 @@ void dispose() {
               ],
             ), // Add spacing between the video and the next widget
            const CustomWidget(), 
-           const AnotherWidget(),
            const LearnWidget(),// Add your custom widget here
           ],
         ),
@@ -113,75 +112,93 @@ class CustomWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black,
-      height: 150,
-      child: const Center(
-        child: Text(
-          'Our Clubs',
-          style: TextStyle(
-            fontSize:60,
-            fontWeight: FontWeight.w400,
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
-  }
-}
-class AnotherWidget extends StatelessWidget {
-  const AnotherWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 800,
-      decoration: const BoxDecoration(
-      
-      ),
-      child: Stack(
+      height: 1000,
+       child: Stack(
         children: [
           Positioned(
-            top:150, // 调整为所需的位置
-            left:400, // 调整为所需的位置
+            top:80, 
+            left:400,
             child: Container(
-              width: 300,
-              color: Colors.black,
               child: Column(
                 children:const  [
-                   Text(
-                    "\n\n\n\n\nMetaverse Club",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
+                 Text('Our Clubs',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                      fontSize: 50.0,
                       color: Colors.white,
                     ),
-                  ),
-                  SizedBox(height:50),
-                  Text(
-                    '''
-Journey into the Metaverse and
-transform your gaming passion
-into game creation. Join our
-vibrant community, learn Lua
-programming, and unlock the
-power of AI technologies like
-GPT. Embrace innovation and be
-a game-changer!
-''',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
             ),
           ),
+           Positioned(
+            top:200, 
+            left:405,
+            child: Container(
+              child: Column(
+                children:const  [
+                 Text(
+                  '''
+Clubs introduce
+''',
+                  style: TextStyle(
+                      fontSize: 25.0,
+                      color: Colors.grey
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+              Row(children: [
+                  Container(
+                  margin: const EdgeInsets.fromLTRB(50,400,50,50 ) ,
+                  width:  1600,
+                  height: 800,
+                  child: Container(
+              color: Colors.grey[800],
+              child:Stack(
+  children: [
+    Container(
+      margin: const EdgeInsets.fromLTRB(80, 50, 0, 100),
+      width: 400,
+      height: 400,
+      child: Image.network("res/images/Metaverse.jpg"),
+    ),
+   Positioned(
+                        top: 380,
+                        left: 170,
+                        child: Container(
+                          padding: const EdgeInsets.all(16.0),
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                          ),
+                          child: const Text(
+                           '''
+It is an innovative social platform
+for virtual reality experiences and
+interactions.
+''',
+                            style: TextStyle(
+                              fontSize:18,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ),
+                      ),
+  ],
+)
+
+            ),
+                ),
+                 ]), 
         ],
-      ),
+       )
     );
   }
 }
+
 class LearnWidget extends StatelessWidget {
   const LearnWidget({super.key});
 
