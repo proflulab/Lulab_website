@@ -80,7 +80,7 @@ void dispose() {
                         onPressed: () {
                           // Add your action here
                         },
-                        child: const Text(
+                        child: Text(
                           'Learn More',
                           style: TextStyle(
                             fontSize: 20,
@@ -135,10 +135,7 @@ class AnotherWidget extends StatelessWidget {
     return Container(
       height: 800,
       decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('res/images/title.jpg'),
-          fit: BoxFit.cover,
-        ),
+      
       ),
       child: Stack(
         children: [
