@@ -1,18 +1,14 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_plus/flutter_swiper_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
-import '../Pages/About.dart';
 
-List<Map> imageList = [
-  {"url": "res/images/image1.jpg"},
+List<Map<String, String>> imageList = [
   {"url": "res/images/image2.jpg"},
+  {"url": "res/images/image1.jpg"},
   {"url": "res/images/image4.jpg"},
 ];
 
 class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
+  const AboutPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +29,7 @@ class AboutPage extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: AspectRatio(
-            aspectRatio: 10.5/5.5,
+            aspectRatio: 10.5 / 5.5,
             child: Swiper(
               pagination: SwiperPagination(
                 builder: SwiperCustomPagination(
@@ -60,9 +56,40 @@ class AboutPage extends StatelessWidget {
                 margin: const EdgeInsets.only(bottom: 20),
               ),
               itemBuilder: (BuildContext context, int index) {
-                return Image.asset(
-                  imageList[index]["url"],
-                  fit: BoxFit.fitWidth,
+                final bool showText = index == 0; // Show text only on the first image
+                return Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.asset(
+                      imageList[index]["url"]!,
+                      fit: BoxFit.cover,
+                    ),
+                    if (showText)
+                      Positioned(
+                        top: 600,
+                        left: 600,
+                        child: Container(
+                          padding: const EdgeInsets.all(16.0),
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                          ),
+                          child: const Text(
+                           '''
+  Stepping out of the ivory tower of
+  Tsinghua University, allowing
+  everyone the opportunity to receive
+  high-quality education, and
+  nurturing talents for  innovative era.
+''',
+                            style: TextStyle(
+                              fontSize: 28,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
                 );
               },
               itemCount: imageList.length,
@@ -72,6 +99,7 @@ class AboutPage extends StatelessWidget {
                 color: Color.fromARGB(255, 239, 83, 80),
               ),
               autoplay: true,
+              autoplayDelay: 6000,
               duration: 300,
             ),
           ),
@@ -175,9 +203,7 @@ the Lu Lab experience so extraordinary.\n
                 color: Colors.white
               ),
             ),
-            onPressed: () {
-                        
-                      },
+            onPressed: () {},
               ),
               ),]),               
                  Container(
