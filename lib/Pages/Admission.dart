@@ -41,7 +41,7 @@ class VerticalPhotoScroll extends StatelessWidget {
                   "res/images/image1.jpg",
                   fit: BoxFit.cover,
                 ),
-                Positioned(
+                const Positioned(
                     top: 140,
                     left: 100,
                     child: Text(
@@ -62,17 +62,18 @@ class VerticalPhotoScroll extends StatelessWidget {
               )  ,
                     ],
                   )
-                ),
-           Stack(
-            children: [
+                ), 
+              Stack(
+                children: [
                Container(
               height: 700,
               width: double.infinity,
-              child: Image.network("res/images/image2.jpg",
+              child: 
+                  Image.network("res/images/image2.jpg",
               fit: BoxFit.cover,
               ),
               ),
-              Positioned(
+              const Positioned(
                     top: 180,
                     left: 160,
                     child: Text(
@@ -96,11 +97,11 @@ class VerticalPhotoScroll extends StatelessWidget {
                 ),
                 ))
               ),
-            ],
-           ),
+                ],
+              ),
+               
             
-            
-          Container(
+            Container(
               child: Stack(
                 children: [
                   Image.network("res/images/image4.jpg",
@@ -108,7 +109,7 @@ class VerticalPhotoScroll extends StatelessWidget {
               ),
               Positioned(
                     top: 300,
-                    left: 550,
+                    right: 200,
                     child: Text(
                       "Digital Technology Club",
                       style: TextStyle(fontSize: 35.5, color: Colors.white),
@@ -126,27 +127,44 @@ class VerticalPhotoScroll extends StatelessWidget {
                 }), child: const Text("Application Process",
                 style: TextStyle(
                   fontSize: 16,
-                  color: Color.fromARGB(255, 26, 26, 26),
+                  color: Color.fromARGB(255, 24, 24, 24),
                 ),
                 ))
               ),
-              Positioned(
-                left: 0,
-                bottom: 0,
+                ]
+              ),
+            ),
+            Container(
+              height: 200,
+              width: double.infinity,
+              color: Colors.black,
+              child: Stack(
+                children: [
+                  Positioned(
+                left: 10,
+                top: 20,
                 child:
                  Container(
-                  
                   width:  50,
                   height: 50,
                   child:  Image.network(
                   "res/images/lulab_logo.jpeg"
                 ),
                 ),
+                  ),
+                  Positioned(
+                    top: 25.5,
+                    left: 70,
+                    child: Text("Lu Labs",
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.white,
+                  ),
                   )
+                    )
                 ],
               ),
-            ),
-              
+            )
               ],
             ),
               ],
