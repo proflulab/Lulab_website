@@ -12,10 +12,10 @@ class AdmissionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: const VerticalPhotoScroll(photoUrls: ["res/images/image1.jpg","res/images/image2.jpg","res/images/image4.jpg"],),
+        body: VerticalPhotoScroll(photoUrls: ["res/images/image1.jpg","res/images/image2.jpg","res/images/image4.jpg"],),
       ),
     );
   }
@@ -34,38 +34,36 @@ class VerticalPhotoScroll extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  child: Stack(
-                    children: [
-                       Image.network(    
-                  "res/images/image1.jpg",
-                  fit: BoxFit.cover,
+                Stack(
+                  children: [
+                     Image.network(    
+                "res/images/image1.jpg",
+                fit: BoxFit.cover,
                 ),
                 const Positioned(
-                    top: 140,
-                    left: 100,
-                    child: Text(
-                      "Welcome to Apply to Lu Lab\n",
-                      style: TextStyle(fontSize: 55.5, color: Colors.white),
-                    )),
+                  top: 140,
+                  left: 100,
+                  child: Text(
+                    "Welcome to Apply to Lu Lab\n",
+                    style: TextStyle(fontSize: 55.5, color: Colors.white),
+                  )),
               Container(
                 margin: const EdgeInsets.fromLTRB(20, 230, 0, 0),
                 child:  const Text(
-                    '''
+                  '''
          Lu Lab has launched the Metaverse Club, the Digital
          Technology Club, the Digital Marketing Club, and the
          Leadership Club. We welcome you to join us in these 
          exciting endeavors.\n
-                     ''',
-                    style: TextStyle(fontSize: 35.5, color: Colors.white),
-                  ),
+                   ''',
+                  style: TextStyle(fontSize: 35.5, color: Colors.white),
+                ),
               )  ,
-                    ],
-                  )
+                  ],
                 ), 
               Stack(
                 children: [
-               Container(
+               SizedBox(
               height: 700,
               width: double.infinity,
               child: 
@@ -101,38 +99,36 @@ class VerticalPhotoScroll extends StatelessWidget {
               ),
                
             
+            Stack(
+              children: [
+                Image.network("res/images/image4.jpg",
+            fit: BoxFit.cover,
+            ),
+            const Positioned(
+                  top: 300,
+                  right: 200,
+                  child: Text(
+                    "Digital Technology Club",
+                    style: TextStyle(fontSize: 35.5, color: Colors.white),
+                  )),
             Container(
-              child: Stack(
-                children: [
-                  Image.network("res/images/image4.jpg",
-              fit: BoxFit.cover,
-              ),
-              Positioned(
-                    top: 300,
-                    right: 200,
-                    child: Text(
-                      "Digital Technology Club",
-                      style: TextStyle(fontSize: 35.5, color: Colors.white),
-                    )),
-              Container(
-                height: 50,
-                width: 210,
-                margin: const EdgeInsets.fromLTRB(615, 370, 0, 0),
-                child: TextButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
-                  ),
-                  onPressed: (() {
-                  
-                }), child: const Text("Application Process",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Color.fromARGB(255, 24, 24, 24),
+              height: 50,
+              width: 210,
+              margin: const EdgeInsets.fromLTRB(615, 370, 0, 0),
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
                 ),
-                ))
+                onPressed: (() {
+                
+              }), child: const Text("Application Process",
+              style: TextStyle(
+                fontSize: 16,
+                color: Color.fromARGB(255, 24, 24, 24),
               ),
-                ]
-              ),
+              ))
+            ),
+              ]
             ),
             Container(
               height: 200,
@@ -144,7 +140,7 @@ class VerticalPhotoScroll extends StatelessWidget {
                 left: 10,
                 top: 20,
                 child:
-                 Container(
+                 SizedBox(
                   width:  50,
                   height: 50,
                   child:  Image.network(
@@ -152,7 +148,7 @@ class VerticalPhotoScroll extends StatelessWidget {
                 ),
                 ),
                   ),
-                  Positioned(
+                  const Positioned(
                     top: 25.5,
                     left: 70,
                     child: Text("Lu Labs",
