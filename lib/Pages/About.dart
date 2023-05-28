@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_plus/flutter_swiper_plus.dart';
 
@@ -44,7 +45,7 @@ class AboutPage extends StatelessWidget {
                           margin: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                             color: active
-                                ? Color.fromARGB(255, 239, 83, 80)
+                                ? const Color.fromARGB(255, 239, 83, 80)
                                 : Colors.grey,
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -56,7 +57,8 @@ class AboutPage extends StatelessWidget {
                 margin: const EdgeInsets.only(bottom: 20),
               ),
               itemBuilder: (BuildContext context, int index) {
-                final bool showText = index == 0; // Show text only on the first image
+                final bool showText =
+                    index == 0; // Show text only on the first image
                 return Stack(
                   fit: StackFit.expand,
                   children: [
@@ -74,7 +76,7 @@ class AboutPage extends StatelessWidget {
                             color: Colors.black,
                           ),
                           child: const Text(
-                           '''
+                            '''
   Stepping out of the ivory tower of
   Tsinghua University, allowing
   everyone the opportunity to receive
@@ -117,23 +119,21 @@ class AboutPage extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  
                   Align(
                     alignment: Alignment.center,
-                    child:Text(
-                    '                                        Thank you for your interest in Lu Lab!',
-                    style: TextStyle(  
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                    child: Text(
+                      '                                        Thank you for your interest in Lu Lab!',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                  ),
-                  
-                    Align(
+                  Align(
                     alignment: Alignment.centerRight,
-                    child:Text(
-                    '''
+                    child: Text(
+                      '''
 So much has been accomplished since Lu Lab was founded   
 in 1994. Our lab has grown in such tremendous ways, but 
 I am so proud that our mission and our unique character 
@@ -143,27 +143,26 @@ our worldwide learning community, and see what makes
 the Lu Lab experience so extraordinary.\n
 -Lewis X. Lu, Ph.D.
 ''',
-
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.grey,
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        color: Colors.grey,
+                      ),
                     ),
                   ),
-                    ),
                 ],
               ),
             ),
             Column(
               children: [
                 Container(
-                  margin: const EdgeInsets.fromLTRB(50,100,350,100 ) ,
+                  margin: const EdgeInsets.fromLTRB(50, 100, 350, 100),
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: Colors.grey,
                       width: 4.0,
                     ),
                   ),
-                  width:  450,
+                  width: 450,
                   height: 500,
                   child: Image.asset(
                     "res/images/LuXiangqian.png",
@@ -172,108 +171,80 @@ the Lu Lab experience so extraordinary.\n
                 ),
               ],
             ),
-            
           ],
         ),
-       
-         
-          Row(children: [
-              Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                     
-          Row(children: [
+        Row(children: [
+          Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(children: [
                   Container(
-                  margin: const EdgeInsets.fromLTRB(50,0,0,60 ) ,
-                  
-                  width:  30,
-                  height: 30,
-                  child:  Image.network(
-                  "res/images/lulab_logo.jpeg"
-                ),
-                ),
-                 Container(
-                   margin: const EdgeInsets.fromLTRB(0,0,0,0 ) ,
+                    margin: const EdgeInsets.fromLTRB(50, 0, 0, 60),
+                    width: 30,
+                    height: 30,
+                    child: Image.network("res/images/lulab_logo.jpeg"),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                     child: TextButton(
-                     child:const Text(
-              '   Lu Labs\n\n',
-              style: TextStyle(
-                fontSize: 25,
-                color: Colors.white
-              ),
-            ),
-            onPressed: () {},
-              ),
-              ),]),               
-                 Container(
-                   margin: const EdgeInsets.fromLTRB(50,0,0,0 ) ,
-                    child: const Text(
-                      "CONTACT INFO",
-                      style: TextStyle(
+                      child: const Text(
+                        '   Lu Labs\n\n',
+                        style: TextStyle(fontSize: 25, color: Colors.white),
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                ]),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(50, 0, 0, 0),
+                  child: const Text(
+                    "CONTACT INFO",
+                    style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        color: Colors.grey
-                      ),
-                    ),),
-                     Container(
-                   margin: const EdgeInsets.fromLTRB(50,0,0,0 ) ,
-                    child: const Text(
-                      "\nAdmission@proflu.cn",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey
-                        ),
-                      ),
-                     ),
-                    
-                    Container(
-                   margin: const EdgeInsets.fromLTRB(50,0,0,50 ) ,
-                    child: const Text(
-                        "\nSan Francisco, CA 94539",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey
-                        ),
-                    ),
-                    ),
-                  ]),
-              const Text("        "),       
-              Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                   margin: const EdgeInsets.fromLTRB(200,0,0,20 ) ,
-                    child: TextButton(
-                     child:const Text(
-                    'About',
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.grey
+                        color: Colors.grey),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(50, 0, 0, 0),
+                  child: const Text(
+                    "\nAdmission@proflu.cn",
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(50, 0, 0, 50),
+                  child: const Text(
+                    "\nSan Francisco, CA 94539",
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
+                  ),
+                ),
+              ]),
+          const Text("        "),
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Container(
+              margin: const EdgeInsets.fromLTRB(200, 0, 0, 20),
+              child: TextButton(
+                child: const Text(
+                  'About',
+                  style: TextStyle(fontSize: 20, color: Colors.grey),
+                ),
+                onPressed: () {},
               ),
             ),
-            onPressed: () {
-                       
-                      },
-              ),),
-                    Container(
-                   margin: const EdgeInsets.fromLTRB(200,0,0,0 ) ,
-                    child: TextButton(
-                     child:const Text(
-                    'Admission',
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.grey
+            Container(
+              margin: const EdgeInsets.fromLTRB(200, 0, 0, 0),
+              child: TextButton(
+                child: const Text(
+                  'Admission',
+                  style: TextStyle(fontSize: 20, color: Colors.grey),
+                ),
+                onPressed: () {},
               ),
             ),
-            onPressed: () {
-                       
-                      },
-              ),),
-                  ]),
           ]),
-            
-       
+        ]),
       ],
     );
   }

@@ -1,8 +1,5 @@
 
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:lulab_website/items/end_about.dart';
 
 
 class DigitalTechnologyClubPage extends StatefulWidget {
@@ -84,7 +81,7 @@ mindset for success\n
                 width: MediaQuery.of(context).size.width / 1.8863,
                  decoration: BoxDecoration( 
                   color: Colors.black,
-          	 border:  Border.all(color: Color.fromARGB(235, 235, 235, 235), width: 1),// border
+          	 border:  Border.all(color: Color.fromARGB(235, 240, 237, 237), width: 1),// border
           ),
                 child: const Center(
                   child: Text('''"At the Technology Club, we are constantly
@@ -120,12 +117,12 @@ mindset for success\n
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
               Container(
-                margin: EdgeInsets.fromLTRB(80, 1120, 0, 0),
+                margin: const EdgeInsets.fromLTRB(80, 1120, 0, 0),
                 height: 600,
                 width: MediaQuery.of(context).size.width / 1.847,
                  decoration: BoxDecoration( 
                   color: Colors.black,
-          	 border:  Border.all(color: Color.fromARGB(235, 240, 237, 237), width: 1),// border
+          	 border:  Border.all(color: const Color.fromARGB(235, 240, 237, 237), width: 1),// border
           ),
                 child: const Center(
                   child: Text('''Technology Club has successfully nurtured 
@@ -150,11 +147,11 @@ mindset for success\n
                 ),
               ),
                Container(
-            margin: EdgeInsets.fromLTRB(0, 1120, 0, 0),
+            margin: const EdgeInsets.fromLTRB(0, 1120, 0, 0),
                 height: 600,
                 width: MediaQuery.of(context).size.width /2.9,
                 decoration: BoxDecoration( 
-          	 border:  Border.all(color: Color.fromARGB(235, 240, 237, 237), width: 1),// border
+          	 border:  Border.all(color: const Color.fromARGB(235, 240, 237, 237), width: 1),// border
           ),
                 child: Image.network("res/images/Technology.png",
                 fit: BoxFit.cover),
@@ -166,10 +163,66 @@ mindset for success\n
             ],
           ),
         ),
+        Stack(
+          children: [
+            Container(
+          height: 305,
+          width: double.infinity,
+          color: Colors.black,
+        ),
+         Container(
+            margin: EdgeInsets.fromLTRB(95, 20, 0, 0),
+            width:  30,
+            height: 30,
+            child:  Image.network(
+              "res/images/lulab_logo.jpeg"
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(180, 20, 0, 0),
+              child: const Text("Lu Labs",
+              style: TextStyle(
+                fontSize: 30.0,
+                color: Colors.white,
+              ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(100, 110, 0, 0),
+              child: const Text('''
+  CONTACT INFO\n
+  admission@proflu.cn\n
+  San Francisco, CA 9453
+                                ''',
+              style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.white,
+              ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(450, 115, 0, 0),
+               child: const Text("About",
+               style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.white,
+              ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(450, 180, 0, 0),
+               child: const Text("Admission",
+               style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.white,
+              ),
+              ),
+            ),
+          ],
+        )
     ],
-  ),
-      ),
-    );
-  }
+  )
+  )
+  );
 }
-
+}

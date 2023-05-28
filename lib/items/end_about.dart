@@ -1,128 +1,90 @@
+import 'dart:html';
 import 'package:flutter/material.dart';
 
-
 Widget ea() {
-  return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Column(
+  return Container(
+    color: Colors.black, // 设置背景颜色为黑色
+    child: SingleChildScrollView(
+      child: Row(
         children: [
-         
-          Row(children: [
-            Row(
-              children: [
-                Image.network(
-                  "res/images/lulab_logo.jpeg",
-                  fit: BoxFit.cover,
-                ),
-                const Text(
-              'Lu Lab',
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                fontSize: 25,
-              ),
-            ),
-              ],     
-            ),
-            Row(children: [
-              //const Text("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"),
-              const Text(
-                  "                                                                    "),
               Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      " APP",
-                      style: TextStyle(
-                        fontSize: 40.5,
-                        fontFamily: 'han',
+              Row(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(50, 50, 0, 60),
+                    width: 30,
+                    height: 30,
+                    child: Image.network("res/images/lulab_logo.jpeg"),
                       ),
-                    ),
-                    TextButton(
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+                    child: TextButton(
                       child: const Text(
-                        "\nAPP docs",
-                        style: TextStyle(
-                          fontSize: 20.5,
-                        ),
+                        '   Lu Labs\n\n',
+                        style: TextStyle(fontSize: 25, color: Colors.white),
                       ),
                       onPressed: () {},
                     ),
-                    TextButton(
-                      child: const Text(
-                        "APP code",
-                        style: TextStyle(
-                          fontSize: 20.5,
-                        ),
-                      ),
-                      onPressed: () {
-                       
-                      },
-                    )
-                  ]),
-              const Text("        "),
-              Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      " \nFriendship link",
-                      style: TextStyle(
-                        fontSize: 40.5,
-                        fontFamily: 'han',
-                      ),
-                    ),
-                    TextButton(
-                      child: const Text(
-                        "\nMicrosoft Corporation",
-                        style: TextStyle(
-                          fontSize: 20.5,
-                        ),
-                      ),
-                      onPressed: () {
-                        
-                      },
-                    ),
-                    TextButton(
-                      child: const Text(
-                        "Apple Inc",
-                        style: TextStyle(
-                          fontSize: 20.5,
-                        ),
-                      ),
-                      onPressed: () {
-                        
-                      },
-                    ),
-                    TextButton(
-                      child: const Text(
-                        "Our Linkdin",
-                        style: TextStyle(
-                          fontSize: 20.5,
-                        ),
-                      ),
-                      onPressed: () {
-                       
-                      },
-                    ),
-                    TextButton(
-                      child: const Text(
-                        "Github",
-                        style: TextStyle(
-                          fontSize: 20.5,
-                        ),
-                      ),
-                      onPressed: () {
-                       
-                      },
-                    )
-                  ]),
-               const Text(
-                  "         "),
-             
-                  
-            ])
-          ]),
-            
-        ]
-      ));
+                  ),
+                ],
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(50, 0, 0, 0),
+                child: const Text(
+                  "CONTACT INFO",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.grey),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(50, 0, 0, 0),
+                child: const Text(
+                  "\nAdmission@proflu.cn",
+                  style: TextStyle(fontSize: 20, color: Colors.grey),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(50, 0, 0, 50),
+                child: const Text(
+                  "\nSan Francisco, CA 94539",
+                  style: TextStyle(fontSize: 20, color: Colors.grey),
+                ),
+              ),
+            ],
+          ),
+          const Text("        "),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(200, 50, 0, 20),
+                child: TextButton(
+                  child: const Text(
+                    'About',
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(200, 0, 0, 0),
+                child: TextButton(
+                  child: const Text(
+                    'Admission',
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
 }
