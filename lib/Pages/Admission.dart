@@ -112,10 +112,12 @@ class VerticalPhotoScroll extends StatelessWidget {
                       "Digital Technology Club",
                       style: TextStyle(fontSize: 35.5, color: Colors.white),
                     )),
-              Container(
+              Positioned(
+                top: 380,
+                right: 270,
+                child: Container(
                 height: 50,
                 width: 210,
-                margin: const EdgeInsets.fromLTRB(615, 370, 0, 0),
                 child: TextButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white),
@@ -129,44 +131,14 @@ class VerticalPhotoScroll extends StatelessWidget {
                 ),
                 ))
               ),
+              )
                 ]
               ),
             ),
-            Container(
-              height: 200,
-              width: double.infinity,
-              color: Colors.black,
-              child: Stack(
-                children: [
-                  Positioned(
-                left: 10,
-                top: 20,
-                child:
-                 Container(
-                  width:  50,
-                  height: 50,
-                  child:  Image.network(
-                  "res/images/lulab_logo.jpeg"
-                ),
-                ),
-                  ),
-                  Positioned(
-                    top: 25.5,
-                    left: 70,
-                    child: Text("Lu Labs",
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    color: Colors.white,
-                  ),
-                  )
-                    )
-                ],
-              ),
-            )
               ],
             ),
               ],
-            );
+        );
   }
 }
 

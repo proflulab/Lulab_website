@@ -163,63 +163,6 @@ mindset for success\n
             ],
           ),
         ),
-        Stack(
-          children: [
-            Container(
-          height: 305,
-          width: double.infinity,
-          color: Colors.black,
-        ),
-         Container(
-            margin: EdgeInsets.fromLTRB(95, 20, 0, 0),
-            width:  30,
-            height: 30,
-            child:  Image.network(
-              "res/images/lulab_logo.jpeg"
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(180, 20, 0, 0),
-              child: const Text("Lu Labs",
-              style: TextStyle(
-                fontSize: 30.0,
-                color: Colors.white,
-              ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(100, 110, 0, 0),
-              child: const Text('''
-  CONTACT INFO\n
-  admission@proflu.cn\n
-  San Francisco, CA 9453
-                                ''',
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-              ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(450, 115, 0, 0),
-               child: const Text("About",
-               style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-              ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(450, 180, 0, 0),
-               child: const Text("Admission",
-               style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-              ),
-              ),
-            ),
-          ],
-        )
     ],
   )
   )
