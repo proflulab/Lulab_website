@@ -82,10 +82,11 @@ class _LuLabPageState extends State<LuLabPage> {
                       ),
                       TextButton(
                         onPressed: () {
-                           Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const AboutPage()),
-    );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AboutPage()),
+                          );
                         },
                         style: ButtonStyle(
                           backgroundColor:
@@ -105,8 +106,8 @@ class _LuLabPageState extends State<LuLabPage> {
               ],
             ), // Add spacing between the video and the next widget
             const CustomWidget(),
-            const LearnWidget(), 
-            ea()// Add your custom widget here
+            const LearnWidget(),
+            ea() // Add your custom widget here
           ],
         ),
       ),
