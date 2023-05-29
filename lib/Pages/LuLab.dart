@@ -121,41 +121,42 @@ class CustomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.black,
-        height: 1200,
-        child: Stack(
-          children: [
-            Positioned(
-              top: 80,
-              left: 400,
-              child: Column(
-                children: const [
-                  Text(
-                    'Our Clubs',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 50.0,
-                      color: Colors.white,
-                    ),
+      color: Colors.black,
+      height: 1200,
+      child: Stack(
+        children: [
+          Positioned(
+            top: 80,
+            left: 400,
+            child: Column(
+              children: const [
+                Text(
+                  'Our Clubs',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 50.0,
+                    color: Colors.white,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Positioned(
-              top: 200,
-              left: 405,
-              child: Column(
-                children: const [
-                  Text(
-                    '''
+          ),
+          Positioned(
+            top: 200,
+            left: 405,
+            child: Column(
+              children: const [
+                Text(
+                  '''
 Clubs introduce
 ''',
-                    style: TextStyle(fontSize: 25.0, color: Colors.grey),
-                  ),
-                ],
-              ),
+                  style: TextStyle(fontSize: 25.0, color: Colors.grey),
+                ),
+              ],
             ),
-            Row(children: [
+          ),
+          Row(
+            children: [
               Container(
                 margin: const EdgeInsets.fromLTRB(50, 500, 50, 50),
                 width: 1600,
@@ -386,9 +387,11 @@ games.
                       ],
                     )),
               ),
-            ]),
-          ],
-        ));
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
