@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-
+import '../items/end_about.dart';
 
 class DigitalTechnologyClubPage extends StatefulWidget {
   const DigitalTechnologyClubPage({super.key});
@@ -163,8 +163,9 @@ mindset for success\n
             ],
           ),
         ),
+        ea()
     ],
-  )
+  ),
   )
   );
 }
