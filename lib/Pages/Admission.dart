@@ -135,6 +135,42 @@ class VerticalPhotoScroll extends StatelessWidget {
                 ]
               ),
             ),
+            Container(
+              child: Stack(
+                children: [
+                  Image.network("res/images/image4.jpg",
+              fit: BoxFit.cover,
+              ),
+              Positioned(
+                    top: 300,
+                    right: 200,
+                    child: Text(
+                      "Leadership Club",
+                      style: TextStyle(fontSize: 35.5, color: Colors.white),
+                    )),
+              Positioned(
+                top: 380,
+                right: 270,
+                child: Container(
+                height: 50,
+                width: 210,
+                child: TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                  ),
+                  onPressed: (() {
+                  
+                }), child: const Text("Application Process",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 24, 24, 24),
+                ),
+                ))
+              ),
+              )
+                ]
+              ),
+            ),
               ],
             ),
               ],
