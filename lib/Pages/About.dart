@@ -45,7 +45,7 @@ class AboutPage extends StatelessWidget {
                           margin: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
                             color: active
-                                ? const Color.fromARGB(255, 239, 83, 80)
+                                ?  Colors.green
                                 : Colors.grey,
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -98,7 +98,7 @@ class AboutPage extends StatelessWidget {
               loop: true,
               scrollDirection: Axis.horizontal,
               control: const SwiperControl(
-                color: Color.fromARGB(255, 239, 83, 80),
+                color: Colors.green
               ),
               autoplay: true,
               autoplayDelay: 6000,

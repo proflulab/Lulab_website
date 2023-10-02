@@ -6,6 +6,8 @@ import 'MetaverseClub.dart';
 import 'Roblox&ChatGPTClub.dart';
 import 'DigitalTechnologyClub.dart';
 import 'LeadershipClub.dart';
+import 'AIClubPage.dart';
+import 'DigitalMarketingClubPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,6 +25,8 @@ class _HomePageState extends State<HomePage> {
     MetaverseClubPage(),
     RobloxChatGPTClubPage(),
     DigitalTechnologyClubPage(),
+    AIClubPage(),
+    DigitalMarketingClubPage(),
     LeadershipClubPage(),
   ];
 
@@ -85,18 +89,19 @@ class _HomePageState extends State<HomePage> {
           const Text(
             'Lu Lab',
             style: TextStyle(
-              fontSize: 30,
+              fontSize: 36,
               color: Colors.white,
+              fontFamily: 'MyFontStyle',
             ),
           ),
           Expanded(child: Container()), // 添加一个Expanded容器，将按钮推到右侧
-          _buildTextButton(0, 'Lu Lab'),
+          _buildTextButton(0, ' Home'),
           const SizedBox(width: 10),
           _buildTextButton(1, 'About'),
           const SizedBox(width: 10),
           _buildClubsButton(context),
-          const SizedBox(width: 10),
-          _buildTextButton(2, 'Admission'),
+          // const SizedBox(width: 10),
+          // _buildTextButton(2, 'Admission'),
         ],
       ),
     );
@@ -128,11 +133,12 @@ class _HomePageState extends State<HomePage> {
         child: Text(
           label,
           style: TextStyle(
-            fontSize: 15,
+            fontFamily:'MyFontStyle',
+            fontSize: 24,
             color: _selectedButtonIndex == index
-                ? Colors.red // 选中时的颜色
+                ? Colors.green // 选中时的颜色
                 : _hoveredButtonIndex == index
-                    ? Colors.red // 悬停时的颜色
+                    ? Colors.green // 悬停时的颜色
                     : Colors.white, // 默认颜色
           ),
         ),
@@ -153,8 +159,9 @@ class _HomePageState extends State<HomePage> {
         child: Text(
           'Clubs',
           style: TextStyle(
-            fontSize: 15,
-            color: _selectedButtonIndex >= 3 ? Colors.red : Colors.white,
+            fontFamily:'MyFontStyle',
+            fontSize: 24,
+            color: _selectedButtonIndex >= 3 ? Colors.green : Colors.white,
           ),
         ),
       ),
@@ -169,7 +176,9 @@ class _HomePageState extends State<HomePage> {
         _buildCustomPopupMenuItem('Metaverse Club', 0, context),
         _buildCustomPopupMenuItem('Roblox&ChatGPT Club', 1, context),
         _buildCustomPopupMenuItem('Digital Technology Club', 2, context),
-        _buildCustomPopupMenuItem('Leadership Club', 3, context),
+        _buildCustomPopupMenuItem('AI Club', 3, context),
+        _buildCustomPopupMenuItem('Digital Marketing Club', 4, context),
+        _buildCustomPopupMenuItem('Leadership Club', 5, context),
       ],
       elevation: 0, // 去除阴影
       color: Colors.black, // 设置背景色为透明
@@ -200,7 +209,9 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             clubName,
             style: TextStyle(
-              color: isSelected ? Colors.red : Colors.white,
+              fontFamily: 'MyFontStyle',
+              fontSize: 20,
+              color: isSelected ? Colors.green : Colors.white,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
             ),
           ),
@@ -209,5 +220,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
 
 

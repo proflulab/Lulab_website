@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../items/end_about.dart';
+
 
 class AdmissionPage extends StatelessWidget {
   final List<Map> photoUrls = [
@@ -167,13 +169,16 @@ class VerticalPhotoScroll extends StatelessWidget {
                 ),
                 ))
               ),
-              )
+              ),
+            
                 ]
               ),
             ),
               ],
             ),
+            ea()
               ],
+            
         );
   }
 }

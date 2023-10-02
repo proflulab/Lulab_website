@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../items/end_about.dart';
+
 
 
 class MetaverseClubPage extends StatelessWidget {
@@ -13,24 +15,6 @@ class MetaverseClubPage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                Container(
-                  width: double.infinity,
-                  height: 895,
-                  color: Colors.black,
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          color: Colors.blue,
-                          height: 700,
-                          child: Image.asset(
-                              fit: BoxFit.cover, 'res/images/video.mp4'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 Container(
                   width: double.infinity,
                   height: 895,
@@ -94,11 +78,14 @@ class MetaverseClubPage extends StatelessWidget {
                     ),
                   ],
                 ),
+                ea()
               ],
             ),
           ),
         ),
+        
       ),
+      
     );
   }
 }

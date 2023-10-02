@@ -58,31 +58,31 @@ Widget ea() {
             ],
           ),
           const Text("        "),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                margin: const EdgeInsets.fromLTRB(200, 50, 0, 20),
-                child: TextButton(
-                  child: const Text(
-                    'About',
-                    style: TextStyle(fontSize: 20, color: Colors.grey),
-                  ),
-                  onPressed: () {},
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(200, 0, 0, 0),
-                child: TextButton(
-                  child: const Text(
-                    'Admission',
-                    style: TextStyle(fontSize: 20, color: Colors.grey),
-                  ),
-                  onPressed: () {},
-                ),
-              ),
-            ],
-          ),
+          // Column(
+          //   crossAxisAlignment: CrossAxisAlignment.start,
+          //   children: [
+          //     Container(
+          //       margin: const EdgeInsets.fromLTRB(200, 50, 0, 20),
+          //       child: TextButton(
+          //         child: const Text(
+          //           'About',
+          //           style: TextStyle(fontSize: 20, color: Colors.grey),
+          //         ),
+          //         onPressed: () {},
+          //       ),
+          //     ),
+          //     Container(
+          //       margin: const EdgeInsets.fromLTRB(200, 0, 0, 0),
+          //       child: TextButton(
+          //         child: const Text(
+          //           'Admission',
+          //           style: TextStyle(fontSize: 20, color: Colors.grey),
+          //         ),
+          //         onPressed: () {},
+          //       ),
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     ),
