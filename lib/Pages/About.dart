@@ -46,9 +46,7 @@ class AboutPage extends StatelessWidget {
                           height: 4,
                           margin: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: active
-                                ?  Colors.green
-                                : Colors.grey,
+                            color: active ? Colors.green : Colors.grey,
                             borderRadius: BorderRadius.circular(10),
                           ),
                         );
@@ -99,9 +97,7 @@ class AboutPage extends StatelessWidget {
               itemCount: imageList.length,
               loop: true,
               scrollDirection: Axis.horizontal,
-              control: const SwiperControl(
-                color: Colors.green
-              ),
+              control: const SwiperControl(color: Colors.green),
               autoplay: true,
               autoplayDelay: 6000,
               duration: 300,
@@ -109,50 +105,50 @@ class AboutPage extends StatelessWidget {
           ),
         ),
         LayoutBuilder(
-  builder: (context, constraints) {
-    if (constraints.maxWidth <= 1000) { // 当屏幕宽度小于等于600像素时
-      return Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.fromLTRB(50, 50, 50, 0),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.grey,
-                width: 4.0,
-              ),
-            ),
-            
-            child: Image.asset(
-              "res/images/LuXiangqian.png",
-              fit: BoxFit.cover,
-            ),
-          ),
-          SizedBox(height: 20),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              Text(
-                'Welcome From the Head of Lab\n',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  color: Colors.white,
-                ),
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'Thank you for your interest in Lu Lab!',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+          builder: (context, constraints) {
+            if (constraints.maxWidth <= 1000) {
+              // 当屏幕宽度小于等于600像素时
+              return Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(50, 50, 50, 0),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.grey,
+                        width: 4.0,
+                      ),
+                    ),
+                    child: Image.asset(
+                      "res/images/LuXiangqian.png",
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  '''
+                  SizedBox(height: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const [
+                      Text(
+                        'Welcome From the Head of Lab\n',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Thank you for your interest in Lu Lab!',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          '''
 So much has been accomplished since Lu Lab was founded   
 in 1994. Our lab has grown in such tremendous ways, but 
 I am so proud that our mission and our unique character 
@@ -162,45 +158,46 @@ our worldwide learning community, and see what makes
 the Lu Lab experience so extraordinary.\n
 -Lewis X. Lu, Ph.D.
 ''',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.grey,
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      );
-    } else { // 当屏幕宽度大于600像素时，保持原有布局
-      return Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text(
-                  '                                       Welcome From the Head of Lab\n',
-                  style: TextStyle(
-                    fontSize: 30.0,
-                    color: Colors.white,
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    '                                        Thank you for your interest in Lu Lab!',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    '''
+                ],
+              );
+            } else {
+              // 当屏幕宽度大于600像素时，保持原有布局
+              return Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Text(
+                          '                                       Welcome From the Head of Lab\n',
+                          style: TextStyle(
+                            fontSize: 30.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            '                                        Thank you for your interest in Lu Lab!',
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            '''
 So much has been accomplished since Lu Lab was founded   
 in 1994. Our lab has grown in such tremendous ways, but 
 I am so proud that our mission and our unique character 
@@ -210,40 +207,39 @@ our worldwide learning community, and see what makes
 the Lu Lab experience so extraordinary.\n
 -Lewis X. Lu, Ph.D.
 ''',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.grey,
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.fromLTRB(50, 100, 350, 100),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 4.0,
+                  Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(50, 100, 350, 100),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 4.0,
+                          ),
+                        ),
+                        width: 450,
+                        height: 500,
+                        child: Image.asset(
+                          "res/images/LuXiangqian.png",
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                width: 450,
-                height: 500,
-                child: Image.asset(
-                  "res/images/LuXiangqian.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ],
-          ),
-        ],
-      );
-    }
-  },
-),
-
+                ],
+              );
+            }
+          },
+        ),
         ea()
       ],
     );

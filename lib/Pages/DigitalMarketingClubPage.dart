@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../items/end_about.dart';
 
-
-
 class DigitalMarketingClubPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,6 @@ class DigitalMarketingClubPage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -55,7 +52,6 @@ class DigitalMarketingClubPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       width: 800,
-                  
                       child: const Text(
                         '''In digital marketing club, you can understand the latest Douyin, Wechat Video Account, Red Booklet and other mainstream short video and live platform play, participate in Tsinghua Professor Lu Xiangqian IP account operation, we will also invite the industry's front-line operators and digital marketing experts from time to time to share and exchange, to help you master the most needed marketing skills in this era.''',
                         style: TextStyle(
@@ -85,9 +81,7 @@ Head of Lab, professor Lu
             ),
           ),
         ),
-        
       ),
-      
     );
   }
 }

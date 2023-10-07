@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../items/end_about.dart';
 
-
-
 class AIClubPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,6 @@ class AIClubPage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-              
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -55,7 +52,6 @@ class AIClubPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       width: 800,
-                   
                       child: const Text(
                         '''AI Club focuses on the use of the most advanced artificial intelligence technology, together with the industry's leading artificial intelligence companies to create  "Exclusive ChatGPT of Lulab", the goal is to train excellent artificial intelligence talents who can be independent in the era of artificial intelligence.''',
                         style: TextStyle(
@@ -83,9 +79,7 @@ class AIClubPage extends StatelessWidget {
             ),
           ),
         ),
-        
       ),
-      
     );
   }
 }

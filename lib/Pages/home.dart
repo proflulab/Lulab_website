@@ -56,16 +56,17 @@ class _HomePageState extends State<HomePage> {
               child: IndexedStack(
                 index: _selectedButtonIndex,
                 children: [
-                  const LuLabPage(),
-                  const AboutPage(),
-                  AdmissionPage(
-                    photoUrls: const [
-                      "res/images/image1.jpg",
-                      "res/images/image2.jpg",
-                      "res/images/image3.jpg",
-                    ],
-                  ),
-                ] + _clubPages,
+                      const LuLabPage(),
+                      const AboutPage(),
+                      AdmissionPage(
+                        photoUrls: const [
+                          "res/images/image1.jpg",
+                          "res/images/image2.jpg",
+                          "res/images/image3.jpg",
+                        ],
+                      ),
+                    ] +
+                    _clubPages,
               ),
             ),
           ],
@@ -89,6 +90,7 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           PopupMenuButton(
+
   icon: const Icon(Icons.menu, color: Colors.white),
   itemBuilder: (context) =>  [
     _buildCustomPopupMenuItem('Home', 0, context),
@@ -136,8 +138,9 @@ class _HomePageState extends State<HomePage> {
       // 当屏幕宽度大于等于600时，显示分开的导航按钮
       return AppBar(
         backgroundColor: Colors.black,
-        leading: Image.asset('res/images/lulab_logo.jpeg',width: 100, // 设置宽度
-  height: 100),
+        leading: Image.asset('res/images/lulab_logo.jpeg',
+            width: 100, // 设置宽度
+            height: 100),
         title: const Text(
           'Lu Lab',
           style: TextStyle(
@@ -224,7 +227,8 @@ class _HomePageState extends State<HomePage> {
       position: const RelativeRect.fromLTRB(500, 40, 0, 0),
       items: [
         _buildCustomPopupMenuItem('Metaverse Club', 0, context),
-        _buildCustomPopupMenuItem('Metaverse Digital Literacy Club', 1, context),
+        _buildCustomPopupMenuItem(
+            'Metaverse Digital Literacy Club', 1, context),
         _buildCustomPopupMenuItem('Digital Microprojects Club', 2, context),
         _buildCustomPopupMenuItem('Advanced Digital Tech Club', 3, context),
         _buildCustomPopupMenuItem('AI Club', 4, context),
@@ -243,7 +247,8 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  PopupMenuItem _buildCustomPopupMenuItem(String clubName, int index, BuildContext context) {
+  PopupMenuItem _buildCustomPopupMenuItem(
+      String clubName, int index, BuildContext context) {
     bool isSelected = _selectedButtonIndex == index + 3;
 
     return PopupMenuItem<int>(

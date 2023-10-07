@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../items/end_about.dart';
 
-
-
 class RobloxChatGPTClubPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,6 @@ class RobloxChatGPTClubPage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -55,7 +52,6 @@ class RobloxChatGPTClubPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       width: 800,
-                     
                       child: const Text(
                         '''This club offers more than just programming; it provides a range of skill development opportunities. These include, but are not limited to, honing fundamental search skills, enhancing communication abilities, nurturing leadership qualities, and more. Through hands-on experiences, members progressively master the essential skills needed for project execution. This prepares children for further personal development as they aspire to excel in their future endeavors.''',
                         style: TextStyle(
@@ -83,9 +79,7 @@ class RobloxChatGPTClubPage extends StatelessWidget {
             ),
           ),
         ),
-        
       ),
-      
     );
   }
 }

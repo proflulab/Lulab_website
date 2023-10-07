@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../items/end_about.dart';
 
-
-
 class DigitalTechnologyClubPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,6 @@ class DigitalTechnologyClubPage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-               
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -55,7 +52,6 @@ class DigitalTechnologyClubPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       width: 800,
-                   
                       child: const Text(
                         '''At the Advanced Digital Technology Club, we are committed to turning knowledge into action. Our approach is to learn skills by doing projects. Students begin their learning journey by attending meetings that encourage questions and discussion. With a solid foundation, let's do projects together and turn ideas into reality! Join us for a better future!''',
                         style: TextStyle(
@@ -85,10 +81,7 @@ Head of Lab, professor Lu
             ),
           ),
         ),
-        
       ),
-      
     );
   }
 }
-
