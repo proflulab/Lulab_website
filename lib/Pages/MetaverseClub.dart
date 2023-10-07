@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../items/end_about.dart';
 
-
-
 class MetaverseClubPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -27,7 +25,8 @@ class MetaverseClubPage extends StatelessWidget {
                           width: 2000,
                           height: 700,
                           child: Image.asset(
-                              fit: BoxFit.cover, 'res/images/metaverseclub.png'),
+                              fit: BoxFit.cover,
+                              'res/images/metaverseclub.png'),
                         ),
                       ),
                       Align(
@@ -54,7 +53,6 @@ class MetaverseClubPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       width: 800,
-                   
                       child: const Text(
                         '''The "Metaverse Club" is dedicated to creating a virtual language environment for children to enhance their foreign language listening and speaking skills. In this unique atmosphere, children can effortlessly improve their language abilities while enjoying their favorite activities and hobbies.''',
                         style: TextStyle(
@@ -65,7 +63,6 @@ class MetaverseClubPage extends StatelessWidget {
                     ),
                     Container(
                       width: 800,
-                      
                       alignment: Alignment.bottomLeft,
                       child: const Text(
                         'Head of Lab, professor Lu',
@@ -82,9 +79,7 @@ class MetaverseClubPage extends StatelessWidget {
             ),
           ),
         ),
-        
       ),
-      
     );
   }
 }

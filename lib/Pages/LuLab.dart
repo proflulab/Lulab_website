@@ -13,6 +13,7 @@ void main() {
     ),
   ));
 }
+
 class LuLabPage extends StatefulWidget {
   const LuLabPage({Key? key}) : super(key: key);
 
@@ -79,14 +80,14 @@ class _LuLabPageState extends State<LuLabPage> {
                         'in AI age',
                         style: TextStyle(
                           fontSize: 40,
-                          color: Colors .white,
+                          color: Colors.white,
                         ),
                       ),
                       Text(
                         '\nAll work and no play makes Jack a dull boy\n',
                         style: TextStyle(
                           fontSize: 30,
-                          color: Colors. white,
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -277,7 +278,3 @@ class LearnWidget extends StatelessWidget {
         children: [Image.asset("res/images/laa.png", fit: BoxFit.fill)]);
   }
 }
-
-
-
-

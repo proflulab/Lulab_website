@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../items/end_about.dart';
 
-
-
 class DigitalLiteracyClubPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,6 @@ class DigitalLiteracyClubPage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-               
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -55,7 +52,6 @@ class DigitalLiteracyClubPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       width: 800,
-                   
                       child: const Text(
                         '''The "Metaverse Digital Literacy Club" strives to enhance children's computer skills and digital literacy through games and practical experience. Children will gain a deeper understanding of digital products and grasp fundamental programming concepts, seamlessly integrating computer technology into their daily lives. This sets a solid foundation for them to become adept talents in the era of artificial intelligence.''',
                         style: TextStyle(
@@ -85,10 +81,7 @@ Head of Lab, professor Lu
             ),
           ),
         ),
-        
       ),
-      
     );
   }
 }
-

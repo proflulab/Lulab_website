@@ -7,10 +7,10 @@ Widget ea() {
     child: SingleChildScrollView(
       child: Row(
         children: [
-              Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               Row(
                 children: [
                   Container(
@@ -18,7 +18,7 @@ Widget ea() {
                     width: 30,
                     height: 30,
                     child: Image.asset("res/images/lulab_logo.jpeg"),
-                      ),
+                  ),
                   Container(
                     margin: const EdgeInsets.fromLTRB(0, 50, 0, 0),
                     child: TextButton(
