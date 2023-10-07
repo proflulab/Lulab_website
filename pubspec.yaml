@@ -92,6 +92,14 @@ flutter:
     - res/images/Metaverse.jpg
     - res/images/roblox.jpeg
     - res/images/demo1.png
+    - res/images/technology.png
+    - res/images/marketing.jpg
+    - res/images/homemarketing.jpg
+    - res/images/AIclub.png
+    - res/images/microproject.png
+    - res/images/metaverseclub.png
+    - res/images/literacy.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

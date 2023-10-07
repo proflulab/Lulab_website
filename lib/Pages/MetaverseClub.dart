@@ -17,7 +17,6 @@ class MetaverseClubPage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 895,
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -28,7 +27,7 @@ class MetaverseClubPage extends StatelessWidget {
                           width: 2000,
                           height: 700,
                           child: Image.asset(
-                              fit: BoxFit.cover, 'res/images/image2.jpg'),
+                              fit: BoxFit.cover, 'res/images/metaverseclub.png'),
                         ),
                       ),
                       Align(
@@ -36,9 +35,9 @@ class MetaverseClubPage extends StatelessWidget {
                         child: Container(
                           width: 800,
                           margin: const EdgeInsets.all(0.0),
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                           child: const Text(
-                            'LET CHILDREN FROM GAME PLAYERS TO GAME CREATORS IN THE METAVERSE CLUB.',
+                            'DEDICATED TO CREATING A VIRTUAL LANGUAGE ENVIRONMENT FOR CHILDREN TO ENHANCE THEIR FOREIGN LANGUAGE LISTENING AND SPEAKING SKILLS.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 40,
@@ -55,9 +54,9 @@ class MetaverseClubPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       width: 800,
-                      height: 500,
+                   
                       child: const Text(
-                        'At the Metaverse Club, we believe in  harnessing the natural inclination of children to play and using it as a  powerful tool for learning and growth. Our mission is to guide children from  being game players to becoming game  creators, empowering them with  essential programming skills along the  way.',
+                        '''The "Metaverse Club" is dedicated to creating a virtual language environment for children to enhance their foreign language listening and speaking skills. In this unique atmosphere, children can effortlessly improve their language abilities while enjoying their favorite activities and hobbies.''',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 40,
@@ -66,7 +65,7 @@ class MetaverseClubPage extends StatelessWidget {
                     ),
                     Container(
                       width: 800,
-                      padding: const EdgeInsets.all(25),
+                      
                       alignment: Alignment.bottomLeft,
                       child: const Text(
                         'Head of Lab, professor Lu',

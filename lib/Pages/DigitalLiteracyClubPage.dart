@@ -6,7 +6,7 @@ import '../items/end_about.dart';
 
 
 
-class DigitalMarketingClubPage extends StatelessWidget {
+class DigitalLiteracyClubPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class DigitalMarketingClubPage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                
+               
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -28,7 +28,7 @@ class DigitalMarketingClubPage extends StatelessWidget {
                           width: 2000,
                           height: 700,
                           child: Image.asset(
-                              fit: BoxFit.cover, 'res/images/marketing.jpg'),
+                              fit: BoxFit.cover, 'res/images/literacy.png'),
                         ),
                       ),
                       Align(
@@ -38,7 +38,7 @@ class DigitalMarketingClubPage extends StatelessWidget {
                           margin: const EdgeInsets.all(0.0),
                           padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                           child: const Text(
-                            'TAKE YOU TO MASTER CUTTING-EDGE PRACTICAL DIGITAL MARKETING METHODOLOGY.',
+                            '''STRIVES TO ENHANCE CHILDREN'S COMPUTER SKILLS AND DIGITAL LITERACY THROUGH GAMES AND PRACTICAL EXPERIENCE.''',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 40,
@@ -55,9 +55,9 @@ class DigitalMarketingClubPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       width: 800,
-                  
+                   
                       child: const Text(
-                        '''In digital marketing club, you can understand the latest Douyin, Wechat Video Account, Red Booklet and other mainstream short video and live platform play, participate in Tsinghua Professor Lu Xiangqian IP account operation, we will also invite the industry's front-line operators and digital marketing experts from time to time to share and exchange, to help you master the most needed marketing skills in this era.''',
+                        '''The "Metaverse Digital Literacy Club" strives to enhance children's computer skills and digital literacy through games and practical experience. Children will gain a deeper understanding of digital products and grasp fundamental programming concepts, seamlessly integrating computer technology into their daily lives. This sets a solid foundation for them to become adept talents in the era of artificial intelligence.''',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 40,
@@ -91,3 +91,4 @@ Head of Lab, professor Lu
     );
   }
 }
+

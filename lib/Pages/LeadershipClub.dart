@@ -1,10 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-
 import '../items/end_about.dart';
-
-
 
 class LeadershipClubPage extends StatelessWidget {
   @override
@@ -17,7 +14,6 @@ class LeadershipClubPage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 895,
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -28,7 +24,9 @@ class LeadershipClubPage extends StatelessWidget {
                           width: 2000,
                           height: 700,
                           child: Image.asset(
-                              fit: BoxFit.cover, 'res/images/image2.jpg'),
+                            'res/images/image2.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Align(
@@ -36,9 +34,9 @@ class LeadershipClubPage extends StatelessWidget {
                         child: Container(
                           width: 800,
                           margin: const EdgeInsets.all(0.0),
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                           child: const Text(
-                            'LET CHILDREN FROM GAME PLAYERS TO GAME CREATORS IN THE METAVERSE CLUB.',
+                            'THE LEADERSHIP CLUB, ORIGINATING FROM TSINGHUA UNIVERSITY AND LED BY PROFESSOR LU XIANGQIAN, NURTURES INNOVATION AND LEADERSHIP.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 40,
@@ -55,25 +53,27 @@ class LeadershipClubPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       width: 800,
-                      height: 500,
                       child: const Text(
-                        'At the Metaverse Club, we believe in  harnessing the natural inclination of children to play and using it as a  powerful tool for learning and growth. Our mission is to guide children from  being game players to becoming game  creators, empowering them with  essential programming skills along the  way.',
+                        '''The Leadership Club is set up by Qinghua Professor Lu Xiangqian to encourage students to innovate and start businesses, broaden their horizons and improve their leadership. The club invites outstanding entrepreneurs, innovators, etc. to the club to talk with the students, and learns the successful experience of leaders in various industries in close communication. Strive to achieve the realm of 'talking with the king, winning the book for ten years'. Organize online salons regularly to help participants understand industry information and clear career direction.''',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 40,
-                            fontWeight: FontWeight.w600),
+                          color: Colors.black,
+                          fontSize: 40,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                     Container(
                       width: 800,
-                      padding: const EdgeInsets.all(25),
                       alignment: Alignment.bottomLeft,
                       child: const Text(
-                        'Head of Lab, professor Lu',
+                        '''
+Head of Lab, professor Lu
+                        ''',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w400),
+                          color: Colors.black,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                   ],
@@ -83,10 +83,7 @@ class LeadershipClubPage extends StatelessWidget {
             ),
           ),
         ),
-        
       ),
-      
     );
   }
 }
-

@@ -17,7 +17,7 @@ class DigitalTechnologyClubPage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 895,
+               
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -28,7 +28,7 @@ class DigitalTechnologyClubPage extends StatelessWidget {
                           width: 2000,
                           height: 700,
                           child: Image.asset(
-                              fit: BoxFit.cover, 'res/images/image2.jpg'),
+                              fit: BoxFit.cover, 'res/images/technology.png'),
                         ),
                       ),
                       Align(
@@ -36,9 +36,9 @@ class DigitalTechnologyClubPage extends StatelessWidget {
                         child: Container(
                           width: 800,
                           margin: const EdgeInsets.all(0.0),
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                           child: const Text(
-                            'LET CHILDREN FROM GAME PLAYERS TO GAME CREATORS IN THE METAVERSE CLUB.',
+                            'MASTERING ADVANCED DIGITAL TECHNOLOGY THROUGH PROJECT-DRIVEN LEARNING.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 40,
@@ -55,9 +55,9 @@ class DigitalTechnologyClubPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       width: 800,
-                      height: 500,
+                   
                       child: const Text(
-                        'At the Metaverse Club, we believe in  harnessing the natural inclination of children to play and using it as a  powerful tool for learning and growth. Our mission is to guide children from  being game players to becoming game  creators, empowering them with  essential programming skills along the  way.',
+                        '''At the Advanced Digital Technology Club, we are committed to turning knowledge into action. Our approach is to learn skills by doing projects. Students begin their learning journey by attending meetings that encourage questions and discussion. With a solid foundation, let's do projects together and turn ideas into reality! Join us for a better future!''',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 40,
@@ -66,10 +66,12 @@ class DigitalTechnologyClubPage extends StatelessWidget {
                     ),
                     Container(
                       width: 800,
-                      padding: const EdgeInsets.all(25),
+                      // padding: const EdgeInsets.all(25),
                       alignment: Alignment.bottomLeft,
                       child: const Text(
-                        'Head of Lab, professor Lu',
+                        '''
+Head of Lab, professor Lu
+                        ''',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 25,

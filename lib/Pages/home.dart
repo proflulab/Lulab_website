@@ -3,11 +3,12 @@ import 'LuLab.dart';
 import 'About.dart';
 import 'Admission.dart';
 import 'MetaverseClub.dart';
-import 'Roblox&ChatGPTClub.dart';
+import 'microproject.dart';
 import 'DigitalTechnologyClub.dart';
 import 'LeadershipClub.dart';
 import 'AIClubPage.dart';
 import 'DigitalMarketingClubPage.dart';
+import 'DigitalLiteracyClubPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _clubPages = [
     MetaverseClubPage(),
+    DigitalLiteracyClubPage(),
     RobloxChatGPTClubPage(),
     DigitalTechnologyClubPage(),
     AIClubPage(),
@@ -47,9 +49,9 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: _buildAppBar(context),
         body: Column(
           children: [
-            _buildNavigationBar(context),
             Expanded(
               child: IndexedStack(
                 index: _selectedButtonIndex,
@@ -72,39 +74,64 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildNavigationBar(BuildContext context) {
-    return Container(
-      color: Colors.black,
-      height: 60, // 设置导航栏的高度
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.network(
-              "res/images/lulab_logo.jpeg",
-              fit: BoxFit.cover,
-            ),
+  PreferredSizeWidget _buildAppBar(BuildContext context) {
+    if (MediaQuery.of(context).size.width < 600) {
+      // 当屏幕宽度小于600时，显示合并后的菜单按钮
+      return AppBar(
+        backgroundColor: Colors.black,
+        title: const Text(
+          'Lu Lab',
+          style: TextStyle(
+            fontSize: 36,
+            color: Colors.white,
+            fontFamily: 'MyFontStyle',
           ),
-          const SizedBox(width: 10),
-          const Text(
-            'Lu Lab',
-            style: TextStyle(
-              fontSize: 36,
-              color: Colors.white,
-              fontFamily: 'MyFontStyle',
-            ),
+        ),
+        actions: [
+          PopupMenuButton(
+            icon: const Icon(Icons.menu, color: Colors.white),
+            itemBuilder: (context) =>  [
+        _buildCustomPopupMenuItem('Metaverse Club', 0, context),
+        _buildCustomPopupMenuItem('Metaverse Digital Literacy Club', 1, context),
+        _buildCustomPopupMenuItem('Digital Microprojects Club', 2, context),
+        _buildCustomPopupMenuItem('Advanced Digital Tech Club', 3, context),
+        _buildCustomPopupMenuItem('AI Club', 4, context),
+        _buildCustomPopupMenuItem('Digital Marketing Club', 5, context),
+        _buildCustomPopupMenuItem('Leadership Club', 6, context),
+      ],
+            onSelected: (index) {
+              setState(() {
+                _selectedButtonIndex = index;
+              });
+              _pageController.jumpToPage(_selectedButtonIndex);
+            },
+             color: Colors.black,
           ),
-          Expanded(child: Container()), // 添加一个Expanded容器，将按钮推到右侧
-          _buildTextButton(0, ' Home'),
+        ],
+      );
+    } else {
+      // 当屏幕宽度大于等于600时，显示分开的导航按钮
+      return AppBar(
+        backgroundColor: Colors.black,
+        leading: Image.asset('res/images/lulab_logo.jpeg',width: 100, // 设置宽度
+  height: 100),
+        title: const Text(
+          'Lu Lab',
+          style: TextStyle(
+            fontSize: 36,
+            color: Colors.white,
+            fontFamily: 'MyFontStyle',
+          ),
+        ),
+        actions: [
+          _buildTextButton(0, 'Home'),
           const SizedBox(width: 10),
           _buildTextButton(1, 'About'),
           const SizedBox(width: 10),
           _buildClubsButton(context),
-          // const SizedBox(width: 10),
-          // _buildTextButton(2, 'Admission'),
         ],
-      ),
-    );
+      );
+    }
   }
 
   Widget _buildTextButton(int index, String label) {
@@ -133,7 +160,7 @@ class _HomePageState extends State<HomePage> {
         child: Text(
           label,
           style: TextStyle(
-            fontFamily:'MyFontStyle',
+            fontFamily: 'MyFontStyle',
             fontSize: 24,
             color: _selectedButtonIndex == index
                 ? Colors.green // 选中时的颜色
@@ -159,7 +186,7 @@ class _HomePageState extends State<HomePage> {
         child: Text(
           'Clubs',
           style: TextStyle(
-            fontFamily:'MyFontStyle',
+            fontFamily: 'MyFontStyle',
             fontSize: 24,
             color: _selectedButtonIndex >= 3 ? Colors.green : Colors.white,
           ),
@@ -174,11 +201,12 @@ class _HomePageState extends State<HomePage> {
       position: const RelativeRect.fromLTRB(500, 40, 0, 0),
       items: [
         _buildCustomPopupMenuItem('Metaverse Club', 0, context),
-        _buildCustomPopupMenuItem('Roblox&ChatGPT Club', 1, context),
-        _buildCustomPopupMenuItem('Digital Technology Club', 2, context),
-        _buildCustomPopupMenuItem('AI Club', 3, context),
-        _buildCustomPopupMenuItem('Digital Marketing Club', 4, context),
-        _buildCustomPopupMenuItem('Leadership Club', 5, context),
+        _buildCustomPopupMenuItem('Metaverse Digital Literacy Club', 1, context),
+        _buildCustomPopupMenuItem('Digital Microprojects Club', 2, context),
+        _buildCustomPopupMenuItem('Advanced Digital Tech Club', 3, context),
+        _buildCustomPopupMenuItem('AI Club', 4, context),
+        _buildCustomPopupMenuItem('Digital Marketing Club', 5, context),
+        _buildCustomPopupMenuItem('Leadership Club', 6, context),
       ],
       elevation: 0, // 去除阴影
       color: Colors.black, // 设置背景色为透明
@@ -188,14 +216,11 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         _selectedButtonIndex = selectedValue;
       });
-     _pageController.jumpToPage(
-  _selectedButtonIndex,
-);
-
+      _pageController.jumpToPage(_selectedButtonIndex);
     }
   }
 
-  PopupMenuItem<int> _buildCustomPopupMenuItem(String clubName, int index, BuildContext context) {
+  PopupMenuItem _buildCustomPopupMenuItem(String clubName, int index, BuildContext context) {
     bool isSelected = _selectedButtonIndex == index + 3;
 
     return PopupMenuItem<int>(
@@ -220,7 +245,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-
-

@@ -7,7 +7,7 @@ import 'package:chewie/chewie.dart';
 import '../items/end_about.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: Scaffold(
       body: LuLabPage(),
     ),
@@ -95,17 +95,17 @@ class _LuLabPageState extends State<LuLabPage> {
               ],
             ),
             ScreenTypeLayout(
-              mobile: CustomWidget(
+              mobile: const CustomWidget(
                 height: 500,
-                itemCount: 6,
+                itemCount: 7,
               ),
-              tablet: CustomWidget(
+              tablet: const CustomWidget(
                 height: 600,
-                itemCount: 6,
+                itemCount: 7,
               ),
-              desktop: CustomWidget(
+              desktop: const CustomWidget(
                 height: 700,
-                itemCount: 6,
+                itemCount: 7,
               ),
             ),
             const LearnWidget(),
@@ -133,11 +133,11 @@ class _CustomWidgetState extends State<CustomWidget> {
   int _currentPage = 0;
   Timer? _timer;
 
-  // 俱乐部名称列表，可以自定义每个俱乐部的名称
   final List<String> clubNames = [
     "Metaverse Club",
-    "Roblox&ChatGPT Club",
-    "Digital Technology Club",
+    "Metaverse Digital Literacy Club",
+    "Digital Microprojects Club",
+    "Advanced Digital Tech Club",
     "AI Club",
     "Digital Marketing Club",
     "Leadership Club",
@@ -146,7 +146,7 @@ class _CustomWidgetState extends State<CustomWidget> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController();
+    _pageController = PageController(initialPage: _currentPage);
     _startAutoPlay();
   }
 
@@ -158,17 +158,19 @@ class _CustomWidgetState extends State<CustomWidget> {
   }
 
   void _startAutoPlay() {
-    _timer = Timer.periodic(Duration(seconds: 5), (timer) {
-      if (_currentPage < widget.itemCount - 1) {
-        _currentPage++;
-      } else {
-        _currentPage = 0;
-      }
-      _pageController.animateToPage(
-        _currentPage,
-        duration: Duration(seconds: 1),
-        curve: Curves.easeInOut,
-      );
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
+      setState(() {
+        if (_currentPage < widget.itemCount - 1) {
+          _currentPage++;
+        } else {
+          _currentPage = 0;
+        }
+        _pageController.animateToPage(
+          _currentPage,
+          duration: const Duration(seconds: 1),
+          curve: Curves.easeInOut,
+        );
+      });
     });
   }
 
@@ -212,7 +214,7 @@ class _CustomWidgetState extends State<CustomWidget> {
                 children: [
                   Text(
                     clubName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
                       color: Colors.white,
@@ -220,7 +222,7 @@ class _CustomWidgetState extends State<CustomWidget> {
                   ),
                   Text(
                     clubDescription,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       color: Colors.grey,
                     ),

@@ -17,7 +17,7 @@ class RobloxChatGPTClubPage extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 895,
+                
                   color: Colors.black,
                   child: Column(
                     children: [
@@ -28,7 +28,7 @@ class RobloxChatGPTClubPage extends StatelessWidget {
                           width: 2000,
                           height: 700,
                           child: Image.asset(
-                              fit: BoxFit.cover, 'res/images/image2.jpg'),
+                              fit: BoxFit.cover, 'res/images/microproject.png'),
                         ),
                       ),
                       Align(
@@ -36,9 +36,9 @@ class RobloxChatGPTClubPage extends StatelessWidget {
                         child: Container(
                           width: 800,
                           margin: const EdgeInsets.all(0.0),
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
                           child: const Text(
-                            'LET CHILDREN FROM GAME PLAYERS TO GAME CREATORS IN THE METAVERSE CLUB.',
+                            '''THIS IS A CRADLE FOR A GROUP OF CHILDREN'S PROJECT COLLISIONS.''',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 40,
@@ -55,9 +55,9 @@ class RobloxChatGPTClubPage extends StatelessWidget {
                     Container(
                       alignment: Alignment.center,
                       width: 800,
-                      height: 500,
+                     
                       child: const Text(
-                        'At the Metaverse Club, we believe in  harnessing the natural inclination of children to play and using it as a  powerful tool for learning and growth. Our mission is to guide children from  being game players to becoming game  creators, empowering them with  essential programming skills along the  way.',
+                        '''This club offers more than just programming; it provides a range of skill development opportunities. These include, but are not limited to, honing fundamental search skills, enhancing communication abilities, nurturing leadership qualities, and more. Through hands-on experiences, members progressively master the essential skills needed for project execution. This prepares children for further personal development as they aspire to excel in their future endeavors.''',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 40,
@@ -66,7 +66,7 @@ class RobloxChatGPTClubPage extends StatelessWidget {
                     ),
                     Container(
                       width: 800,
-                      padding: const EdgeInsets.all(25),
+                      // padding: const EdgeInsets.all(25),
                       alignment: Alignment.bottomLeft,
                       child: const Text(
                         'Head of Lab, professor Lu',
