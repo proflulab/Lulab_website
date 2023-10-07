@@ -89,24 +89,47 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           PopupMenuButton(
-            icon: const Icon(Icons.menu, color: Colors.white),
-            itemBuilder: (context) =>  [
-        _buildCustomPopupMenuItem('Metaverse Club', 0, context),
-        _buildCustomPopupMenuItem('Metaverse Digital Literacy Club', 1, context),
-        _buildCustomPopupMenuItem('Digital Microprojects Club', 2, context),
-        _buildCustomPopupMenuItem('Advanced Digital Tech Club', 3, context),
-        _buildCustomPopupMenuItem('AI Club', 4, context),
-        _buildCustomPopupMenuItem('Digital Marketing Club', 5, context),
-        _buildCustomPopupMenuItem('Leadership Club', 6, context),
-      ],
-            onSelected: (index) {
-              setState(() {
-                _selectedButtonIndex = index;
-              });
-              _pageController.jumpToPage(_selectedButtonIndex);
-            },
-             color: Colors.black,
+  icon: const Icon(Icons.menu, color: Colors.white),
+  itemBuilder: (context) =>  [
+    _buildCustomPopupMenuItem('Home', 0, context),
+    _buildCustomPopupMenuItem('About', 1, context),
+    PopupMenuItem<int>(
+      value: 2, // 这里使用一个虚拟的值
+      child: ExpansionTile(
+        title: Text(
+          'Clubs',
+          style: TextStyle(
+            fontFamily: 'MyFontStyle',
+            fontSize: 20,
+            color: _selectedButtonIndex >= 3 ? Colors.green : Colors.white,
+            fontWeight: _selectedButtonIndex >= 3
+                ? FontWeight.bold
+                : FontWeight.normal,
           ),
+        ),
+        children: [
+          _buildCustomPopupMenuItem('Metaverse Club', 3, context),
+          _buildCustomPopupMenuItem('Metaverse Digital Literacy Club', 4, context),
+          _buildCustomPopupMenuItem('Digital Microprojects Club', 5, context),
+          _buildCustomPopupMenuItem('Advanced Digital Tech Club', 6, context),
+          _buildCustomPopupMenuItem('AI Club', 7, context),
+          _buildCustomPopupMenuItem('Digital Marketing Club', 8, context),
+          _buildCustomPopupMenuItem('Leadership Club', 9, context),
+        ],
+      ),
+    ),
+  ],
+  onSelected: (index) {
+    setState(() {
+      _selectedButtonIndex = index;
+    });
+    if (index >= 3) {
+      _pageController.jumpToPage(index);
+    }
+  },
+  color: Colors.black,
+),
+
         ],
       );
     } else {
@@ -124,7 +147,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         actions: [
-          _buildTextButton(0, 'Home'),
+          _buildTextButton(0, ' Home'),
           const SizedBox(width: 10),
           _buildTextButton(1, 'About'),
           const SizedBox(width: 10),
