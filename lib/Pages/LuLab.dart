@@ -94,20 +94,20 @@ class _LuLabPageState extends State<LuLabPage> {
                 ),
               ],
             ),
-            ScreenTypeLayout(
-              mobile: const CustomWidget(
-                height: 500,
-                itemCount: 7,
-              ),
-              tablet: const CustomWidget(
-                height: 600,
-                itemCount: 7,
-              ),
-              desktop: const CustomWidget(
-                height: 700,
-                itemCount: 7,
-              ),
-            ),
+            // ScreenTypeLayout(
+            //   mobile: const CustomWidget(
+            //     height: 500,
+            //     itemCount: 7,
+            //   ),
+            //   tablet: const CustomWidget(
+            //     height: 600,
+            //     itemCount: 7,
+            //   ),
+            //   desktop: const CustomWidget(
+            //     height: 700,
+            //     itemCount: 7,
+            //   ),
+            // ),
             const LearnWidget(),
             ea() // Add your custom widget here
           ],
@@ -117,125 +117,156 @@ class _LuLabPageState extends State<LuLabPage> {
   }
 }
 
-class CustomWidget extends StatefulWidget {
-  final double height;
-  final int itemCount;
+// class CustomWidget extends StatefulWidget {
+//   final double height;
+//   final int itemCount;
 
-  const CustomWidget({Key? key, required this.height, required this.itemCount})
-      : super(key: key);
+//   const CustomWidget({Key? key, required this.height, required this.itemCount})
+//       : super(key: key);
 
-  @override
-  _CustomWidgetState createState() => _CustomWidgetState();
-}
+//   @override
+//   _CustomWidgetState createState() => _CustomWidgetState();
+// }
 
-class _CustomWidgetState extends State<CustomWidget> {
-  late PageController _pageController;
-  int _currentPage = 0;
-  Timer? _timer;
+// class _CustomWidgetState extends State<CustomWidget> {
+//   late PageController _pageController;
+//   int _currentPage = 0;
+//   Timer? _timer;
 
-  final List<String> clubNames = [
-    "Metaverse Club",
-    "Metaverse Digital Literacy Club",
-    "Digital Microprojects Club",
-    "Advanced Digital Tech Club",
-    "AI Club",
-    "Digital Marketing Club",
-    "Leadership Club",
-  ];
+//   final List<String> clubNames = [
+//     "Metaverse Club",
+//     "Metaverse Digital Literacy Club",
+//     "Digital Microprojects Club",
+//     "Advanced Digital Tech Club",
+//     "AI Club",
+//     "Digital Marketing Club",
+//     "Leadership Club",
+//   ];
 
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(initialPage: _currentPage);
-    _startAutoPlay();
-  }
+//   @override
+//   void initState() {
+//     super.initState();
+//     _pageController = PageController(initialPage: _currentPage);
+//     _startAutoPlay();
+//   }
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    _timer?.cancel();
-    super.dispose();
-  }
+//   @override
+//   void dispose() {
+//     _pageController.dispose();
+//     _timer?.cancel();
+//     super.dispose();
+//   }
 
-  void _startAutoPlay() {
-    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
-      setState(() {
-        if (_currentPage < widget.itemCount - 1) {
-          _currentPage++;
-        } else {
-          _currentPage = 0;
-        }
-        _pageController.animateToPage(
-          _currentPage,
-          duration: const Duration(seconds: 1),
-          curve: Curves.easeInOut,
-        );
-      });
-    });
-  }
+//   void _startAutoPlay() {
+//     _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
+//       setState(() {
+//         if (_currentPage < widget.itemCount - 1) {
+//           _currentPage++;
+//         } else {
+//           _currentPage = 0;
+//         }
+//         _pageController.animateToPage(
+//           _currentPage,
+//           duration: const Duration(seconds: 1),
+//           curve: Curves.easeInOut,
+//         );
+//       });
+//     });
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black,
-      height: widget.height,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: widget.itemCount,
-        itemBuilder: (BuildContext context, int index) {
-          return buildClubCard(index);
-        },
-      ),
-    );
-  }
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       color: Colors.black,
+//       height: widget.height,
+//       child: ListView.builder(
+//         scrollDirection: Axis.horizontal,
+//         itemCount: widget.itemCount,
+//         itemBuilder: (BuildContext context, int index) {
+//           return buildClubCard(index);
+//         },
+//       ),
+//     );
+//   }
 
-  Widget buildClubCard(int index) {
-    final clubName = clubNames[index];
-    final clubDescription = "Description of Club ${index + 1}";
-    final imageUrl = "res/images/demo1.png";
+//   Widget buildClubCard(int index) {
+//   final List<String> clubNames = [
+//     "Metaverse Club",
+//     "Metaverse Digital Literacy Club",
+//     "Digital Microprojects Club",
+//     "Advanced Digital Tech Club",
+//     "AI Club",
+//     "Digital Marketing Club",
+//     "Leadership Club",
+//   ];
 
-    return Container(
-      margin: const EdgeInsets.fromLTRB(50, 50, 50, 50),
-      width: 400,
-      child: Card(
-        color: Colors.grey[800],
-        child: Column(
-          children: [
-            Container(
-              width: 400,
-              height: 400,
-              child: Image.network(imageUrl),
-            ),
-            Container(
-              padding: const EdgeInsets.all(16.0),
-              color: Colors.black,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    clubName,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    clubDescription,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   final List<String> clubDescriptions = [
+//     "Description of Metaverse Club",
+//     "Description of Metaverse Digital Literacy Club",
+//     "Description of Digital Microprojects Club",
+//     "Description of Advanced Digital Tech Club",
+//     "Description of AI Club",
+//     "Description of Digital Marketing Club",
+//     "Description of Leadership Club",
+//   ];
+
+//   final List<String> imageUrls = [
+//     "res/images/metaverseclub.png",
+//     "res/images/literacy.png",
+//     "res/images/microproject.png",
+//     "res/images/technology.png",
+//     "res/images/AIclub.png",
+//     "res/images/marketing.jpg",
+//     "res/images/image2.jpg",
+//   ];
+
+//   final clubName = clubNames[index];
+//   final clubDescription = clubDescriptions[index];
+//   final imageUrl = imageUrls[index];
+
+//   return Container(
+//     margin: const EdgeInsets.fromLTRB(50, 50, 50, 50),
+//     width: 400,
+//     child: Card(
+//       color: Colors.grey[800],
+//       child: Column(
+//         children: [
+//           Container(
+//             width: 400,
+//             height: 400,
+//             child: Image.asset(imageUrl), // 使用本地图片
+//           ),
+//           Container(
+//             padding: const EdgeInsets.all(16.0),
+//             color: Colors.black,
+//             child: Column(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 Text(
+//                   clubName,
+//                   style: const TextStyle(
+//                     fontWeight: FontWeight.bold,
+//                     fontSize: 25,
+//                     color: Colors.white,
+//                   ),
+//                 ),
+//                 Text(
+//                   clubDescription,
+//                   style: const TextStyle(
+//                     fontSize: 18,
+//                     color: Colors.grey,
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ],
+//       ),
+//     ),
+//   );
+// }
+
+// }
 
 class LearnWidget extends StatelessWidget {
   const LearnWidget({Key? key});
