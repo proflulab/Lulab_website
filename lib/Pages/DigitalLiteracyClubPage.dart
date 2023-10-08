@@ -53,7 +53,7 @@ class DigitalLiteracyClubPage extends StatelessWidget {
                       alignment: Alignment.center,
                       width: 800,
                       child: const Text(
-                        '''The "Metaverse Digital Literacy Club" strives to enhance children's computer skills and digital literacy through games and practical experience. Children will gain a deeper understanding of digital products and grasp fundamental programming concepts, seamlessly integrating computer technology into their daily lives. This sets a solid foundation for them to become adept talents in the era of artificial intelligence.''',
+                        '''The "Digital Literacy Club" strives to enhance children's computer skills and digital literacy through games and practical experience. Children will gain a deeper understanding of digital products and grasp fundamental programming concepts, seamlessly integrating computer technology into their daily lives. This sets a solid foundation for them to become adept talents in the era of artificial intelligence.''',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 40,

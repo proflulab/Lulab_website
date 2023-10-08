@@ -96,8 +96,8 @@ class _HomePageState extends State<HomePage> {
     _buildCustomPopupMenuItem('Home', 0, context),
     _buildCustomPopupMenuItem('About', 1, context),
     PopupMenuItem<int>(
-      value: 2, // 这里使用一个虚拟的值
       child: ExpansionTile(
+        iconColor: Colors.green, 
         title: Text(
           'Clubs',
           style: TextStyle(
@@ -110,13 +110,13 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         children: [
-          _buildCustomPopupMenuItem('Metaverse Club', 3, context),
-          _buildCustomPopupMenuItem('Metaverse Digital Literacy Club', 4, context),
-          _buildCustomPopupMenuItem('Digital Microprojects Club', 5, context),
-          _buildCustomPopupMenuItem('Advanced Digital Tech Club', 6, context),
-          _buildCustomPopupMenuItem('AI Club', 7, context),
-          _buildCustomPopupMenuItem('Digital Marketing Club', 8, context),
-          _buildCustomPopupMenuItem('Leadership Club', 9, context),
+          _buildCustomPopupMenuItem('Metaverse Club', 0, context),
+          _buildCustomPopupMenuItem('Digital Literacy Club', 1, context),
+          _buildCustomPopupMenuItem('Digital Microprojects Club', 2, context),
+          _buildCustomPopupMenuItem('Advanced Digital Tech Club', 3, context),
+          _buildCustomPopupMenuItem('AI Club', 4, context),
+          _buildCustomPopupMenuItem('Digital Marketing Club', 5, context),
+          _buildCustomPopupMenuItem('Leadership Club', 6, context),
         ],
       ),
     ),
@@ -130,6 +130,7 @@ class _HomePageState extends State<HomePage> {
     }
   },
   color: Colors.black,
+  
 ),
 
         ],
@@ -228,7 +229,7 @@ class _HomePageState extends State<HomePage> {
       items: [
         _buildCustomPopupMenuItem('Metaverse Club', 0, context),
         _buildCustomPopupMenuItem(
-            'Metaverse Digital Literacy Club', 1, context),
+            'Digital Literacy Club', 1, context),
         _buildCustomPopupMenuItem('Digital Microprojects Club', 2, context),
         _buildCustomPopupMenuItem('Advanced Digital Tech Club', 3, context),
         _buildCustomPopupMenuItem('AI Club', 4, context),
@@ -248,14 +249,16 @@ class _HomePageState extends State<HomePage> {
   }
 
   PopupMenuItem _buildCustomPopupMenuItem(
-      String clubName, int index, BuildContext context) {
-    bool isSelected = _selectedButtonIndex == index + 3;
+  String clubName, int index, BuildContext context) {
+  bool isSelected = _selectedButtonIndex == index + 3;
 
+  if (clubName == 'Home' || clubName == 'About') {
+    isSelected = _selectedButtonIndex == index; // 更新 isSelected 来匹配当前选中的页面
     return PopupMenuItem<int>(
-      value: index + 3,
+      value: index,
       child: InkWell(
         onTap: () {
-          Navigator.pop(context, index + 3);
+          Navigator.pop(context, index);
         },
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -263,7 +266,7 @@ class _HomePageState extends State<HomePage> {
             clubName,
             style: TextStyle(
               fontFamily: 'MyFontStyle',
-              fontSize: 20,
+              fontSize: 18,
               color: isSelected ? Colors.green : Colors.white,
               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
             ),
@@ -272,4 +275,28 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  return PopupMenuItem<int>(
+    value: index + 3,
+    child: InkWell(
+      onTap: () {
+        Navigator.pop(context, index + 3);
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        child: Text(
+          clubName,
+          style: TextStyle(
+            fontFamily: 'MyFontStyle',
+            fontSize: 18,
+            color: isSelected ? Colors.green : Colors.white,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+
 }

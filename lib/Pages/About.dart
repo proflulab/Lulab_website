@@ -146,7 +146,7 @@ class AboutPage extends StatelessWidget {
                         ),
                       ),
                       Align(
-                        alignment: Alignment.centerRight,
+                        alignment: Alignment.center,
                         child: Text(
                           '''
 So much has been accomplished since Lu Lab was founded   

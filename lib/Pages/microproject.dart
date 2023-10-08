@@ -65,7 +65,9 @@ class RobloxChatGPTClubPage extends StatelessWidget {
                       // padding: const EdgeInsets.all(25),
                       alignment: Alignment.bottomLeft,
                       child: const Text(
-                        'Head of Lab, professor Lu',
+                         '''
+Head of Lab, professor Lu
+                        ''',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 25,
