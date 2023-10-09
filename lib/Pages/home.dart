@@ -79,6 +79,10 @@ class _HomePageState extends State<HomePage> {
     if (MediaQuery.of(context).size.width < 600) {
       // 当屏幕宽度小于600时，显示合并后的菜单按钮
       return AppBar(
+         leading:  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
+                    child: Image.asset("res/images/lulab_logo.jpeg"),
+                  ),
         backgroundColor: Colors.black,
         title: const Text(
           'Lu Lab',
@@ -88,6 +92,7 @@ class _HomePageState extends State<HomePage> {
             fontFamily: 'MyFontStyle',
           ),
         ),
+       
         actions: [
           PopupMenuButton(
 
@@ -139,9 +144,10 @@ class _HomePageState extends State<HomePage> {
       // 当屏幕宽度大于等于600时，显示分开的导航按钮
       return AppBar(
         backgroundColor: Colors.black,
-        leading: Image.asset('res/images/lulab_logo.jpeg',
-            width: 100, // 设置宽度
-            height: 100),
+        leading:  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
+                    child: Image.asset("res/images/lulab_logo.jpeg"),
+                  ),
         title: const Text(
           'Lu Lab',
           style: TextStyle(

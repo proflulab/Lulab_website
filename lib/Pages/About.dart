@@ -177,7 +177,7 @@ the Lu Lab experience so extraordinary.\n
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
                         Text(
-                          '                                       Welcome From the Head of Lab\n',
+                          'Welcome From the Head of Lab\n',
                           style: TextStyle(
                             fontSize: 30.0,
                             color: Colors.white,
@@ -186,7 +186,7 @@ the Lu Lab experience so extraordinary.\n
                         Align(
                           alignment: Alignment.center,
                           child: Text(
-                            '                                        Thank you for your interest in Lu Lab!',
+                            'Thank you for your interest in Lu Lab!',
                             style: TextStyle(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
@@ -195,7 +195,7 @@ the Lu Lab experience so extraordinary.\n
                           ),
                         ),
                         Align(
-                          alignment: Alignment.centerRight,
+                          alignment: Alignment.center,
                           child: Text(
                             '''
 So much has been accomplished since Lu Lab was founded   
@@ -219,7 +219,7 @@ the Lu Lab experience so extraordinary.\n
                   Column(
                     children: [
                       Container(
-                        margin: const EdgeInsets.fromLTRB(50, 100, 350, 100),
+                        margin: const EdgeInsets.fromLTRB(50, 100, 150, 100),
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: Colors.grey,

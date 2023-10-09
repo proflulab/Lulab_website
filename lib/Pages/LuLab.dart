@@ -31,7 +31,7 @@ class _LuLabPageState extends State<LuLabPage> {
     _controller = VideoPlayerController.asset("res/images/video.mp4");
     _chewieController = ChewieController(
       videoPlayerController: _controller,
-      aspectRatio: 16 / 9, // 设置视频的宽高比
+      aspectRatio: 16 / 9,
       autoPlay: true,
       looping: true,
       showControls: false,
@@ -48,6 +48,8 @@ class _LuLabPageState extends State<LuLabPage> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -55,226 +57,61 @@ class _LuLabPageState extends State<LuLabPage> {
             Stack(
               alignment: Alignment.center,
               children: [
-                AspectRatio(
-                  aspectRatio: 16 / 7.5,
-                  child: Container(
-                    color: Colors.black,
-                    child: Chewie(
-                      controller: _chewieController,
-                    ),
+                Container(
+                  width: 2000,
+                  child: Image.asset(
+                    'res/images/image3.jpg',
+                    fit: BoxFit.cover,
                   ),
                 ),
-                Positioned(
-                  top: 450,
-                  child: Column(
-                    children: const [
-                      Text(
-                        'The New Education',
-                        style: TextStyle(
-                          fontSize: 100,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    final screenWidth = constraints.maxWidth;
+
+                    // 根据屏幕宽度设置初始字体大小
+                    double fontSize = screenWidth >= 600 ? 100 : 50;
+
+                    if (screenWidth < 600) {
+                      // 在较小屏幕上进一步调整字体大小
+                      fontSize = fontSize * (screenWidth / 600); // 600是一个基准屏幕宽度
+                    }
+
+                    return Column(
+                      children: [
+                        Text(
+                          'The New Education',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: fontSize,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'in AI age',
-                        style: TextStyle(
-                          fontSize: 40,
-                          color: Colors.white,
+                        Text(
+                          'in AI age',
+                          style: TextStyle(
+                            fontSize: screenWidth >= 600 ? 40 : fontSize / 2,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      Text(
-                        '\nAll work and no play makes Jack a dull boy\n',
-                        style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
+                        Text(
+                          'All work and no play makes Jack a dull boy',
+                          style: TextStyle(
+                            fontSize: screenWidth >= 600 ? 30 : fontSize / 3,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    );
+                  },
                 ),
               ],
             ),
-            // ScreenTypeLayout(
-            //   mobile: const CustomWidget(
-            //     height: 500,
-            //     itemCount: 7,
-            //   ),
-            //   tablet: const CustomWidget(
-            //     height: 600,
-            //     itemCount: 7,
-            //   ),
-            //   desktop: const CustomWidget(
-            //     height: 700,
-            //     itemCount: 7,
-            //   ),
-            // ),
-            const LearnWidget(),
+
             ea() // Add your custom widget here
           ],
         ),
       ),
     );
-  }
-}
-
-// class CustomWidget extends StatefulWidget {
-//   final double height;
-//   final int itemCount;
-
-//   const CustomWidget({Key? key, required this.height, required this.itemCount})
-//       : super(key: key);
-
-//   @override
-//   _CustomWidgetState createState() => _CustomWidgetState();
-// }
-
-// class _CustomWidgetState extends State<CustomWidget> {
-//   late PageController _pageController;
-//   int _currentPage = 0;
-//   Timer? _timer;
-
-//   final List<String> clubNames = [
-//     "Metaverse Club",
-//     "Metaverse Digital Literacy Club",
-//     "Digital Microprojects Club",
-//     "Advanced Digital Tech Club",
-//     "AI Club",
-//     "Digital Marketing Club",
-//     "Leadership Club",
-//   ];
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     _pageController = PageController(initialPage: _currentPage);
-//     _startAutoPlay();
-//   }
-
-//   @override
-//   void dispose() {
-//     _pageController.dispose();
-//     _timer?.cancel();
-//     super.dispose();
-//   }
-
-//   void _startAutoPlay() {
-//     _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
-//       setState(() {
-//         if (_currentPage < widget.itemCount - 1) {
-//           _currentPage++;
-//         } else {
-//           _currentPage = 0;
-//         }
-//         _pageController.animateToPage(
-//           _currentPage,
-//           duration: const Duration(seconds: 1),
-//           curve: Curves.easeInOut,
-//         );
-//       });
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       color: Colors.black,
-//       height: widget.height,
-//       child: ListView.builder(
-//         scrollDirection: Axis.horizontal,
-//         itemCount: widget.itemCount,
-//         itemBuilder: (BuildContext context, int index) {
-//           return buildClubCard(index);
-//         },
-//       ),
-//     );
-//   }
-
-//   Widget buildClubCard(int index) {
-//   final List<String> clubNames = [
-//     "Metaverse Club",
-//     "Metaverse Digital Literacy Club",
-//     "Digital Microprojects Club",
-//     "Advanced Digital Tech Club",
-//     "AI Club",
-//     "Digital Marketing Club",
-//     "Leadership Club",
-//   ];
-
-//   final List<String> clubDescriptions = [
-//     "Description of Metaverse Club",
-//     "Description of Metaverse Digital Literacy Club",
-//     "Description of Digital Microprojects Club",
-//     "Description of Advanced Digital Tech Club",
-//     "Description of AI Club",
-//     "Description of Digital Marketing Club",
-//     "Description of Leadership Club",
-//   ];
-
-//   final List<String> imageUrls = [
-//     "res/images/metaverseclub.png",
-//     "res/images/literacy.png",
-//     "res/images/microproject.png",
-//     "res/images/technology.png",
-//     "res/images/AIclub.png",
-//     "res/images/marketing.jpg",
-//     "res/images/image2.jpg",
-//   ];
-
-//   final clubName = clubNames[index];
-//   final clubDescription = clubDescriptions[index];
-//   final imageUrl = imageUrls[index];
-
-//   return Container(
-//     margin: const EdgeInsets.fromLTRB(50, 50, 50, 50),
-//     width: 400,
-//     child: Card(
-//       color: Colors.grey[800],
-//       child: Column(
-//         children: [
-//           Container(
-//             width: 400,
-//             height: 400,
-//             child: Image.asset(imageUrl), // 使用本地图片
-//           ),
-//           Container(
-//             padding: const EdgeInsets.all(16.0),
-//             color: Colors.black,
-//             child: Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 Text(
-//                   clubName,
-//                   style: const TextStyle(
-//                     fontWeight: FontWeight.bold,
-//                     fontSize: 25,
-//                     color: Colors.white,
-//                   ),
-//                 ),
-//                 Text(
-//                   clubDescription,
-//                   style: const TextStyle(
-//                     fontSize: 18,
-//                     color: Colors.grey,
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ],
-//       ),
-//     ),
-//   );
-// }
-
-// }
-
-class LearnWidget extends StatelessWidget {
-  const LearnWidget({Key? key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-        children: [Image.asset("res/images/laa.png", fit: BoxFit.fill)]);
   }
 }
