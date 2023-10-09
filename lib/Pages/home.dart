@@ -95,49 +95,52 @@ class _HomePageState extends State<HomePage> {
        
         actions: [
           PopupMenuButton(
-
-  icon: const Icon(Icons.menu, color: Colors.white),
-  itemBuilder: (context) =>  [
-    _buildCustomPopupMenuItem('Home', 0, context),
-    _buildCustomPopupMenuItem('About', 1, context),
-    PopupMenuItem<int>(
-      child: ExpansionTile(
-        iconColor: Colors.green, 
-        title: Text(
-          'Clubs',
-          style: TextStyle(
-            fontFamily: 'MyFontStyle',
-            fontSize: 20,
-            color: _selectedButtonIndex >= 3 ? Colors.green : Colors.white,
-            fontWeight: _selectedButtonIndex >= 3
-                ? FontWeight.bold
-                : FontWeight.normal,
+            icon: const Icon(Icons.menu, color: Colors.white),
+            itemBuilder: (context) => [
+              _buildCustomPopupMenuItem('Home', 0, context),
+              _buildCustomPopupMenuItem('About', 1, context),
+              PopupMenuItem<int>(
+                child: ExpansionTile(
+                  iconColor: Colors.green,
+                  title: Text(
+                    'Clubs',
+                    style: TextStyle(
+                      fontFamily: 'MyFontStyle',
+                      fontSize: 20,
+                      color: _selectedButtonIndex >= 3
+                          ? Colors.green
+                          : Colors.white,
+                      fontWeight: _selectedButtonIndex >= 3
+                          ? FontWeight.bold
+                          : FontWeight.normal,
+                    ),
+                  ),
+                  children: [
+                    _buildCustomPopupMenuItem('Metaverse Club', 0, context),
+                    _buildCustomPopupMenuItem(
+                        'Digital Literacy Club', 1, context),
+                    _buildCustomPopupMenuItem(
+                        'Digital Microprojects Club', 2, context),
+                    _buildCustomPopupMenuItem(
+                        'Advanced Digital Tech Club', 3, context),
+                    _buildCustomPopupMenuItem('AI Club', 4, context),
+                    _buildCustomPopupMenuItem(
+                        'Digital Marketing Club', 5, context),
+                    _buildCustomPopupMenuItem('Leadership Club', 6, context),
+                  ],
+                ),
+              ),
+            ],
+            onSelected: (index) {
+              setState(() {
+                _selectedButtonIndex = index;
+              });
+              if (index >= 3) {
+                _pageController.jumpToPage(index);
+              }
+            },
+            color: Colors.black,
           ),
-        ),
-        children: [
-          _buildCustomPopupMenuItem('Metaverse Club', 0, context),
-          _buildCustomPopupMenuItem('Digital Literacy Club', 1, context),
-          _buildCustomPopupMenuItem('Digital Microprojects Club', 2, context),
-          _buildCustomPopupMenuItem('Advanced Digital Tech Club', 3, context),
-          _buildCustomPopupMenuItem('AI Club', 4, context),
-          _buildCustomPopupMenuItem('Digital Marketing Club', 5, context),
-          _buildCustomPopupMenuItem('Leadership Club', 6, context),
-        ],
-      ),
-    ),
-  ],
-  onSelected: (index) {
-    setState(() {
-      _selectedButtonIndex = index;
-    });
-    if (index >= 3) {
-      _pageController.jumpToPage(index);
-    }
-  },
-  color: Colors.black,
-  
-),
-
         ],
       );
     } else {
@@ -159,9 +162,9 @@ class _HomePageState extends State<HomePage> {
         actions: [
           _buildTextButton(0, ' Home'),
           const SizedBox(width: 10),
-          _buildTextButton(1, 'About'),
-          const SizedBox(width: 10),
           _buildClubsButton(context),
+          const SizedBox(width: 10),
+          _buildTextButton(1, 'About'),
         ],
       );
     }
@@ -234,8 +237,7 @@ class _HomePageState extends State<HomePage> {
       position: const RelativeRect.fromLTRB(500, 40, 0, 0),
       items: [
         _buildCustomPopupMenuItem('Metaverse Club', 0, context),
-        _buildCustomPopupMenuItem(
-            'Digital Literacy Club', 1, context),
+        _buildCustomPopupMenuItem('Digital Literacy Club', 1, context),
         _buildCustomPopupMenuItem('Digital Microprojects Club', 2, context),
         _buildCustomPopupMenuItem('Advanced Digital Tech Club', 3, context),
         _buildCustomPopupMenuItem('AI Club', 4, context),
@@ -255,16 +257,38 @@ class _HomePageState extends State<HomePage> {
   }
 
   PopupMenuItem _buildCustomPopupMenuItem(
-  String clubName, int index, BuildContext context) {
-  bool isSelected = _selectedButtonIndex == index + 3;
+      String clubName, int index, BuildContext context) {
+    bool isSelected = _selectedButtonIndex == index + 3;
 
-  if (clubName == 'Home' || clubName == 'About') {
-    isSelected = _selectedButtonIndex == index; // 更新 isSelected 来匹配当前选中的页面
+    if (clubName == 'Home' || clubName == 'About') {
+      isSelected = _selectedButtonIndex == index; // 更新 isSelected 来匹配当前选中的页面
+      return PopupMenuItem<int>(
+        value: index,
+        child: InkWell(
+          onTap: () {
+            Navigator.pop(context, index);
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+            child: Text(
+              clubName,
+              style: TextStyle(
+                fontFamily: 'MyFontStyle',
+                fontSize: 18,
+                color: isSelected ? Colors.green : Colors.white,
+                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     return PopupMenuItem<int>(
-      value: index,
+      value: index + 3,
       child: InkWell(
         onTap: () {
-          Navigator.pop(context, index);
+          Navigator.pop(context, index + 3);
         },
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -281,28 +305,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  return PopupMenuItem<int>(
-    value: index + 3,
-    child: InkWell(
-      onTap: () {
-        Navigator.pop(context, index + 3);
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-        child: Text(
-          clubName,
-          style: TextStyle(
-            fontFamily: 'MyFontStyle',
-            fontSize: 18,
-            color: isSelected ? Colors.green : Colors.white,
-            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-          ),
-        ),
-      ),
-    ),
-  );
-}
-
-
 }
