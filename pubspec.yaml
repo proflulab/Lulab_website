@@ -43,6 +43,7 @@ dependencies:
   expandable_text: ^2.3.0
   webview_flutter: ^4.2.0
   responsive_builder: ^0.7.0
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:
@@ -68,34 +69,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - res/images/lulab_logo.jpeg
-    - res/images/dierquxian.png
-    - res/images/diyiyuanli.png
-    - res/images/linianshijie.png
-    - res/images/codeing.png
-    - res/images/xuanchuanpian.mp4
-    - res/images/image1.jpg
-    - res/images/image2.jpg
-    - res/images/image3.jpg
-    - res/images/image4.jpg
-    - res/images/laa.png
-    - res/images/start.gif
-    - res/images/title.jpg
-    - res/images/xueyuan.jpg
-    - res/images/fengmian.png
-    - res/images/QR.png
-    - res/images/LuXiangqian.png
-    - res/images/video.mp4
-    - res/images/Metaverse.jpg
-    - res/images/roblox.jpeg
-    - res/images/demo1.png
-    - res/images/technology.png
-    - res/images/marketing.jpg
-    - res/images/homemarketing.jpg
-    - res/images/AIclub.png
-    - res/images/microproject.png
-    - res/images/metaverseclub.png
-    - res/images/literacy.png
+    - res/images/
+    - res/json/club.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

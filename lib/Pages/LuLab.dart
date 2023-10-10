@@ -1,115 +1,252 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:responsive_builder/responsive_builder.dart';
-import 'package:video_player/video_player.dart';
-import 'package:chewie/chewie.dart';
+import 'package:flutter/services.dart';
+import 'package:lulab_website/Pages/clubs.dart';
+import '../controller/lulab.dart';
+import '../model/clubs.dart';
+import 'home.dart';
+import 'About.dart';
+import 'dart:convert';
 
-import '../items/end_about.dart';
+import 'package:get/get.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    home: Scaffold(
-      body: LuLabPage(),
-    ),
-  ));
-}
-
-class LuLabPage extends StatefulWidget {
-  const LuLabPage({Key? key}) : super(key: key);
+class LulabPage extends StatefulWidget {
+  const LulabPage({Key? key}) : super(key: key);
 
   @override
-  State<LuLabPage> createState() => _LuLabPageState();
+  State<LulabPage> createState() => _LulabPageState();
 }
 
-class _LuLabPageState extends State<LuLabPage> {
-  late VideoPlayerController _controller;
-  late ChewieController _chewieController;
+class _LulabPageState extends State<LulabPage> {
+  //LulabController lulabController = Get.put(LulabController());
+
+  int _selectedButtonIndex = 0;
+
+  late PageController _pageController;
+  late List<ClubData> clubdata;
+  late ClubData club;
+
+  String value = "1";
+  bool isHovered = false;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset("res/images/video.mp4");
-    _chewieController = ChewieController(
-      videoPlayerController: _controller,
-      aspectRatio: 16 / 9,
-      autoPlay: true,
-      looping: true,
-      showControls: false,
-    );
-    _controller.setVolume(0);
+    _pageController = PageController(initialPage: _selectedButtonIndex);
+    loadJsonData();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
-    _chewieController.dispose();
+    _pageController.dispose();
     super.dispose();
+  }
+
+  Future<void> loadJsonData() async {
+    final jsonFile =
+        await rootBundle.loadString('res/json/club.json'); // 替换成你的JSON文件路径
+    final jsonData = json.decode(jsonFile);
+
+    clubdata = ClubsData.fromJson(jsonData).data!;
+    club = clubdata[0];
   }
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: _buildAppBar(context),
+        body: Column(
           children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                  width: 2000,
-                  child: Image.asset(
-                    'res/images/image3.jpg',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    final screenWidth = constraints.maxWidth;
-
-                    // 根据屏幕宽度设置初始字体大小
-                    double fontSize = screenWidth >= 600 ? 100 : 50;
-
-                    if (screenWidth < 600) {
-                      // 在较小屏幕上进一步调整字体大小
-                      fontSize = fontSize * (screenWidth / 600); // 600是一个基准屏幕宽度
-                    }
-
-                    return Column(
-                      children: [
-                        Text(
-                          'The New Education',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: fontSize,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text(
-                          'in AI age',
-                          style: TextStyle(
-                            fontSize: screenWidth >= 600 ? 40 : fontSize / 2,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text(
-                          'All work and no play makes Jack a dull boy',
-                          style: TextStyle(
-                            fontSize: screenWidth >= 600 ? 30 : fontSize / 3,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ],
-            ),
-
-            ea() // Add your custom widget here
+            Expanded(
+                child: FutureBuilder(
+              future: loadJsonData(), // 异步获取数据的函数
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const CircularProgressIndicator();
+                } else if (snapshot.hasError) {
+                  return Text('发生错误: ${snapshot.error}');
+                } else {
+                  // 显示实际数据
+                  return IndexedStack(
+                      index: _selectedButtonIndex,
+                      children: const [
+                        HomePage(),
+                        ClubsPage(),
+                        AboutPage(),
+                        // AdmissionPage(
+                        //   photoUrls: const [
+                        //     "res/images/image1.jpg",
+                        //     "res/images/image2.jpg",
+                        //     "res/images/image3.jpg",
+                        //   ],
+                        // ),
+                      ]);
+                }
+              },
+            )),
           ],
+        ),
+      ),
+    );
+  }
+
+  PreferredSizeWidget _buildAppBar(BuildContext context) {
+    if (MediaQuery.of(context).size.width < 600) {
+      // 当屏幕宽度小于600时，显示合并后的菜单按钮
+      return AppBar(
+        leading: Container(
+          margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
+          child: Image.asset("res/images/lulab_logo.jpeg"),
+        ),
+        backgroundColor: Colors.black,
+        title: const Text(
+          'Lu Lab',
+          style: TextStyle(
+            fontSize: 36,
+            color: Colors.white,
+            fontFamily: 'MyFontStyle',
+          ),
+        ),
+        actions: [
+          PopupMenuButton(
+            icon: const Icon(Icons.menu, color: Colors.white),
+            itemBuilder: (context) => [
+              PopupMenuItem<int>(
+                child: ExpansionTile(
+                  iconColor: Colors.green,
+                  title: Text(
+                    'Clubs',
+                    style: TextStyle(
+                      fontFamily: 'MyFontStyle',
+                      fontSize: 20,
+                      color: _selectedButtonIndex >= 3
+                          ? Colors.green
+                          : Colors.white,
+                      fontWeight: _selectedButtonIndex >= 3
+                          ? FontWeight.bold
+                          : FontWeight.normal,
+                    ),
+                  ),
+                  children: [],
+                ),
+              ),
+            ],
+            onSelected: (index) {
+              setState(() {
+                _selectedButtonIndex = index;
+              });
+              // if (index >= 3) {
+              //   _pageController.jumpToPage(index);
+              // }
+            },
+            color: Colors.black,
+          ),
+        ],
+      );
+    } else {
+      // 当屏幕宽度大于等于600时，显示分开的导航按钮
+      return AppBar(
+        backgroundColor: Color.fromARGB(129, 0, 0, 0),
+        leading: Container(
+          margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
+          child: Image.asset("res/images/lulab_logo.jpeg"),
+        ),
+        title: const Text(
+          'Lu Lab',
+          style: TextStyle(
+            fontSize: 36,
+            color: Colors.white,
+            fontFamily: 'MyFontStyle',
+          ),
+        ),
+        actions: [
+          _buildTextButton(0, ' Home'),
+          const SizedBox(width: 10),
+          MouseRegion(
+            onEnter: (event) {
+              // setState(() {
+              //   isHovered = true;
+              // });
+            },
+            onExit: (event) {
+              // setState(() {
+              //   isHovered = false;
+              // });
+            },
+            child: PopupMenuButton<int>(
+              icon: null,
+              child: const Text(
+                "Clubs",
+                style: TextStyle(
+                  fontFamily: 'MyFontStyle',
+                  fontSize: 18,
+                ),
+              ),
+              itemBuilder: (BuildContext context) {
+                return List<PopupMenuItem<int>>.generate(clubdata.length,
+                    (int index) {
+                  final value = index + 1;
+                  return PopupMenuItem<int>(
+                    value: value,
+                    child: Text(clubdata[index].clubname!),
+                  );
+                });
+              },
+              onSelected: (int value) {
+                //lulabController.increment(clubdata[value].clubname);
+
+                // setState(() {
+                //   // _selectedButtonIndex = 1;
+                //   // _pageController.jumpToPage(1);
+                // });
+                // _pageController.animateToPage(
+                //   1,
+                //   duration: const Duration(milliseconds: 300),
+                //   curve: Curves.easeInOut,
+                // );
+              },
+            ),
+          ),
+          const SizedBox(width: 10),
+          _buildTextButton(2, 'About'),
+        ],
+      );
+    }
+  }
+
+  Widget _buildTextButton(int index, String label) {
+    return MouseRegion(
+      // onEnter: (_) {
+      //   setState(() {
+      //     _hoveredButtonIndex = index;
+      //   });
+      // },
+      onExit: (_) {
+        // setState(() {
+        //   _hoveredButtonIndex = -1;
+        // });
+      },
+      child: TextButton(
+        onPressed: () {
+          setState(() {
+            _selectedButtonIndex = index;
+          });
+          _pageController.animateToPage(
+            index,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        },
+        child: Text(
+          label,
+          style: TextStyle(
+            fontFamily: 'MyFontStyle',
+            fontSize: 24,
+            color: _selectedButtonIndex == index
+                ? Colors.green // 选中时的颜色
+                : Colors.white, // 默认颜色
+          ),
         ),
       ),
     );
