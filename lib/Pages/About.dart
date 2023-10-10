@@ -123,10 +123,10 @@ class AboutPage extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Column(
+                  const SizedBox(height: 20),
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
                         'Welcome From the Head of Lab\n',
                         style: TextStyle(
@@ -172,10 +172,10 @@ the Lu Lab experience so extraordinary.\n
               // 当屏幕宽度大于600像素时，保持原有布局
               return Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
                           'Welcome From the Head of Lab\n',
                           style: TextStyle(
