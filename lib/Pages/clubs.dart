@@ -1,9 +1,19 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
+import '../controller/lulab.dart';
 import '../items/end_about.dart';
+import 'package:get/get.dart';
 
-class RobloxChatGPTClubPage extends StatelessWidget {
+class ClubsPage extends StatefulWidget {
+  const ClubsPage({super.key});
+
+  @override
+  State<ClubsPage> createState() => _ClubsPageState();
+}
+
+class _ClubsPageState extends State<ClubsPage> {
+  //LulabController lulabController = Get.put(LulabController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,12 +51,14 @@ class RobloxChatGPTClubPage extends StatelessWidget {
                                   fontSize *= scaleFactor;
                                 }
 
-                                return Text(
-                                  '''THIS IS A CRADLE FOR A GROUP OF CHILDREN'S PROJECT COLLISIONS.''',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: fontSize, // 使用计算后的字体大小
-                                    fontWeight: FontWeight.w500,
+                                return Obx(
+                                  () => Text(
+                                    "lulabController.list.clubname ?? " "",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: fontSize, // 使用计算后的字体大小
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 );
                               },
