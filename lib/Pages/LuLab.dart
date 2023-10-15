@@ -57,7 +57,7 @@ class _LuLabPageState extends State<LuLabPage> {
             Stack(
               alignment: Alignment.center,
               children: [
-                Container(
+                SizedBox(
                   width: 2000,
                   child: Image.asset(
                     'assets/images/image3.jpg',
