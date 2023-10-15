@@ -28,7 +28,7 @@ class _LuLabPageState extends State<LuLabPage> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset("res/images/video.mp4");
+    _controller = VideoPlayerController.asset("assets/images/video.mp4");
     _chewieController = ChewieController(
       videoPlayerController: _controller,
       aspectRatio: 16 / 9,
@@ -60,7 +60,7 @@ class _LuLabPageState extends State<LuLabPage> {
                 Container(
                   width: 2000,
                   child: Image.asset(
-                    'res/images/image3.jpg',
+                    'assets/images/image3.jpg',
                     fit: BoxFit.cover,
                   ),
                 ),

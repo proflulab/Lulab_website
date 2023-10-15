@@ -4,9 +4,9 @@ import '../items/end_about.dart';
 
 class AdmissionPage extends StatelessWidget {
   final List<Map> photoUrls = [
-    {"url": "res/images/image1.jpg"},
-    {"url": "res/images/image2.jpg"},
-    {"url": "res/images/image4.jpg"},
+    {"url": "assets/images/image1.jpg"},
+    {"url": "assets/images/image2.jpg"},
+    {"url": "assets/images/image4.jpg"},
   ];
 
   AdmissionPage({super.key, required List photoUrls});
@@ -18,9 +18,9 @@ class AdmissionPage extends StatelessWidget {
       home: Scaffold(
         body: VerticalPhotoScroll(
           photoUrls: [
-            "res/images/image1.jpg",
-            "res/images/image2.jpg",
-            "res/images/image4.jpg"
+            "assets/images/image1.jpg",
+            "assets/images/image2.jpg",
+            "assets/images/image4.jpg"
           ],
         ),
       ),
@@ -44,7 +44,7 @@ class VerticalPhotoScroll extends StatelessWidget {
             Stack(
               children: [
                 Image.network(
-                  "res/images/image1.jpg",
+                  "assets/images/image1.jpg",
                   fit: BoxFit.cover,
                 ),
                 const Positioned(
@@ -74,7 +74,7 @@ class VerticalPhotoScroll extends StatelessWidget {
                   height: 700,
                   width: double.infinity,
                   child: Image.network(
-                    "res/images/image2.jpg",
+                    "assets/images/image2.jpg",
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -107,7 +107,7 @@ class VerticalPhotoScroll extends StatelessWidget {
             Container(
               child: Stack(children: [
                 Image.network(
-                  "res/images/image4.jpg",
+                  "assets/images/image4.jpg",
                   fit: BoxFit.cover,
                 ),
                 Positioned(
@@ -142,7 +142,7 @@ class VerticalPhotoScroll extends StatelessWidget {
             Container(
               child: Stack(children: [
                 Image.network(
-                  "res/images/image4.jpg",
+                  "assets/images/image4.jpg",
                   fit: BoxFit.cover,
                 ),
                 Positioned(

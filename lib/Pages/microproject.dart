@@ -17,7 +17,7 @@ class RobloxChatGPTClubPage extends StatelessWidget {
                   color: Colors.black,
                   child: Column(
                     children: [
-                      Image.asset("res/images/microproject.png",
+                      Image.asset("assets/images/microproject.png",
                           fit: BoxFit.fill),
                       Align(
                         alignment: Alignment.bottomCenter,

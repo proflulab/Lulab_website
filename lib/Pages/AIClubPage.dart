@@ -17,7 +17,7 @@ class AIClubPage extends StatelessWidget {
                   color: Colors.black,
                   child: Column(
                     children: [
-                      Image.asset("res/images/AIclub.png", fit: BoxFit.fill),
+                      Image.asset("assets/images/AIclub.png", fit: BoxFit.fill),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(

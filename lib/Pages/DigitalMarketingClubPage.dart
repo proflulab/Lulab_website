@@ -17,7 +17,8 @@ class DigitalMarketingClubPage extends StatelessWidget {
                   color: Colors.black,
                   child: Column(
                     children: [
-                      Image.asset("res/images/marketing.jpg", fit: BoxFit.fill),
+                      Image.asset("assets/images/marketing.jpg",
+                          fit: BoxFit.fill),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(

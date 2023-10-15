@@ -17,7 +17,8 @@ class DigitalLiteracyClubPage extends StatelessWidget {
                   color: Colors.black,
                   child: Column(
                     children: [
-                      Image.asset("res/images/literacy.png", fit: BoxFit.fill),
+                      Image.asset("assets/images/literacy.png",
+                          fit: BoxFit.fill),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(

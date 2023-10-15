@@ -60,9 +60,9 @@ class _HomePageState extends State<HomePage> {
                       const AboutPage(),
                       AdmissionPage(
                         photoUrls: const [
-                          "res/images/image1.jpg",
-                          "res/images/image2.jpg",
-                          "res/images/image3.jpg",
+                          "assets/images/image1.jpg",
+                          "assets/images/image2.jpg",
+                          "assets/images/image3.jpg",
                         ],
                       ),
                     ] +
@@ -79,10 +79,10 @@ class _HomePageState extends State<HomePage> {
     if (MediaQuery.of(context).size.width < 600) {
       // 当屏幕宽度小于600时，显示合并后的菜单按钮
       return AppBar(
-         leading:  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
-                    child: Image.asset("res/images/lulab_logo.jpeg"),
-                  ),
+        leading: Container(
+          margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
+          child: Image.asset("assets/images/lulab_logo.jpeg"),
+        ),
         backgroundColor: Colors.black,
         title: const Text(
           'Lu Lab',
@@ -92,7 +92,6 @@ class _HomePageState extends State<HomePage> {
             fontFamily: 'MyFontStyle',
           ),
         ),
-       
         actions: [
           PopupMenuButton(
             icon: const Icon(Icons.menu, color: Colors.white),
@@ -147,10 +146,10 @@ class _HomePageState extends State<HomePage> {
       // 当屏幕宽度大于等于600时，显示分开的导航按钮
       return AppBar(
         backgroundColor: Colors.black,
-        leading:  Container(
-                    margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
-                    child: Image.asset("res/images/lulab_logo.jpeg"),
-                  ),
+        leading: Container(
+          margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
+          child: Image.asset("assets/images/lulab_logo.jpeg"),
+        ),
         title: const Text(
           'Lu Lab',
           style: TextStyle(

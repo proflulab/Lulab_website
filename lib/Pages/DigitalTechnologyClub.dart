@@ -17,7 +17,7 @@ class DigitalTechnologyClubPage extends StatelessWidget {
                   color: Colors.black,
                   child: Column(
                     children: [
-                      Image.asset("res/images/technology.png",
+                      Image.asset("assets/images/technology.png",
                           fit: BoxFit.fill),
                       Align(
                         alignment: Alignment.bottomCenter,

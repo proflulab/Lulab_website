@@ -17,7 +17,7 @@ class MetaverseClubPage extends StatelessWidget {
                   color: Colors.black,
                   child: Column(
                     children: [
-                      Image.asset("res/images/metaverseclub.png",
+                      Image.asset("assets/images/metaverseclub.png",
                           fit: BoxFit.fill),
                       Align(
                         alignment: Alignment.bottomCenter,

@@ -20,7 +20,7 @@ class LeadershipClubPage extends StatelessWidget {
                       Container(
                         width: 2000,
                         child: Image.asset(
-                          'res/images/image2.jpg',
+                          'assets/images/image2.jpg',
                           fit: BoxFit.cover,
                         ),
                       ),
