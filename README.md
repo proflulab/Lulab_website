@@ -15,9 +15,10 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-
-## docker运行配置
+## docker环境运行
 
 git clone -b dev_shiming https://github.com/proflulab/Lulab_website.git
 
-docker_compose up -d
+cd Lulab_website
+
+docker-compose up -d
