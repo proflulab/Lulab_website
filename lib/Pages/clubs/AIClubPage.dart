@@ -1,9 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-import '../items/end_about.dart';
+import '../../items/end_about.dart';
 
-class DigitalLiteracyClubPage extends StatelessWidget {
+class AIClubPage extends StatelessWidget {
+  const AIClubPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +19,7 @@ class DigitalLiteracyClubPage extends StatelessWidget {
                   color: Colors.black,
                   child: Column(
                     children: [
-                      Image.asset("assets/images/literacy.png",
-                          fit: BoxFit.fill),
+                      Image.asset("assets/images/AIclub.png", fit: BoxFit.fill),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(
@@ -42,7 +43,7 @@ class DigitalLiteracyClubPage extends StatelessWidget {
                                 }
 
                                 return Text(
-                                  '''STRIVES TO ENHANCE CHILDREN'S COMPUTER SKILLS AND DIGITAL LITERACY THROUGH GAMES AND PRACTICAL EXPERIENCE.''',
+                                  '''USING THE MOST ADVANCED ARTIFICIAL INTELLIGENCE TECHNOLOGY TO CREATE "EXCLUSIVE CHATGPT OF LULAB".''',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: fontSize, // 使用计算后的字体大小
@@ -76,7 +77,7 @@ class DigitalLiteracyClubPage extends StatelessWidget {
                           }
 
                           return Text(
-                            '''The "Digital Literacy Club" strives to enhance children's computer skills and digital literacy through games and practical experience. Children will gain a deeper understanding of digital products and grasp fundamental programming concepts, seamlessly integrating computer technology into their daily lives. This sets a solid foundation for them to become adept talents in the era of artificial intelligence.''',
+                            '''AI Club focuses on the use of the most advanced artificial intelligence technology, together with the industry's leading artificial intelligence companies to create  "Exclusive ChatGPT of Lulab", the goal is to train excellent artificial intelligence talents who can be independent in the era of artificial intelligence.''',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: titleFontSize,

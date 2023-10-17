@@ -1,7 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-import '../items/end_about.dart';
+import '../../items/end_about.dart';
+
 
 class DigitalMarketingClubPage extends StatelessWidget {
   @override

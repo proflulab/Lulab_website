@@ -1,115 +1,309 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:responsive_builder/responsive_builder.dart';
-import 'package:video_player/video_player.dart';
-import 'package:chewie/chewie.dart';
+import '../widgets/drawer.dart';
+import 'clubs/AIClubPage.dart';
+import 'clubs/DigitalLiteracyClubPage.dart';
 
-import '../items/end_about.dart';
+import 'clubs/DigitalMarketingClubPage.dart';
+import 'clubs/DigitalTechnologyClub.dart';
+import 'clubs/LeadershipClub.dart';
+import 'clubs/MetaverseClub.dart';
+import 'home/home.dart';
+import 'About.dart';
+import 'Admission.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    home: Scaffold(
-      body: LuLabPage(),
-    ),
-  ));
-}
+import 'microproject.dart';
 
-class LuLabPage extends StatefulWidget {
-  const LuLabPage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<LuLabPage> createState() => _LuLabPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _LuLabPageState extends State<LuLabPage> {
-  late VideoPlayerController _controller;
-  late ChewieController _chewieController;
+class _HomePageState extends State<HomePage> {
+  int _selectedButtonIndex = 0;
+  int _hoveredButtonIndex = -1;
+  late PageController _pageController;
+
+  final List<Widget> _clubPages = [
+    const MetaverseClubPage(),
+    DigitalLiteracyClubPage(),
+    const RobloxChatGPTClubPage(),
+    DigitalTechnologyClubPage(),
+    const AIClubPage(),
+    DigitalMarketingClubPage(),
+    const LeadershipClubPage(),
+  ];
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset("assets/images/video.mp4");
-    _chewieController = ChewieController(
-      videoPlayerController: _controller,
-      aspectRatio: 16 / 9,
-      autoPlay: true,
-      looping: true,
-      showControls: false,
-    );
-    _controller.setVolume(0);
+    _pageController = PageController(initialPage: _selectedButtonIndex);
   }
 
   @override
   void dispose() {
-    _controller.dispose();
-    _chewieController.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: _buildAppBar(context),
+        drawer: const MobileMenu(),
+        body: Column(
           children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                SizedBox(
-                  width: 2000,
-                  child: Image.asset(
-                    'assets/images/image3.jpg',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    final screenWidth = constraints.maxWidth;
-
-                    // 根据屏幕宽度设置初始字体大小
-                    double fontSize = screenWidth >= 600 ? 100 : 50;
-
-                    if (screenWidth < 600) {
-                      // 在较小屏幕上进一步调整字体大小
-                      fontSize = fontSize * (screenWidth / 600); // 600是一个基准屏幕宽度
-                    }
-
-                    return Column(
-                      children: [
-                        Text(
-                          'The New Education',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: fontSize,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text(
-                          'in AI age',
-                          style: TextStyle(
-                            fontSize: screenWidth >= 600 ? 40 : fontSize / 2,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text(
-                          'All work and no play makes Jack a dull boy',
-                          style: TextStyle(
-                            fontSize: screenWidth >= 600 ? 30 : fontSize / 3,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ],
+            Expanded(
+              child: IndexedStack(
+                index: _selectedButtonIndex,
+                children: [
+                      const LuLabPage(),
+                      const AboutPage(),
+                      AdmissionPage(
+                        photoUrls: const [
+                          "assets/images/image1.jpg",
+                          "assets/images/image2.jpg",
+                          "assets/images/image3.jpg",
+                        ],
+                      ),
+                    ] +
+                    _clubPages,
+              ),
             ),
-
-            ea() // Add your custom widget here
           ],
+        ),
+      ),
+    );
+  }
+
+  PreferredSizeWidget _buildAppBar(BuildContext context) {
+    if (MediaQuery.of(context).size.width < 600) {
+      // 当屏幕宽度小于600时，显示合并后的菜单按钮
+      return AppBar(
+        leading: Container(
+          margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
+          child: Image.asset("assets/images/lulab_logo.jpeg"),
+        ),
+        backgroundColor: Colors.black,
+        title: const Text(
+          'Lu Lab',
+          style: TextStyle(
+            fontSize: 36,
+            color: Colors.white,
+            fontFamily: 'MyFontStyle',
+          ),
+        ),
+        actions: [
+          PopupMenuButton(
+            icon: const Icon(Icons.menu, color: Colors.white),
+            itemBuilder: (context) => [
+              _buildCustomPopupMenuItem('Home', 0, context),
+              _buildCustomPopupMenuItem('About', 1, context),
+              PopupMenuItem<int>(
+                child: ExpansionTile(
+                  iconColor: Colors.green,
+                  title: Text(
+                    'Clubs',
+                    style: TextStyle(
+                      fontFamily: 'MyFontStyle',
+                      fontSize: 20,
+                      color: _selectedButtonIndex >= 3
+                          ? Colors.green
+                          : Colors.white,
+                      fontWeight: _selectedButtonIndex >= 3
+                          ? FontWeight.bold
+                          : FontWeight.normal,
+                    ),
+                  ),
+                  children: [
+                    _buildCustomPopupMenuItem('Metaverse Club', 0, context),
+                    _buildCustomPopupMenuItem(
+                        'Digital Literacy Club', 1, context),
+                    _buildCustomPopupMenuItem(
+                        'Digital Microprojects Club', 2, context),
+                    _buildCustomPopupMenuItem(
+                        'Advanced Digital Tech Club', 3, context),
+                    _buildCustomPopupMenuItem('AI Club', 4, context),
+                    _buildCustomPopupMenuItem(
+                        'Digital Marketing Club', 5, context),
+                    _buildCustomPopupMenuItem('Leadership Club', 6, context),
+                  ],
+                ),
+              ),
+            ],
+            onSelected: (index) {
+              setState(() {
+                _selectedButtonIndex = index;
+              });
+              if (index >= 3) {
+                _pageController.jumpToPage(index);
+              }
+            },
+            color: Colors.black,
+          ),
+        ],
+      );
+    } else {
+      // 当屏幕宽度大于等于600时，显示分开的导航按钮
+      return AppBar(
+        backgroundColor: Colors.black,
+        leading: Container(
+          margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
+          child: Image.asset("assets/images/lulab_logo.jpeg"),
+        ),
+        title: const Text(
+          'Lu Lab',
+          style: TextStyle(
+            fontSize: 36,
+            color: Colors.white,
+            fontFamily: 'MyFontStyle',
+          ),
+        ),
+        actions: [
+          _buildTextButton(0, ' Home'),
+          const SizedBox(width: 10),
+          _buildClubsButton(context),
+          const SizedBox(width: 10),
+          _buildTextButton(1, 'About'),
+        ],
+      );
+    }
+  }
+
+  Widget _buildTextButton(int index, String label) {
+    return MouseRegion(
+      onEnter: (_) {
+        setState(() {
+          _hoveredButtonIndex = index;
+        });
+      },
+      onExit: (_) {
+        setState(() {
+          _hoveredButtonIndex = -1;
+        });
+      },
+      child: TextButton(
+        onPressed: () {
+          setState(() {
+            _selectedButtonIndex = index;
+          });
+          _pageController.animateToPage(
+            index,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        },
+        child: Text(
+          label,
+          style: TextStyle(
+            fontFamily: 'MyFontStyle',
+            fontSize: 24,
+            color: _selectedButtonIndex == index
+                ? Colors.green // 选中时的颜色
+                : _hoveredButtonIndex == index
+                    ? Colors.green // 悬停时的颜色
+                    : Colors.white, // 默认颜色
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildClubsButton(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+      child: TextButton(
+        onPressed: () {
+          _showPopupMenu(context);
+        },
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+        ),
+        child: Text(
+          'Clubs',
+          style: TextStyle(
+            fontFamily: 'MyFontStyle',
+            fontSize: 24,
+            color: _selectedButtonIndex >= 3 ? Colors.green : Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showPopupMenu(BuildContext context) async {
+    final selectedValue = await showMenu(
+      context: context,
+      position: const RelativeRect.fromLTRB(500, 40, 0, 0),
+      items: [
+        _buildCustomPopupMenuItem('Metaverse Club', 0, context),
+        _buildCustomPopupMenuItem('Digital Literacy Club', 1, context),
+        _buildCustomPopupMenuItem('Digital Microprojects Club', 2, context),
+        _buildCustomPopupMenuItem('Advanced Digital Tech Club', 3, context),
+        _buildCustomPopupMenuItem('AI Club', 4, context),
+        _buildCustomPopupMenuItem('Digital Marketing Club', 5, context),
+        _buildCustomPopupMenuItem('Leadership Club', 6, context),
+      ],
+      elevation: 0, // 去除阴影
+      color: Colors.black, // 设置背景色为透明
+    );
+
+    if (selectedValue != null) {
+      setState(() {
+        _selectedButtonIndex = selectedValue;
+      });
+      _pageController.jumpToPage(_selectedButtonIndex);
+    }
+  }
+
+  PopupMenuItem _buildCustomPopupMenuItem(
+      String clubName, int index, BuildContext context) {
+    bool isSelected = _selectedButtonIndex == index + 3;
+
+    if (clubName == 'Home' || clubName == 'About') {
+      isSelected = _selectedButtonIndex == index; // 更新 isSelected 来匹配当前选中的页面
+      return PopupMenuItem<int>(
+        value: index,
+        child: InkWell(
+          onTap: () {
+            Navigator.pop(context, index);
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+            child: Text(
+              clubName,
+              style: TextStyle(
+                fontFamily: 'MyFontStyle',
+                fontSize: 18,
+                color: isSelected ? Colors.green : Colors.white,
+                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
+    return PopupMenuItem<int>(
+      value: index + 3,
+      child: InkWell(
+        onTap: () {
+          Navigator.pop(context, index + 3);
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+          child: Text(
+            clubName,
+            style: TextStyle(
+              fontFamily: 'MyFontStyle',
+              fontSize: 18,
+              color: isSelected ? Colors.green : Colors.white,
+              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+            ),
+          ),
         ),
       ),
     );

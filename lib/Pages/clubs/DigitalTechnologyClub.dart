@@ -1,9 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-import '../items/end_about.dart';
+import '../../items/end_about.dart';
 
-class LeadershipClubPage extends StatelessWidget {
+
+
+class DigitalTechnologyClubPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +19,8 @@ class LeadershipClubPage extends StatelessWidget {
                   color: Colors.black,
                   child: Column(
                     children: [
-                      Container(
-                        width: 2000,
-                        child: Image.asset(
-                          'assets/images/image2.jpg',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                      Image.asset("assets/images/technology.png",
+                          fit: BoxFit.fill),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(
@@ -47,7 +44,7 @@ class LeadershipClubPage extends StatelessWidget {
                                 }
 
                                 return Text(
-                                  '''THE LEADERSHIP CLUB, ORIGINATING FROM TSINGHUA UNIVERSITY AND LED BY PROFESSOR LU XIANGQIAN, NURTURES INNOVATION AND LEADERSHIP.''',
+                                  '''MASTERING ADVANCED DIGITAL TECHNOLOGY THROUGH PROJECT-DRIVEN LEARNING.''',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: fontSize, // 使用计算后的字体大小
@@ -81,7 +78,7 @@ class LeadershipClubPage extends StatelessWidget {
                           }
 
                           return Text(
-                            '''The Leadership Club is set up by Tsinghua Professor Lu Xiangqian to encourage students to innovate and start businesses, broaden their horizons and improve their leadership. The club invites outstanding entrepreneurs, innovators, etc. to the club to talk with the students, and learns the successful experience of leaders in various industries in close communication. Strive to achieve the realm of 'talking with the king, winning the book for ten years'. Organize online salons regularly to help participants understand industry information and clear career direction.''',
+                            '''At the Advanced Digital Technology Club, we are committed to turning knowledge into action. Our approach is to learn skills by doing projects. Students begin their learning journey by attending meetings that encourage questions and discussion. With a solid foundation, let's do projects together and turn ideas into reality! Join us for a better future!''',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: titleFontSize,

@@ -1,9 +1,11 @@
-import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
-import '../items/end_about.dart';
+import '../../items/end_about.dart';
 
-class DigitalTechnologyClubPage extends StatelessWidget {
+class MetaverseClubPage extends StatelessWidget {
+  const MetaverseClubPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,7 @@ class DigitalTechnologyClubPage extends StatelessWidget {
                   color: Colors.black,
                   child: Column(
                     children: [
-                      Image.asset("assets/images/technology.png",
+                      Image.asset("assets/images/metaverseclub.png",
                           fit: BoxFit.fill),
                       Align(
                         alignment: Alignment.bottomCenter,
@@ -42,7 +44,7 @@ class DigitalTechnologyClubPage extends StatelessWidget {
                                 }
 
                                 return Text(
-                                  '''MASTERING ADVANCED DIGITAL TECHNOLOGY THROUGH PROJECT-DRIVEN LEARNING.''',
+                                  '''DEDICATED TO CREATING A VIRTUAL LANGUAGE ENVIRONMENT FOR CHILDREN TO ENHANCE THEIR FOREIGN LANGUAGE LISTENING AND SPEAKING SKILLS.''',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: fontSize, // 使用计算后的字体大小
@@ -76,7 +78,7 @@ class DigitalTechnologyClubPage extends StatelessWidget {
                           }
 
                           return Text(
-                            '''At the Advanced Digital Technology Club, we are committed to turning knowledge into action. Our approach is to learn skills by doing projects. Students begin their learning journey by attending meetings that encourage questions and discussion. With a solid foundation, let's do projects together and turn ideas into reality! Join us for a better future!''',
+                            '''The "Metaverse Club" is dedicated to creating a virtual language environment for children to enhance their foreign language listening and speaking skills. In this unique atmosphere, children can effortlessly improve their language abilities while enjoying their favorite activities and hobbies.''',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: titleFontSize,

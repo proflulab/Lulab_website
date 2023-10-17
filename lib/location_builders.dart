@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:beamer/beamer.dart';
 
-import 'Pages/home.dart';
+import 'Pages/lulab.dart';
 import 'Pages/terms/agreement.dart';
 
 final simpleLocationBuilder = RoutesLocationBuilder(

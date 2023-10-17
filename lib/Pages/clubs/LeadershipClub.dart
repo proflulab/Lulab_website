@@ -1,10 +1,10 @@
-
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
-import '../items/end_about.dart';
+import '../../items/end_about.dart';
 
-class MetaverseClubPage extends StatelessWidget {
-  const MetaverseClubPage({super.key});
+class LeadershipClubPage extends StatelessWidget {
+  const LeadershipClubPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,13 @@ class MetaverseClubPage extends StatelessWidget {
                   color: Colors.black,
                   child: Column(
                     children: [
-                      Image.asset("assets/images/metaverseclub.png",
-                          fit: BoxFit.fill),
+                      Container(
+                        width: 2000,
+                        child: Image.asset(
+                          'assets/images/image2.jpg',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(
@@ -44,7 +49,7 @@ class MetaverseClubPage extends StatelessWidget {
                                 }
 
                                 return Text(
-                                  '''DEDICATED TO CREATING A VIRTUAL LANGUAGE ENVIRONMENT FOR CHILDREN TO ENHANCE THEIR FOREIGN LANGUAGE LISTENING AND SPEAKING SKILLS.''',
+                                  '''THE LEADERSHIP CLUB, ORIGINATING FROM TSINGHUA UNIVERSITY AND LED BY PROFESSOR LU XIANGQIAN, NURTURES INNOVATION AND LEADERSHIP.''',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: fontSize, // 使用计算后的字体大小
@@ -78,7 +83,7 @@ class MetaverseClubPage extends StatelessWidget {
                           }
 
                           return Text(
-                            '''The "Metaverse Club" is dedicated to creating a virtual language environment for children to enhance their foreign language listening and speaking skills. In this unique atmosphere, children can effortlessly improve their language abilities while enjoying their favorite activities and hobbies.''',
+                            '''The Leadership Club is set up by Tsinghua Professor Lu Xiangqian to encourage students to innovate and start businesses, broaden their horizons and improve their leadership. The club invites outstanding entrepreneurs, innovators, etc. to the club to talk with the students, and learns the successful experience of leaders in various industries in close communication. Strive to achieve the realm of 'talking with the king, winning the book for ten years'. Organize online salons regularly to help participants understand industry information and clear career direction.''',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: titleFontSize,
