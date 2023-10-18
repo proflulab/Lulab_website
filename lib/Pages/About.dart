@@ -67,16 +67,15 @@ class AboutPage extends StatelessWidget {
                     ),
                     if (showText)
                       Align(
-                          alignment: Alignment.bottomCenter, // 让文本框水平和垂直居中
+                          alignment: Alignment.bottomCenter,
                           child: Container(
-                            width: MediaQuery.of(context).size.width *
-                                0.4, // 控制文本框宽度
-                            decoration: BoxDecoration(
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            decoration: const BoxDecoration(
                               color: Colors.black,
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20.0), // 调整左右内边距
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20.0),
                               child: Text(
                                 '''
 
@@ -87,8 +86,8 @@ high-quality education, and
 nurturing talents for an innovative era.
 ''',
                                 style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.width *
-                                      0.02, // 控制文本字体大小
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.02,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
