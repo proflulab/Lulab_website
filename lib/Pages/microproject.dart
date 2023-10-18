@@ -1,9 +1,10 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../items/end_about.dart';
 
 class RobloxChatGPTClubPage extends StatelessWidget {
+  const RobloxChatGPTClubPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

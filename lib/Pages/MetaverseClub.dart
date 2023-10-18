@@ -1,9 +1,11 @@
-import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import '../items/end_about.dart';
 
 class MetaverseClubPage extends StatelessWidget {
+  const MetaverseClubPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
