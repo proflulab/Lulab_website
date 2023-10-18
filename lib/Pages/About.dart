@@ -54,11 +54,10 @@ class AboutPage extends StatelessWidget {
                     );
                   },
                 ),
-                margin: const EdgeInsets.only(bottom: 20),
+                // margin: const EdgeInsets.only(bottom: 20),
               ),
               itemBuilder: (BuildContext context, int index) {
-                final bool showText =
-                    index == 0; // Show text only on the first image
+                final bool showText = index == 0;
                 return Stack(
                   fit: StackFit.expand,
                   children: [
@@ -67,30 +66,35 @@ class AboutPage extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     if (showText)
-                      Positioned(
-                        top: 600,
-                        left: 600,
-                        child: Container(
-                          padding: const EdgeInsets.all(16.0),
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                          ),
-                          child: const Text(
-                            '''
-  Stepping out of the ivory tower of
-  Tsinghua University, allowing
-  everyone the opportunity to receive
-  high-quality education, and
-  nurturing talents for  innovative era.
-''',
-                            style: TextStyle(
-                              fontSize: 28,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                      Align(
+                          alignment: Alignment.bottomCenter, // 让文本框水平和垂直居中
+                          child: Container(
+                            width: MediaQuery.of(context).size.width *
+                                0.4, // 控制文本框宽度
+                            decoration: BoxDecoration(
+                              color: Colors.black,
                             ),
-                          ),
-                        ),
-                      ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20.0), // 调整左右内边距
+                              child: Text(
+                                '''
+
+Stepping out of the ivory tower of
+Tsinghua University, allowing
+everyone the opportunity to receive
+high-quality education, and
+nurturing talents for an innovative era.
+''',
+                                style: TextStyle(
+                                  fontSize: MediaQuery.of(context).size.width *
+                                      0.02, // 控制文本字体大小
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          )),
                   ],
                 );
               },
