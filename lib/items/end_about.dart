@@ -41,33 +41,38 @@ Widget ea() {
             ),
           ],
         ),
-        Container(
-          margin: const EdgeInsets.fromLTRB(50, 0, 0, 0),
-          child: const Text(
-            "CONTACT INFO",
-            style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.grey),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(50, 0, 0, 10),
+            child: const Text(
+              "CONTACT INFO",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20, // 你可以手动设置一个基本的字体大小
+                color: Colors.grey,
+              ),
+            ),
           ),
         ),
-        Container(
-          margin: const EdgeInsets.fromLTRB(50, 0, 0, 0),
-          child: const Text(
-            '''
-
-admin@lulabs.org
-''',
-            style: TextStyle(fontSize: 20, color: Colors.grey),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(50, 0, 0, 10),
+            child: const Text(
+              'admin@lulabs.org',
+              style: TextStyle(fontSize: 20, color: Colors.grey),
+            ),
           ),
         ),
-        Container(
-          margin: const EdgeInsets.fromLTRB(50, 0, 0, 10),
-          child: const Text(
-            '''
-East Brokaw Road 310-F
-San Jose, CA 95112
-USA
-''',
-            style: TextStyle(fontSize: 20, color: Colors.grey),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(50, 0, 0, 10),
+            child: const Text(
+              'East Brokaw Road 310-F\nSan Jose, CA 95112\nUSA',
+              style: TextStyle(fontSize: 20, color: Colors.grey),
+            ),
           ),
         ),
       ],
