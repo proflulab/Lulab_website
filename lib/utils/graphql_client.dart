@@ -1,16 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:graphql/client.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 
 import '../config/api_config.dart';
 
 class GraphqlClientUtil {
   static client() {
-    final _httpLink = HttpLink("${Api.graphqlUrl} /graphql");
+    final httpLink = HttpLink("${Api.graphqlUrl} /graphql");
 
     return GraphQLClient(
       cache: GraphQLCache(),
-      link: _httpLink,
+      link: httpLink,
     );
   }
 

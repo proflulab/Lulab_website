@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:provider/provider.dart';
 
-import '../service/clubs_service.dart';
+
 import '../view_model/lulab_view_model.dart';
 
 class DropDown extends StatefulWidget {

@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../service/clubs_service.dart';
 import '../view_model/lulab_view_model.dart';
-import '../widgets/drawer.dart';
+// import '../widgets/drawer.dart';
 import '../widgets/navBar.dart';
 import 'clubs/clubs.dart';
 import 'home/home.dart';
-import 'About.dart';
-import 'Admission.dart';
+import 'about.dart';
+// import 'Admission.dart';
 
 class LulabPage extends StatefulWidget {
   const LulabPage({Key? key}) : super(key: key);
