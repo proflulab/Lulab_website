@@ -1,0 +1,65 @@
+{
+    "data": [{
+        "id":"1",
+        "clubname": "Metaverse Club",
+        "title": "6789687",
+        "image":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+        "summarize":"DEDICATED TO CREATING A VIRTUAL LANGUAGE ENVIRONMENT FOR CHILDREN TO ENHANCE THEIR FOREIGN LANGUAGE LISTENING AND SPEAKING SKILLS.",
+        "introduce":"The Metaverse Club is dedicated to creating a virtual language environment for children to enhance their foreign language listening and speaking skills. In this unique atmosphere, children can effortlessly improve their language abilities while enjoying their favorite activities and hobbies."
+        
+    },
+    {
+        "id":"2",
+        "clubname": "Digital Literacy Club",
+        "title": "6789687",
+        "image":"2",
+        "summarize":"jfrioengfeoiwungeiousngvpuewsi",
+        "introduce":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+        
+    },
+    {
+        "id":"3",
+        "clubname": "Digital Microprojects Club",
+        "title": "6789687",
+        "image":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+        "summarize":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+        "introduce":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+        
+    },
+    {
+        "id":"4",
+        "clubname": "Advanced Digital Tech Club",
+        "title": "6789687",
+        "image":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+        "summarize":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+        "introduce":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+        
+    },
+    {
+        "id":"5",
+        "clubname": "AI Club",
+        "title": "6789687",
+        "image":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+        "summarize":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+        "introduce":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+        
+    },
+    {
+        "id":"6",
+        "clubname": "Digital Marketing Club",
+        "title": "6789687",
+        "image":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+        "summarize":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+        "introduce":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+        
+    },
+    {
+        "id":"6",
+        "clubname": "Leadership Club",
+        "title": "6789687",
+        "image":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+        "summarize":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
+        "introduce":"https://img1.baidu.com/it/u=94904965,608097738&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+        
+    }]
+}

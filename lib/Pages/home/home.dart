@@ -1,18 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 
-import '../../items/end_about.dart';
-
-void main() {
-  runApp(const MaterialApp(
-    home: Scaffold(
-      body: LuLabPage(),
-    ),
-  ));
-}
+import '../items/end_about.dart';
 
 class LuLabPage extends StatefulWidget {
   const LuLabPage({Key? key}) : super(key: key);
@@ -107,7 +98,6 @@ class _LuLabPageState extends State<LuLabPage> {
                 ),
               ],
             ),
-
             ea() // Add your custom widget here
           ],
         ),

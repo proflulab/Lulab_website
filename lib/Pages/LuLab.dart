@@ -1,311 +1,76 @@
-import 'package:flutter/material.dart';
-import '../widgets/drawer.dart';
-import 'clubs/AIClubPage.dart';
-import 'clubs/DigitalLiteracyClubPage.dart';
+import 'dart:ui';
 
-import 'clubs/DigitalMarketingClubPage.dart';
-import 'clubs/DigitalTechnologyClub.dart';
-import 'clubs/LeadershipClub.dart';
-import 'clubs/MetaverseClub.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../service/clubs_service.dart';
+import '../view_model/lulab_view_model.dart';
+import '../widgets/drawer.dart';
+import '../widgets/navBar.dart';
+import 'clubs/clubs.dart';
 import 'home/home.dart';
 import 'About.dart';
 import 'Admission.dart';
 
-import 'microproject.dart';
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class LulabPage extends StatefulWidget {
+  const LulabPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<LulabPage> createState() => _LulabPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  int _selectedButtonIndex = 0;
-  int _hoveredButtonIndex = -1;
-  late PageController _pageController;
-
-  final List<Widget> _clubPages = [
-    const MetaverseClubPage(),
-    DigitalLiteracyClubPage(),
-    const RobloxChatGPTClubPage(),
-    DigitalTechnologyClubPage(),
-    const AIClubPage(),
-    DigitalMarketingClubPage(),
-    const LeadershipClubPage(),
+class _LulabPageState extends State<LulabPage> {
+  final List<Widget> _pageList = [
+    const LuLabPage(),
+    const ClubsPages(),
+    const AboutPage(),
   ];
 
   @override
   void initState() {
+    // 获取接口数据
+    ClubsService.getClubs(Provider.of<LulabViewModel>(context, listen: false));
     super.initState();
-    _pageController = PageController(initialPage: _selectedButtonIndex);
   }
 
   @override
   void dispose() {
-    _pageController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: _buildAppBar(context),
-        drawer: const MobileMenu(),
-        body: Column(
-          children: [
-            Expanded(
-              child: IndexedStack(
-                index: _selectedButtonIndex,
-                children: [
-                      const LuLabPage(),
-                      const AboutPage(),
-                      AdmissionPage(
-                        photoUrls: const [
-                          "assets/images/image1.jpg",
-                          "assets/images/image2.jpg",
-                          "assets/images/image3.jpg",
-                        ],
-                      ),
-                    ] +
-                    _clubPages,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  PreferredSizeWidget _buildAppBar(BuildContext context) {
-    if (MediaQuery.of(context).size.width < 600) {
-      // 当屏幕宽度小于600时，显示合并后的菜单按钮
-      return AppBar(
-        leading: Container(
-          margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
-          child: Image.asset("assets/images/lulab_logo.jpeg"),
-        ),
-        backgroundColor: Colors.black,
-        title: const Text(
-          'Lu Lab',
-          style: TextStyle(
-            fontSize: 36,
-            color: Colors.white,
-            fontFamily: 'MyFontStyle',
-          ),
-        ),
-        actions: [
-          PopupMenuButton(
-            icon: const Icon(Icons.menu, color: Colors.white),
-            itemBuilder: (context) => [
-              _buildCustomPopupMenuItem('Home', 0, context),
-              _buildCustomPopupMenuItem('About', 1, context),
-              PopupMenuItem<int>(
-                child: ExpansionTile(
-                  iconColor: Colors.green,
-                  title: Text(
-                    'Clubs',
-                    style: TextStyle(
-                      fontFamily: 'MyFontStyle',
-                      fontSize: 20,
-                      color: _selectedButtonIndex >= 3
-                          ? Colors.green
-                          : Colors.white,
-                      fontWeight: _selectedButtonIndex >= 3
-                          ? FontWeight.bold
-                          : FontWeight.normal,
-                    ),
-                  ),
-                  children: [
-                    _buildCustomPopupMenuItem('Metaverse Club', 0, context),
-                    _buildCustomPopupMenuItem(
-                        'Digital Literacy Club', 1, context),
-                    _buildCustomPopupMenuItem(
-                        'Digital Microprojects Club', 2, context),
-                    _buildCustomPopupMenuItem(
-                        'Advanced Digital Tech Club', 3, context),
-                    _buildCustomPopupMenuItem('AI Club', 4, context),
-                    _buildCustomPopupMenuItem(
-                        'Digital Marketing Club', 5, context),
-                    _buildCustomPopupMenuItem('Leadership Club', 6, context),
-                  ],
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        titleSpacing: 0,
+        title: Center(
+          child: ClipRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                  color: Colors.grey.shade200.withOpacity(0.3),
                 ),
-              ),
-            ],
-            onSelected: (index) {
-              setState(() {
-                _selectedButtonIndex = index;
-              });
-              if (index >= 3) {
-                _pageController.jumpToPage(index);
-              }
-            },
-            color: Colors.black,
-          ),
-        ],
-      );
-    } else {
-      // 当屏幕宽度大于等于600时，显示分开的导航按钮
-      return AppBar(
-        backgroundColor: Colors.black,
-        leading: Container(
-          margin: const EdgeInsets.fromLTRB(0, 5, 5, 10),
-          child: Image.asset("assets/images/lulab_logo.jpeg"),
-        ),
-        title: const Text(
-          'Lu Lab',
-          style: TextStyle(
-            fontSize: 36,
-            color: Colors.white,
-            fontFamily: 'MyFontStyle',
-          ),
-        ),
-        actions: [
-          _buildTextButton(0, ' Home'),
-          const SizedBox(width: 10),
-          _buildClubsButton(context),
-          const SizedBox(width: 10),
-          _buildTextButton(1, 'About'),
-        ],
-      );
-    }
-  }
-
-  Widget _buildTextButton(int index, String label) {
-    return MouseRegion(
-      onEnter: (_) {
-        setState(() {
-          _hoveredButtonIndex = index;
-        });
-      },
-      onExit: (_) {
-        setState(() {
-          _hoveredButtonIndex = -1;
-        });
-      },
-      child: TextButton(
-        onPressed: () {
-          setState(() {
-            _selectedButtonIndex = index;
-          });
-          _pageController.animateToPage(
-            index,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInOut,
-          );
-        },
-        child: Text(
-          label,
-          style: TextStyle(
-            fontFamily: 'MyFontStyle',
-            fontSize: 24,
-            color: _selectedButtonIndex == index
-                ? Colors.green // 选中时的颜色
-                : _hoveredButtonIndex == index
-                    ? Colors.green // 悬停时的颜色
-                    : Colors.white, // 默认颜色
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildClubsButton(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-      child: TextButton(
-        onPressed: () {
-          _showPopupMenu(context);
-        },
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-        ),
-        child: Text(
-          'Clubs',
-          style: TextStyle(
-            fontFamily: 'MyFontStyle',
-            fontSize: 24,
-            color: _selectedButtonIndex >= 3 ? Colors.green : Colors.white,
-          ),
-        ),
-      ),
-    );
-  }
-
-  void _showPopupMenu(BuildContext context) async {
-    final selectedValue = await showMenu(
-      context: context,
-      position: const RelativeRect.fromLTRB(500, 40, 0, 0),
-      items: [
-        _buildCustomPopupMenuItem('Metaverse Club', 0, context),
-        _buildCustomPopupMenuItem('Digital Literacy Club', 1, context),
-        _buildCustomPopupMenuItem('Digital Microprojects Club', 2, context),
-        _buildCustomPopupMenuItem('Advanced Digital Tech Club', 3, context),
-        _buildCustomPopupMenuItem('AI Club', 4, context),
-        _buildCustomPopupMenuItem('Digital Marketing Club', 5, context),
-        _buildCustomPopupMenuItem('Leadership Club', 6, context),
-      ],
-      elevation: 0, // 去除阴影
-      color: Colors.black, // 设置背景色为透明
-    );
-
-    if (selectedValue != null) {
-      setState(() {
-        _selectedButtonIndex = selectedValue;
-      });
-      _pageController.jumpToPage(_selectedButtonIndex);
-    }
-  }
-
-  PopupMenuItem _buildCustomPopupMenuItem(
-      String clubName, int index, BuildContext context) {
-    bool isSelected = _selectedButtonIndex == index + 3;
-
-    if (clubName == 'Home' || clubName == 'About') {
-      isSelected = _selectedButtonIndex == index; // 更新 isSelected 来匹配当前选中的页面
-      return PopupMenuItem<int>(
-        value: index,
-        child: InkWell(
-          onTap: () {
-            Navigator.pop(context, index);
-          },
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            child: Text(
-              clubName,
-              style: TextStyle(
-                fontFamily: 'MyFontStyle',
-                fontSize: 18,
-                color: isSelected ? Colors.green : Colors.white,
-                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                child: const NavBar(),
               ),
             ),
           ),
         ),
-      );
-    }
-
-    return PopupMenuItem<int>(
-      value: index + 3,
-      child: InkWell(
-        onTap: () {
-          Navigator.pop(context, index + 3);
-        },
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-          child: Text(
-            clubName,
-            style: TextStyle(
-              fontFamily: 'MyFontStyle',
-              fontSize: 18,
-              color: isSelected ? Colors.green : Colors.white,
-              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-            ),
-          ),
-        ),
       ),
+      // drawer: const MobileMenu(),
+      body: Consumer<LulabViewModel>(
+          builder: (context, pageControllerProvider, _) {
+        return PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: pageControllerProvider.pageController,
+          children: _pageList,
+        );
+      }),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../items/end_about.dart';
+import 'items/end_about.dart';
 
 class AdmissionPage extends StatelessWidget {
   final List<Map> photoUrls = [
@@ -110,7 +110,7 @@ class VerticalPhotoScroll extends StatelessWidget {
                   "assets/images/image4.jpg",
                   fit: BoxFit.cover,
                 ),
-                Positioned(
+                const Positioned(
                     top: 300,
                     right: 200,
                     child: Text(
@@ -145,7 +145,7 @@ class VerticalPhotoScroll extends StatelessWidget {
                   "assets/images/image4.jpg",
                   fit: BoxFit.cover,
                 ),
-                Positioned(
+                const Positioned(
                     top: 300,
                     right: 200,
                     child: Text(
