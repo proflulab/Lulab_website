@@ -25,7 +25,8 @@ class ClubsPages extends StatelessWidget {
                       child: Column(
                         children: [
                           Image.network(
-                            clubViewModel.clubdata.image!.url!,
+                            clubViewModel.clubdata?.image?.url ??
+                                "https://www.google.com.hk/url?sa=i&url=https%3A%2F%2Fstock.tuchong.com%2F&psig=AOvVaw2NUtbH6MO6T4hJLKFkA3oj&ust=1697889796719000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMjZisTKhIIDFQAAAAAdAAAAABAE",
                           ),
                           Align(
                             alignment: Alignment.bottomCenter,
@@ -49,7 +50,7 @@ class ClubsPages extends StatelessWidget {
                                       fontSize *= scaleFactor;
                                     }
                                     return Text(
-                                      clubViewModel.clubdata.summarize ?? "",
+                                      clubViewModel.clubdata?.summarize ?? "",
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: fontSize, // 使用计算后的字体大小
@@ -79,7 +80,7 @@ class ClubsPages extends StatelessWidget {
                                 titleFontSize *= scaleFactor;
                               }
                               return Text(
-                                clubViewModel.clubdata.introduce ?? "",
+                                clubViewModel.clubdata?.introduce ?? "",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: titleFontSize,

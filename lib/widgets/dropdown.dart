@@ -51,7 +51,7 @@ class _DropDownState extends State<DropDown> {
                         int index = clubsData.clubname.indexOf(value!);
                         clubsData.chooseClub(index);
                         Provider.of<LulabViewModel>(context, listen: false)
-                            .animateToPage(1);
+                            .toPage(1);
                       },
                       buttonStyleData: ButtonStyleData(
                         height: 50,

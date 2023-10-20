@@ -79,7 +79,7 @@ Widget navButton(String text, int page, BuildContext context) {
     margin: const EdgeInsets.symmetric(horizontal: 24),
     child: TextButton(
       onPressed: () {
-        Provider.of<LulabViewModel>(context, listen: false).animateToPage(page);
+        Provider.of<LulabViewModel>(context, listen: false).toPage(page);
       },
       child: Text(
         text,

@@ -43,19 +43,7 @@ class ClubsService {
         // 更新数据
         lulabViewModel.setClubsList(clubdata);
         lulabViewModel.getClubNameList(clubdata);
-
-        //final repositories = result.data;
-        // 更新UI或执行其他操作
-        //print(repositories);
       }
     });
   }
-
-  // clubsdata = await clubsCategory();
-  // clubdata = clubsdata.clubs!;
-  // print(clubdata);
-
-  // // 更新数据
-  // lulabViewModel.setClubsList(clubdata);
-  // lulabViewModel.getClubNameList(clubdata);
 }

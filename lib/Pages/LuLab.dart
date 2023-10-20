@@ -30,6 +30,7 @@ class _LulabPageState extends State<LulabPage> {
   void initState() {
     // 获取接口数据
     ClubsService.getClubs(Provider.of<LulabViewModel>(context, listen: false));
+
     super.initState();
   }
 
@@ -66,9 +67,10 @@ class _LulabPageState extends State<LulabPage> {
       //drawer: const MobileMenu(),
       body: Consumer<LulabViewModel>(
           builder: (context, pageControllerProvider, _) {
-        return PageView(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: pageControllerProvider.pageController,
+        return IndexedStack(
+          //physics: const NeverScrollableScrollPhysics(),
+          index: pageControllerProvider.pageindex,
+          //controller: pageControllerProvider.pageController,
           children: _pageList,
         );
       }),

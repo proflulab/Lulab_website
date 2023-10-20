@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../values/constants.dart';
+
 Widget ea() {
   return Container(
     color: Colors.black, // 设置背景颜色为黑色
@@ -13,7 +15,7 @@ Widget ea() {
               margin: const EdgeInsets.fromLTRB(50, 50, 0, 50),
               width: 30,
               height: 30,
-              child: Image.asset("assets/images/logo.jpeg"),
+              child: Image.asset(logo),
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(20, 50, 0, 50),
