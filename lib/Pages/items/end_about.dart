@@ -13,7 +13,7 @@ Widget ea() {
               margin: const EdgeInsets.fromLTRB(50, 50, 0, 50),
               width: 30,
               height: 30,
-              child: Image.asset("assets/images/lulab_logo.jpeg"),
+              child: Image.asset("assets/images/logo.jpeg"),
             ),
             Container(
               margin: const EdgeInsets.fromLTRB(20, 50, 0, 50),

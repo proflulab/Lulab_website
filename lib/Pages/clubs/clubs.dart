@@ -25,7 +25,7 @@ class ClubsPages extends StatelessWidget {
                       child: Column(
                         children: [
                           Image.network(
-                            clubViewModel.clubdata.image!,
+                            clubViewModel.clubdata.image!.url!,
                           ),
                           Align(
                             alignment: Alignment.bottomCenter,

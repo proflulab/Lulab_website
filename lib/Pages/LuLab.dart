@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../service/clubs_service.dart';
 import '../view_model/lulab_view_model.dart';
 // import '../widgets/drawer.dart';
+import '../widgets/drawer.dart';
 import '../widgets/navBar.dart';
 import 'clubs/clubs.dart';
 import 'home/home.dart';
@@ -40,7 +41,7 @@ class _LulabPageState extends State<LulabPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      //extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -54,7 +55,7 @@ class _LulabPageState extends State<LulabPage> {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.0),
-                  color: Colors.grey.shade200.withOpacity(0.3),
+                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.8),
                 ),
                 child: const NavBar(),
               ),
@@ -62,7 +63,7 @@ class _LulabPageState extends State<LulabPage> {
           ),
         ),
       ),
-      // drawer: const MobileMenu(),
+      //drawer: const MobileMenu(),
       body: Consumer<LulabViewModel>(
           builder: (context, pageControllerProvider, _) {
         return PageView(

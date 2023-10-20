@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../values/constants.dart';
+import '../values/size_font.dart';
 import '../view_model/lulab_view_model.dart';
 import 'dropdown.dart';
 
@@ -29,7 +30,13 @@ Widget mobileNavBar(BuildContext context) {
     height: 70,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [const Icon(Icons.menu), navLogo()],
+      children: [
+        const Icon(
+          Icons.menu,
+          color: Colors.white,
+        ),
+        navLogo()
+      ],
     ),
   );
 }
@@ -69,14 +76,17 @@ Widget deskTopNavBar(BuildContext context) {
 
 Widget navButton(String text, int page, BuildContext context) {
   return Container(
-    margin: const EdgeInsets.symmetric(horizontal: 4),
+    margin: const EdgeInsets.symmetric(horizontal: 24),
     child: TextButton(
       onPressed: () {
         Provider.of<LulabViewModel>(context, listen: false).animateToPage(page);
       },
       child: Text(
         text,
-        style: const TextStyle(color: Colors.black, fontSize: 18),
+        style: TextStyle(
+          color: const Color.fromARGB(255, 255, 255, 255),
+          fontSize: Font.navbar,
+        ),
       ),
     ),
   );
@@ -86,6 +96,6 @@ Widget navLogo() {
   return Container(
     width: 110,
     decoration: const BoxDecoration(
-        image: DecorationImage(image: AssetImage(logo), fit: BoxFit.contain)),
+        image: DecorationImage(image: AssetImage(logoLulab), fit: BoxFit.contain)),
   );
 }

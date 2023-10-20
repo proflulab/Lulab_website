@@ -1,59 +1,68 @@
 class ClubsData {
-  List<ClubData>? data;
+  List<Clubs>? clubs;
 
-  ClubsData({this.data});
+  ClubsData({this.clubs});
 
   ClubsData.fromJson(Map<String, dynamic> json) {
-    if (json['data'] != null) {
-      data = <ClubData>[];
-      json['data'].forEach((v) {
-        data!.add(ClubData.fromJson(v));
+    if (json['clubs'] != null) {
+      clubs = <Clubs>[];
+      json['clubs'].forEach((v) {
+        clubs!.add(new Clubs.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.clubs != null) {
+      data['clubs'] = this.clubs!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
-class ClubData {
+class Clubs {
   String? id;
   String? clubname;
-  String? title;
-  String? image;
   String? summarize;
   String? introduce;
+  Image? image;
 
-  ClubData(
-      {this.id,
-      this.clubname,
-      this.title,
-      this.image,
-      this.summarize,
-      this.introduce});
+  Clubs({this.id, this.clubname, this.summarize, this.introduce, this.image});
 
-  ClubData.fromJson(Map<String, dynamic> json) {
+  Clubs.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     clubname = json['clubname'];
-    title = json['title'];
-    image = json['image'];
     summarize = json['summarize'];
     introduce = json['introduce'];
+    image = json['image'] != null ? new Image.fromJson(json['image']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['clubname'] = clubname;
-    data['title'] = title;
-    data['image'] = image;
-    data['summarize'] = summarize;
-    data['introduce'] = introduce;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['clubname'] = this.clubname;
+    data['summarize'] = this.summarize;
+    data['introduce'] = this.introduce;
+    if (this.image != null) {
+      data['image'] = this.image!.toJson();
+    }
+    return data;
+  }
+}
+
+class Image {
+  String? url;
+
+  Image({this.url});
+
+  Image.fromJson(Map<String, dynamic> json) {
+    url = json['url'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['url'] = this.url;
     return data;
   }
 }

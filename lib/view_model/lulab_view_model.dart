@@ -5,9 +5,9 @@ import '../model/clubs_model.dart';
 class LulabViewModel with ChangeNotifier {
   PageController pageController = PageController();
 
-  List<ClubData> _clubsdata = [];
+  List<Clubs> _clubsdata = [];
 
-  late ClubData _clubdata;
+  late Clubs _clubdata;
 
   List<String> _clubName = [];
 
@@ -20,7 +20,7 @@ class LulabViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  setClubsList(List<ClubData> clubsdata) {
+  setClubsList(List<Clubs> clubsdata) {
     _clubsdata = [];
     _clubsdata = clubsdata;
     //print(_clubsdata.length);
@@ -28,7 +28,8 @@ class LulabViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  getClubNameList(List<ClubData> clubsdata) {
+  //提取俱乐部名字并转成列表
+  getClubNameList(List<Clubs> clubsdata) {
     if (clubsdata.isNotEmpty) {
       _clubName = clubsdata.map((club) => club.clubname.toString()).toList();
 
@@ -46,9 +47,9 @@ class LulabViewModel with ChangeNotifier {
   //   _clubdata = _clubsdata[club];
   // }
 
-  List<ClubData>? get clubsdata => _clubsdata;
+  List<Clubs>? get clubsdata => _clubsdata;
 
-  ClubData get clubdata => _clubdata;
+  Clubs get clubdata => _clubdata;
 
   List<String> get clubname => _clubName;
 }
