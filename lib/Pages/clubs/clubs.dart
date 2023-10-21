@@ -16,7 +16,6 @@ class ClubsPages extends StatelessWidget {
             child: Consumer<LulabViewModel>(
               builder: (_, clubViewModel, child) {
                 //LulabViewModel _clubViewModel = clubViewModel;
-
                 return Column(
                   children: [
                     Container(
@@ -26,7 +25,7 @@ class ClubsPages extends StatelessWidget {
                         children: [
                           Image.network(
                             clubViewModel.clubdata?.image?.url ??
-                                "https://www.google.com.hk/url?sa=i&url=https%3A%2F%2Fstock.tuchong.com%2F&psig=AOvVaw2NUtbH6MO6T4hJLKFkA3oj&ust=1697889796719000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMjZisTKhIIDFQAAAAAdAAAAABAE",
+                                "https://img2.baidu.com/it/u=2747068135,2426538140&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
                           ),
                           Align(
                             alignment: Alignment.bottomCenter,
@@ -98,12 +97,10 @@ class ClubsPages extends StatelessWidget {
                               final screenWidth = constraints.maxWidth;
                               double subTitleFontSize =
                                   screenWidth >= 600 ? 25 : 15;
-
                               if (screenWidth < 600) {
                                 final scaleFactor = screenWidth / 600;
                                 subTitleFontSize *= scaleFactor;
                               }
-
                               return Text(
                                 '''
 Head of Lab, professor Lu

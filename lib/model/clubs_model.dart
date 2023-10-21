@@ -7,15 +7,15 @@ class ClubsData {
     if (json['clubs'] != null) {
       clubs = <Clubs>[];
       json['clubs'].forEach((v) {
-        clubs!.add(new Clubs.fromJson(v));
+        clubs!.add(Clubs.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.clubs != null) {
-      data['clubs'] = this.clubs!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (clubs != null) {
+      data['clubs'] = clubs!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -35,17 +35,17 @@ class Clubs {
     clubname = json['clubname'];
     summarize = json['summarize'];
     introduce = json['introduce'];
-    image = json['image'] != null ? new Image.fromJson(json['image']) : null;
+    image = json['image'] != null ? Image.fromJson(json['image']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['clubname'] = this.clubname;
-    data['summarize'] = this.summarize;
-    data['introduce'] = this.introduce;
-    if (this.image != null) {
-      data['image'] = this.image!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['clubname'] = clubname;
+    data['summarize'] = summarize;
+    data['introduce'] = introduce;
+    if (image != null) {
+      data['image'] = image!.toJson();
     }
     return data;
   }
@@ -61,8 +61,8 @@ class Image {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['url'] = this.url;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['url'] = url;
     return data;
   }
 }

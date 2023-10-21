@@ -1,18 +1,22 @@
-double? h;
-double? w;
+import 'package:flutter/services.dart';
 
-//Images
-const String logoLulab = 'assets/images/lulab_logo.png';
-const String logo = 'assets/images/logo.png';
+// AssetImage(logoLulab)
 
+class Assets {
+  static const _base = 'assets/images'; // 设置基本路径
 
-const String illustration1 = 'assets/images/illustration1.png';
-const String illustration2 = 'assets/images/illustration2.png';
-const String illustration3 = 'assets/images/illustration3.png';
-const String google = 'assets/images/google.png';
-const String fb = 'assets/images/fb.png';
-const String cocacola = 'assets/images/cocacola.png';
-const String samsung = 'assets/images/samsung.png';
-const String dashboard = 'assets/images/dashboard.png';
-const String vector1 = 'assets/images/vector.png';
-const String vector2 = 'assets/images/vector1.png';
+  static const String logoLulab = '$_base/lulab_logo.png';
+  static const String logo = '$_base/logo.png';
+
+  static const String homeLobby = '$_base/lobby.jpg';
+  static const String luXiangqian = '$_base/LuXiangqian.png';
+
+  static const String image1 = '$_base/image1.jpg';
+  static const String image3 = '$_base/image3.jpg';
+  static const String literacy = '$_base/literacy.png';
+  static const String luyuminhong = '$_base/lu&yuminhong.jpg';
+
+  static Future<String> loadAsset(String path) async {
+    return await rootBundle.loadString(path);
+  }
+}

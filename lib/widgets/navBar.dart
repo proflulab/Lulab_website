@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../utils/global_data.dart';
 import '../values/constants.dart';
 import '../values/size_font.dart';
 import '../view_model/lulab_view_model.dart';
@@ -31,11 +32,38 @@ Widget mobileNavBar(BuildContext context) {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Icon(
-          Icons.menu,
-          color: Colors.white,
+        navLogo(),
+        GestureDetector(
+          onTap: (() {
+            GlobalData.drawerKey.currentState!.openDrawer();
+          }),
+          child: const Icon(
+            Icons.menu,
+            color: Colors.white,
+          ),
         ),
-        navLogo()
+      ],
+    ),
+  );
+}
+
+Widget mobileDrawerNavBar(BuildContext context) {
+  return Container(
+    margin: const EdgeInsets.symmetric(horizontal: 20),
+    height: 55,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        navLogo(),
+        GestureDetector(
+          onTap: (() {
+            Navigator.of(context).pop();
+          }),
+          child: const Icon(
+            Icons.menu,
+            color: Colors.white,
+          ),
+        ),
       ],
     ),
   );
@@ -44,7 +72,7 @@ Widget mobileNavBar(BuildContext context) {
 Widget deskTopNavBar(BuildContext context) {
   return Container(
     margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-    height: 70,
+    height: 60,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -96,6 +124,7 @@ Widget navLogo() {
   return Container(
     width: 110,
     decoration: const BoxDecoration(
-        image: DecorationImage(image: AssetImage(logoLulab), fit: BoxFit.contain)),
+        image:
+            DecorationImage(image: AssetImage(Assets.logoLulab), fit: BoxFit.contain)),
   );
 }

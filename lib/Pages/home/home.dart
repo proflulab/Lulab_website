@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
-import 'package:chewie/chewie.dart';
+// import 'package:video_player/video_player.dart';
+// import 'package:chewie/chewie.dart';
 
+import '../../values/constants.dart';
 import '../items/end_about.dart';
 
 class LuLabPage extends StatefulWidget {
@@ -12,27 +13,27 @@ class LuLabPage extends StatefulWidget {
 }
 
 class _LuLabPageState extends State<LuLabPage> {
-  late VideoPlayerController _controller;
-  late ChewieController _chewieController;
+  // late VideoPlayerController _controller;
+  // late ChewieController _chewieController;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset("assets/images/video.mp4");
-    _chewieController = ChewieController(
-      videoPlayerController: _controller,
-      aspectRatio: 16 / 9,
-      autoPlay: true,
-      looping: true,
-      showControls: false,
-    );
-    _controller.setVolume(0);
+    // _controller = VideoPlayerController.asset("assets/images/video.mp4");
+    // _chewieController = ChewieController(
+    //   videoPlayerController: _controller,
+    //   aspectRatio: 16 / 9,
+    //   autoPlay: true,
+    //   looping: true,
+    //   showControls: false,
+    // );
+    // _controller.setVolume(0);
   }
 
   @override
   void dispose() {
-    _controller.dispose();
-    _chewieController.dispose();
+    // _controller.dispose();
+    // _chewieController.dispose();
     super.dispose();
   }
 
@@ -50,22 +51,19 @@ class _LuLabPageState extends State<LuLabPage> {
                 SizedBox(
                   width: 2000,
                   child: Image.asset(
-                    'assets/images/image3.jpg',
+                    Assets.homeLobby,
                     fit: BoxFit.cover,
                   ),
                 ),
                 LayoutBuilder(
                   builder: (context, constraints) {
                     final screenWidth = constraints.maxWidth;
-
                     // 根据屏幕宽度设置初始字体大小
                     double fontSize = screenWidth >= 600 ? 100 : 50;
-
                     if (screenWidth < 600) {
                       // 在较小屏幕上进一步调整字体大小
                       fontSize = fontSize * (screenWidth / 600); // 600是一个基准屏幕宽度
                     }
-
                     return Column(
                       children: [
                         Text(

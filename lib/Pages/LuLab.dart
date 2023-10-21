@@ -1,16 +1,14 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../service/clubs_service.dart';
+import '../utils/global_data.dart';
 import '../view_model/lulab_view_model.dart';
-// import '../widgets/drawer.dart';
 import '../widgets/drawer.dart';
 import '../widgets/navBar.dart';
 import 'clubs/clubs.dart';
 import 'home/home.dart';
 import 'about.dart';
-// import 'Admission.dart';
 
 class LulabPage extends StatefulWidget {
   const LulabPage({Key? key}) : super(key: key);
@@ -25,6 +23,8 @@ class _LulabPageState extends State<LulabPage> {
     const ClubsPages(),
     const AboutPage(),
   ];
+
+  bool toggleBackgroundState = false;
 
   @override
   void initState() {
@@ -42,8 +42,11 @@ class _LulabPageState extends State<LulabPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: GlobalData.drawerKey,
       //extendBodyBehindAppBar: true,
+      drawerEdgeDragWidth: 0, // Set this to 0 to eliminate margin
       appBar: AppBar(
+        automaticallyImplyLeading: false, // 关闭导航栏按钮
         backgroundColor: Colors.transparent,
         elevation: 0,
         titleSpacing: 0,
@@ -64,13 +67,11 @@ class _LulabPageState extends State<LulabPage> {
           ),
         ),
       ),
-      //drawer: const MobileMenu(),
+      drawer: const MobileMenu(),
       body: Consumer<LulabViewModel>(
           builder: (context, pageControllerProvider, _) {
         return IndexedStack(
-          //physics: const NeverScrollableScrollPhysics(),
           index: pageControllerProvider.pageindex,
-          //controller: pageControllerProvider.pageController,
           children: _pageList,
         );
       }),

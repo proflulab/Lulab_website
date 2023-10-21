@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_plus/flutter_swiper_plus.dart';
 
+import '../values/constants.dart';
 import 'items/end_about.dart';
 
 List<Map<String, String>> imageList = [
-  {"url": "assets/images/image2.jpg"},
-  {"url": "assets/images/image1.jpg"},
-  {"url": "assets/images/image4.jpg"},
+  {"url": Assets.homeLobby},
+  {"url": Assets.image3},
+  {"url": Assets.image1},
 ];
 
 class AboutPage extends StatelessWidget {
@@ -118,7 +119,7 @@ class AboutPage extends StatelessWidget {
                       ),
                     ),
                     child: Image.asset(
-                      "assets/images/LuXiangqian.png",
+                      Assets.luXiangqian,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -228,7 +229,7 @@ the Lu Lab experience so extraordinary.\n
                         width: 450,
                         height: 500,
                         child: Image.asset(
-                          "assets/images/LuXiangqian.png",
+                          Assets.luXiangqian,
                           fit: BoxFit.cover,
                         ),
                       ),

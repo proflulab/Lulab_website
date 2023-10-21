@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../values/constants.dart';
 import 'items/end_about.dart';
 
 class AdmissionPage extends StatelessWidget {
   final List<Map> photoUrls = [
-    {"url": "assets/images/image1.jpg"},
-    {"url": "assets/images/image2.jpg"},
-    {"url": "assets/images/image4.jpg"},
+    {"url": Assets.homeLobby},
+    {"url": Assets.image3},
+    {"url": Assets.image1},
   ];
 
   AdmissionPage({super.key, required List photoUrls});
@@ -18,9 +19,9 @@ class AdmissionPage extends StatelessWidget {
       home: Scaffold(
         body: VerticalPhotoScroll(
           photoUrls: [
-            "assets/images/image1.jpg",
-            "assets/images/image2.jpg",
-            "assets/images/image4.jpg"
+            Assets.homeLobby,
+            Assets.image3,
+            Assets.image1,
           ],
         ),
       ),
@@ -44,7 +45,7 @@ class VerticalPhotoScroll extends StatelessWidget {
             Stack(
               children: [
                 Image.network(
-                  "assets/images/image1.jpg",
+                  Assets.image1,
                   fit: BoxFit.cover,
                 ),
                 const Positioned(
@@ -74,7 +75,7 @@ class VerticalPhotoScroll extends StatelessWidget {
                   height: 700,
                   width: double.infinity,
                   child: Image.network(
-                    "assets/images/image2.jpg",
+                    Assets.homeLobby,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -106,7 +107,7 @@ class VerticalPhotoScroll extends StatelessWidget {
             ),
             Stack(children: [
               Image.network(
-                "assets/images/image4.jpg",
+                Assets.homeLobby,
                 fit: BoxFit.cover,
               ),
               const Positioned(
@@ -139,7 +140,7 @@ class VerticalPhotoScroll extends StatelessWidget {
             ]),
             Stack(children: [
               Image.network(
-                "assets/images/image4.jpg",
+                 Assets.homeLobby,
                 fit: BoxFit.cover,
               ),
               const Positioned(
