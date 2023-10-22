@@ -79,7 +79,7 @@ class _DropDownState extends State<DropDown> {
                                 spreadRadius: 2.0)
                           ],
                         ),
-                        offset: const Offset(-70, -10),
+                        offset: const Offset(-70, -15),
                         scrollbarTheme: ScrollbarThemeData(
                             radius: const Radius.circular(40),
                             thickness: MaterialStateProperty.all(6),
