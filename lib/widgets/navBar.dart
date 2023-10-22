@@ -1,12 +1,14 @@
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../utils/global_data.dart';
 import '../values/constants.dart';
 import '../values/size_font.dart';
 import '../view_model/lulab_view_model.dart';
 import 'dropdown.dart';
+
+import 'dart:html' as html;
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -29,21 +31,22 @@ Widget mobileNavBar(BuildContext context) {
   return Container(
     margin: const EdgeInsets.symmetric(horizontal: 20),
     height: 70,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        navLogo(),
-        GestureDetector(
-          onTap: (() {
-            GlobalData.drawerKey.currentState!.openDrawer();
-          }),
-          child: const Icon(
-            Icons.menu,
-            color: Colors.white,
-          ),
-        ),
-      ],
-    ),
+    child: Consumer<LulabViewModel>(builder: (context, v, _) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          navLogo(context),
+          GestureDetector(
+              onTap: (() {
+                v.drawerKey.currentState!.openDrawer();
+              }),
+              child: Icon(
+                v.iconsdate ? Icons.menu : Icons.close,
+                color: Colors.white,
+              )),
+        ],
+      );
+    }),
   );
 }
 
@@ -54,13 +57,13 @@ Widget mobileDrawerNavBar(BuildContext context) {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        navLogo(),
+        navLogo(context),
         GestureDetector(
           onTap: (() {
             Navigator.of(context).pop();
           }),
           child: const Icon(
-            Icons.menu,
+            Icons.close,
             color: Colors.white,
           ),
         ),
@@ -76,7 +79,7 @@ Widget deskTopNavBar(BuildContext context) {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        navLogo(),
+        navLogo(context),
         Row(
           children: [
             navButton('Home', 0, context),
@@ -120,11 +123,14 @@ Widget navButton(String text, int page, BuildContext context) {
   );
 }
 
-Widget navLogo() {
-  return Container(
-    width: 110,
-    decoration: const BoxDecoration(
-        image:
-            DecorationImage(image: AssetImage(Assets.logoLulab), fit: BoxFit.contain)),
-  );
+Widget navLogo(BuildContext context) {
+  return InkWell(
+      onTap: () {
+        html.window.location.reload();
+      },
+      child: Container(
+          width: 110,
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(Assets.logoLulab), fit: BoxFit.contain))));
 }
