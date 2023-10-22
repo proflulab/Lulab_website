@@ -38,9 +38,9 @@ class _LulabPageState extends State<LulabPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer<LulabViewModel>(
-        builder: (context, pageControllerProvider, _) {
+        builder: (context, v, _) {
       return Scaffold(
-          key: pageControllerProvider.drawerKey,
+          key: v.drawerKey,
           onDrawerChanged: (isOpened) {
             if (isOpened) {
               //print('Drawer is opened');
@@ -79,7 +79,7 @@ class _LulabPageState extends State<LulabPage> {
           ),
           drawer: const MobileMenu(),
           body: IndexedStack(
-            index: pageControllerProvider.pageindex,
+            index: v.pageindex,
             children: _pageList,
           ));
     });

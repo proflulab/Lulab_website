@@ -1,14 +1,16 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../values/colors.dart';
 import '../values/constants.dart';
-import '../values/size_font.dart';
+// import '../values/size_font.dart';
 import '../view_model/lulab_view_model.dart';
 import 'dropdown.dart';
 
 import 'dart:html' as html;
+
+import 'custom_navbutton.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -80,13 +82,36 @@ Widget deskTopNavBar(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         navLogo(context),
-        Row(
-          children: [
-            navButton('Home', 0, context),
-            const DropDown(),
-            navButton('About', 2, context),
-          ],
-        ),
+
+        Consumer<LulabViewModel>(builder: (context, v, _) {
+          return Row(
+            children: [
+              CustomNavButton(
+                text: 'Home',
+                textColor: v.pageindex == 0
+                    ? WebColor.themeColor
+                    : WebColor.primaryElementText,
+                onPressed: () =>
+                    Provider.of<LulabViewModel>(context, listen: false)
+                        .toPage(0),
+              ),
+
+              const DropDown(),
+              CustomNavButton(
+                text: 'About',
+                textColor: v.pageindex == 2
+                    ? WebColor.themeColor
+                    : WebColor.primaryElementText,
+                onPressed: () =>
+                    Provider.of<LulabViewModel>(context, listen: false)
+                        .toPage(2),
+              ),
+              //navButton('Home', 0, context),
+              //navButton('About', 2, context),
+            ],
+          );
+        }),
+
         const SizedBox(
           width: 56,
         ),
@@ -105,23 +130,28 @@ Widget deskTopNavBar(BuildContext context) {
   );
 }
 
-Widget navButton(String text, int page, BuildContext context) {
-  return Container(
-    margin: const EdgeInsets.symmetric(horizontal: 24),
-    child: TextButton(
-      onPressed: () {
-        Provider.of<LulabViewModel>(context, listen: false).toPage(page);
-      },
-      child: Text(
-        text,
-        style: TextStyle(
-          color: const Color.fromARGB(255, 255, 255, 255),
-          fontSize: Font.navbar,
-        ),
-      ),
-    ),
-  );
-}
+// Widget navButton(
+//   bool textColor,
+//   String text,
+//   int page,
+//   BuildContext context,
+// ) {
+//   return Container(
+//     margin: const EdgeInsets.symmetric(horizontal: 24),
+//     child: TextButton(
+//       onPressed: () {
+//         Provider.of<LulabViewModel>(context, listen: false).toPage(page);
+//       },
+//       child: Text(
+//         text,
+//         style: TextStyle(
+//           color: const Color.fromARGB(255, 255, 255, 255),
+//           fontSize: Font.navbar,
+//         ),
+//       ),
+//     ),
+//   );
+// }
 
 Widget navLogo(BuildContext context) {
   return InkWell(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:provider/provider.dart';
 
+import '../values/colors.dart';
 import '../values/size_font.dart';
 import '../view_model/lulab_view_model.dart';
 
@@ -24,7 +25,7 @@ class _DropDownState extends State<DropDown> {
   Widget build(BuildContext context) {
     return Container(
         margin: const EdgeInsets.symmetric(horizontal: 4),
-        child: Consumer<LulabViewModel>(builder: (_, clubsData, child) {
+        child: Consumer<LulabViewModel>(builder: (_, v, child) {
           return Center(
               child: DropdownButtonHideUnderline(
                   child: DropdownButton2<String>(
@@ -32,10 +33,13 @@ class _DropDownState extends State<DropDown> {
                       customButton: Text(
                         'Clubs',
                         style: TextStyle(
-                            color: Colors.white, fontSize: Font.navbar),
+                            color: v.pageindex == 1
+                                ? WebColor.themeColor
+                                : WebColor.primaryElementText,
+                            fontSize: Font.navbar),
                         overflow: TextOverflow.ellipsis,
                       ),
-                      items: clubsData.clubname
+                      items: v.clubname
                           .map((String item) => DropdownMenuItem<String>(
                                 value: item,
                                 child: Text(
@@ -48,8 +52,8 @@ class _DropDownState extends State<DropDown> {
                           .toList(),
                       value: selectedValue,
                       onChanged: (value) {
-                        int index = clubsData.clubname.indexOf(value!);
-                        clubsData.chooseClub(index);
+                        int index = v.clubname.indexOf(value!);
+                        v.chooseClub(index);
                         Provider.of<LulabViewModel>(context, listen: false)
                             .toPage(1);
                       },
@@ -70,15 +74,17 @@ class _DropDownState extends State<DropDown> {
                         width: 200,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
-                          color: const Color.fromARGB(0, 255, 0, 0),
+                          color: const Color.fromARGB(255, 255, 255, 255),
                           boxShadow: const [
                             BoxShadow(
-                                color: Color.fromARGB(196, 255, 255, 255),
-                                offset: Offset(5.0, 5.0),
-                                blurRadius: 10.0,
-                                spreadRadius: 2.0)
+                              color: Color.fromARGB(196, 0, 0, 0),
+                              //offset: Offset(5.0, 5.0),
+                              blurRadius: 10.0,
+                              spreadRadius: 2.0,
+                            )
                           ],
                         ),
+                        //下拉列表位置修正
                         offset: const Offset(-70, -15),
                         scrollbarTheme: ScrollbarThemeData(
                             radius: const Radius.circular(40),
