@@ -4,7 +4,6 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 import '../values/colors.dart';
 import '../values/constants.dart';
-// import '../values/size_font.dart';
 import '../view_model/lulab_view_model.dart';
 import 'dropdown.dart';
 
@@ -82,36 +81,48 @@ Widget deskTopNavBar(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         navLogo(context),
-
         Consumer<LulabViewModel>(builder: (context, v, _) {
           return Row(
             children: [
-              CustomNavButton(
-                text: 'Home',
-                textColor: v.pageindex == 0
-                    ? WebColor.themeColor
-                    : WebColor.primaryElementText,
-                onPressed: () =>
+              MouseRegion(
+                onEnter: (event) =>
                     Provider.of<LulabViewModel>(context, listen: false)
-                        .toPage(0),
+                        .navcolorSdate(0),
+                onExit: (event) =>
+                    Provider.of<LulabViewModel>(context, listen: false)
+                        .navcolorSdate(-1),
+                child: CustomNavButton(
+                  text: 'Home',
+                  textColor: (v.pageindex == 0 || v.navcolor == 0)
+                      ? WebColor.themeColor
+                      : WebColor.primaryElementText,
+                  onPressed: () =>
+                      Provider.of<LulabViewModel>(context, listen: false)
+                          .toPage(0),
+                ),
               ),
-
               const DropDown(),
-              CustomNavButton(
-                text: 'About',
-                textColor: v.pageindex == 2
-                    ? WebColor.themeColor
-                    : WebColor.primaryElementText,
-                onPressed: () =>
+              MouseRegion(
+                onEnter: (event) =>
                     Provider.of<LulabViewModel>(context, listen: false)
-                        .toPage(2),
-              ),
-              //navButton('Home', 0, context),
-              //navButton('About', 2, context),
+                        .navcolorSdate(2),
+                onExit: (event) =>
+                    Provider.of<LulabViewModel>(context, listen: false)
+                        .navcolorSdate(-1),
+                child: CustomNavButton(
+                  text: 'About',
+                  textColor: (v.pageindex == 2 || v.navcolor == 2)
+                      ? WebColor.themeColor
+                      : WebColor.primaryElementText,
+                  onPressed: () =>
+                      Provider.of<LulabViewModel>(context, listen: false)
+                          .toPage(2),
+                ),
+              )
             ],
           );
         }),
-
+        //MyHomePage(),
         const SizedBox(
           width: 56,
         ),
@@ -130,32 +141,10 @@ Widget deskTopNavBar(BuildContext context) {
   );
 }
 
-// Widget navButton(
-//   bool textColor,
-//   String text,
-//   int page,
-//   BuildContext context,
-// ) {
-//   return Container(
-//     margin: const EdgeInsets.symmetric(horizontal: 24),
-//     child: TextButton(
-//       onPressed: () {
-//         Provider.of<LulabViewModel>(context, listen: false).toPage(page);
-//       },
-//       child: Text(
-//         text,
-//         style: TextStyle(
-//           color: const Color.fromARGB(255, 255, 255, 255),
-//           fontSize: Font.navbar,
-//         ),
-//       ),
-//     ),
-//   );
-// }
-
 Widget navLogo(BuildContext context) {
   return InkWell(
       onTap: () {
+        //Beamer.of(context).beamToNamed('/about/terms');
         html.window.location.reload();
       },
       child: Container(

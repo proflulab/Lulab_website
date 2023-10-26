@@ -5,6 +5,8 @@ import '../model/clubs_model.dart';
 class LulabViewModel with ChangeNotifier {
   int pageindex = 0;
 
+  int? navcolor = -1;
+
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
 
   List<Clubs> _clubsdata = [];
@@ -22,6 +24,12 @@ class LulabViewModel with ChangeNotifier {
 
   void iconSdate(bool sdate) {
     _iconsdate = sdate;
+    notifyListeners();
+  }
+
+  void navcolorSdate(int v) {
+    navcolor = v;
+
     notifyListeners();
   }
 

@@ -17,12 +17,14 @@ class MyApp extends StatelessWidget {
   MyApp({super.key});
 
   final routerDelegate = BeamerDelegate(
+    transitionDelegate: const NoAnimationTransitionDelegate(),
     // As locationBuilder you can either use SimpleLocationBuilder or BeamerLocationBuilder.
     // They are interchangeable, depending on personal taste (in this case).
     // You can find both implementations in the location_builders.dart file.
     //
     // OPTION A: SimpleLocationBuilder
     locationBuilder: simpleLocationBuilder,
+    //notFoundRedirectNamed: '/',
     //
     // OPTION B: BeamerLocationBuilder
     //locationBuilder: beamerLocationBuilder,

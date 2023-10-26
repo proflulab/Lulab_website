@@ -23,6 +23,7 @@ class _DropDownState extends State<DropDown> {
 
   @override
   Widget build(BuildContext context) {
+    //GlobalKey _globalKey = GlobalKey();
     return Container(
         margin: const EdgeInsets.symmetric(horizontal: 4),
         child: Consumer<LulabViewModel>(builder: (_, v, child) {
@@ -30,14 +31,37 @@ class _DropDownState extends State<DropDown> {
               child: DropdownButtonHideUnderline(
                   child: DropdownButton2<String>(
                       isExpanded: true,
-                      customButton: Text(
-                        'Clubs',
-                        style: TextStyle(
-                            color: v.pageindex == 1
-                                ? WebColor.themeColor
-                                : WebColor.primaryElementText,
-                            fontSize: Font.navbar),
-                        overflow: TextOverflow.ellipsis,
+                      customButton: MouseRegion(
+                        onEnter: (event) {
+                          //print("1");
+                          Provider.of<LulabViewModel>(context, listen: false)
+                              .navcolorSdate(1);
+                          // RenderBox? renderBox = _globalKey.currentContext!
+                          //     .findRenderObject() as RenderBox?;
+                          // if (renderBox != null) {
+                          //   var offset = renderBox.localToGlobal(Offset.zero);
+                          //pressAdd(offset);
+                          // Size size = renderBox.size;
+                          // print('组件的坐标范围为：$offset 和 $size');
+                          // print(renderBox);
+                          // }
+                        },
+                        onExit: (event) {
+                          Provider.of<LulabViewModel>(context, listen: false)
+                              .navcolorSdate(-1);
+                          //print("2");
+                          //pressAdd(const Offset(0, 0));
+                        },
+                        child: Text(
+                          //key: _globalKey,
+                          'Clubs',
+                          style: TextStyle(
+                              color: (v.pageindex == 1 || v.navcolor == 1)
+                                  ? WebColor.themeColor
+                                  : WebColor.primaryElementText,
+                              fontSize: Font.navbar),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                       items: v.clubname
                           .map((String item) => DropdownMenuItem<String>(
