@@ -76,7 +76,7 @@ class DigitalMarketingClubPage extends StatelessWidget {
                           }
 
                           return Text(
-                            '''In Digital Marketing Club, you can understand the latest Douyin, Wechat Video Account, Red Booklet and other mainstream short video and live platform play, participate in Tsinghua Professor Lu Xiangqian IP account operation, we will also invite the industry's front-line operators and digital marketing experts from time to time to share and exchange, to help you master the most needed marketing skills in this era.''',
+                            '''In Digital Marketing Club, you can understand the latest TikTok, Wechat Video Account, Red Booklet and other mainstream short video and live platform play, participate in Tsinghua Professor Lu Xiangqian IP account operation, we will also invite the industry's front-line operators and digital marketing experts from time to time to share and exchange, to help you master the most needed marketing skills in this era.''',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: titleFontSize,
