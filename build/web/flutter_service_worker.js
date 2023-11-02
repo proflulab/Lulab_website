@@ -2,6 +2,7 @@
 const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
+<<<<<<< HEAD
 const RESOURCES = {
   "assets/AssetManifest.json": "765d05c87fcec9600fb213c1d7eeb835",
 "assets/assets/fonts/han.ttf": "987f863a302ddd9a6bfa727c4656af4c",
@@ -42,6 +43,45 @@ const RESOURCES = {
 "version.json": "a9a5dec15ba410a109774bd55198f6e3"
 };
 
+=======
+
+const RESOURCES = {"version.json": "a9a5dec15ba410a109774bd55198f6e3",
+"index.html": "0d232afbb2062516350cc992a4eab986",
+"/": "0d232afbb2062516350cc992a4eab986",
+"main.dart.js": "06898eadfb879b3b1cb321c1b0ee611a",
+"flutter.js": "6fef97aeca90b426343ba6c5c9dc5d4a",
+"favicon.png": "5dcef449791fa27946b3d35ad8803796",
+"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
+"icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
+"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
+"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
+"manifest.json": "ec9a9c8f8a978707d577b152b6129598",
+"assets/AssetManifest.json": "a9aeecfe3bc387f6d67cf6dc889b531b",
+"assets/NOTICES": "58ceed3b629501b5507ba69a627f871a",
+"assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "89ed8f4e49bcdfc0b5bfc9b24591e347",
+"assets/packages/wakelock_plus/assets/no_sleep.js": "7748a45cd593f33280669b29c2c8919a",
+"assets/shaders/ink_sparkle.frag": "f8b80e740d33eb157090be4e995febdf",
+"assets/AssetManifest.bin": "979c1d99cc7da0426d9df89105772f15",
+"assets/fonts/MaterialIcons-Regular.otf": "3265e4dca96cbeed42cb8c8a4076328d",
+"assets/assets/images/lobby.jpg": "2b3054380ca61bd79f8f8c5b7c3f503e",
+"assets/assets/images/LuXiangqian.png": "21f818456f73ff5bf941e971b9b15c05",
+"assets/assets/images/literacy.png": "486bc5d6b203df9781c1b087c0f7adf6",
+"assets/assets/images/lulab_logo.png": "f0b54c04d02126e2449cb6e3b90390df",
+"assets/assets/images/lu&yuminhong.jpg": "4d170180555950cb81edf6322ef705da",
+"assets/assets/images/logo.png": "0b9fceb2a582b3f562698c63068d7c44",
+"assets/assets/images/image1.jpg": "f194ee6ef5ceadb7ef2e193f08e28a4e",
+"assets/assets/images/image2.jpg": "2b3054380ca61bd79f8f8c5b7c3f503e",
+"assets/assets/images/image3.jpg": "b6218d5246b284fe1b834e2297909284",
+"assets/assets/json/clubs.json": "c4d16c4725b0d4b5effb09278dfc045c",
+"canvaskit/skwasm.js": "95f16c6690f955a45b2317496983dbe9",
+"canvaskit/skwasm.wasm": "1a074e8452fe5e0d02b112e22cdcf455",
+"canvaskit/chromium/canvaskit.js": "96ae916cd2d1b7320fff853ee22aebb0",
+"canvaskit/chromium/canvaskit.wasm": "be0e3b33510f5b7b0cc76cc4d3e50048",
+"canvaskit/canvaskit.js": "bbf39143dfd758d8d847453b120c8ebb",
+"canvaskit/canvaskit.wasm": "42df12e09ecc0d5a4a34a69d7ee44314",
+"canvaskit/skwasm.worker.js": "51253d3321b11ddb8d73fa8aa87d3b15"};
+>>>>>>> dev_shiming
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = [

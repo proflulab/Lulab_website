@@ -9,4 +9,4 @@ services:
       context: . # 指定设定上下文根目录，然后以该目录为准指定Dockerfile
       dockerfile: ./Dockerfile
     ports:
-      - "8090:80"
+      - "80:80"

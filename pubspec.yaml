@@ -45,7 +45,11 @@ dependencies:
   responsive_builder: ^0.7.0
   url_strategy: ^0.2.0
   beamer: ^1.5.6
-  flutter_markdown: ^0.6.9
+  flutter_markdown: ^0.6.18
+  entry: ^0.0.9
+  dropdown_button2: ^2.3.9
+  provider: ^6.0.5
+  graphql_flutter: ^5.2.0-beta.6
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +76,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/json/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
@@ -83,17 +88,17 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    #   - family: Schyler
-    #     fonts:
-    #       - asset: fonts/Schyler-Regular.ttf
-    #       - asset: fonts/Schyler-Italic.ttf
-    #         style: italic
-    - family: MyFontStyle
-      fonts:
-        # - asset: assets/fonts/HGXK_CNKI.ttf
-        - asset: assets/fonts/han.ttf
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  # - family: MyFontStyle
+  #   fonts:
+  # - asset: assets/fonts/HGXK_CNKI.ttf
+  # - asset: assets/fonts/han.ttf
 
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # see https://flutter.dev/custom-fonts/#f

@@ -22,3 +22,9 @@ git clone -b dev_shiming https://github.com/proflulab/Lulab_website.git
 cd Lulab_website
 
 docker-compose up -d
+
+### sh文件执行
+
+```text
+bash docker_run.sh
+```
